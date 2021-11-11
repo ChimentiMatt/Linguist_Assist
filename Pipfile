@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+libsass = "*"
+django-sass-processor = "*"
 
 [dev-packages]
 

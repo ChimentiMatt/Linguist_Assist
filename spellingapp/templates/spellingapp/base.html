@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      {% load static %}
+    {% load sass_tags %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Spelling Home</title>
-    {% comment %} <link rel="stylesheet" href="style.css"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="{% sass_src 'spellingproject/style.css' %}" type="text/css"> {% endcomment %}
+    <link href="{% sass_src 'spellingproject/css/styles.css' %}" rel="stylesheet" type="text/css" />
+
   </head>
   <body>
     {% block landing %}
