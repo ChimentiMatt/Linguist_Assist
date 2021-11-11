@@ -1,4 +1,6 @@
-from django.http import HttpResponse
+from django.shortcuts import render, reverse
+from django.views.generic import ListView, DetailView
+from django.http import HttpResponseRedirect, HttpResponse, request
 
-def myview(request):
-    return HttpResponse('hello world!')
+def BaseView(request):
+    return render(request, 'spellingapp/landing.html')
