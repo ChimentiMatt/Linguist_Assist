@@ -4,7 +4,7 @@
 {% block study %}
 <div id="studyPage">
     <p>Study page</p>
-
+    <img src="{% static "spellingproject/media/paper.jpg" %}"></img> 
     {% for item in object_list  %}
         <p>{{ item.word }}</p>
         <p>{{ item.spelling_error }}</p>

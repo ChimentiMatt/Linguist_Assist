@@ -4,6 +4,10 @@
   color: white;
 }
 
+#studyPage img {
+  height: 30rem;
+}
+
 * {
   margin: 0;
   padding: 0;
