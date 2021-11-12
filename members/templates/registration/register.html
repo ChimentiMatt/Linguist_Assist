@@ -3,7 +3,15 @@
 
 {% block register %}
 <p>Registration</p>
+{% comment %} 15:17 {% endcomment %}
+{% comment %} https://www.youtube.com/watch?v=mpfHDSmqHds&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=9 {% endcomment %}
 
+<div id=>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-secondary">Register</button>
+</div>
 {% endblock register %} 
 
 
