@@ -1,0 +1,12 @@
+{% extends 'spellingapp/base.html' %}
+{% load static %}
+
+{% block user_home %}
+<p>user_home</p>
+
+{% for item in list %}
+    <p>{{ item.word }}</p>
+    test
+{% endfor %}
+
+{% endblock user_home %}
