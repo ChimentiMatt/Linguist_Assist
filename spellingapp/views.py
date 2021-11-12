@@ -9,3 +9,7 @@ def BaseView(request):
 class HomeView(ListView):
     model = KeyVal
     template_name = 'spellingapp/user_home.html'
+
+class StudyView(ListView):
+    model = KeyVal
+    template_name = 'spellingapp/study_page.html'

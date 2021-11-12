@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,MAAM,EAAE,KAAK;EACb,UAAU,EAAE,OAAO;EACnB,KAAK,EAAE,KAAK;CACf",
+    "sources": [
+        "studyPage.scss"
+    ],
+    "names": [],
+    "file": "studyPage.css"
+}

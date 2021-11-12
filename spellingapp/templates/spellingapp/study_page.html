@@ -1,0 +1,14 @@
+{% extends 'spellingapp/base.html' %}
+{% load static %}
+
+{% block study %}
+<div id="studyPage">
+    <p>Study page</p>
+
+    {% for item in object_list  %}
+        <p>{{ item.word }}</p>
+        <p>{{ item.spelling_error }}</p>
+    {% endfor %}
+</div>
+
+{% endblock study %}

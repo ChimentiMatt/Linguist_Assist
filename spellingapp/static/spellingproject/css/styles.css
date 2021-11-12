@@ -1,12 +1,13 @@
+#studyPage {
+  height: 100vh;
+  background: #1a1a1a;
+  color: white;
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: aqua;
-}
-
-p {
-  color: royalblue;
 }
 /*# sourceMappingURL=styles.css.map */
