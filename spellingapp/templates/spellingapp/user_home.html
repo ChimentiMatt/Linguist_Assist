@@ -3,10 +3,10 @@
 
 {% block user_home %}
 <p>user_home</p>
-
-{% for item in object_list  %}
-    <p>{{ item.word }}</p>
-    test
+<a href="{% url 'spellingapp:HomeView' %}"">
+{% for item in spelling_list  %}
+      <p>{{ item.word }}</p>
+      <p>{{ item.spelling_error }}</p>
 {% endfor %}
 
 {% endblock user_home %}

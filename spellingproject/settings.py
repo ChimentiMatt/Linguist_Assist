@@ -140,3 +140,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,  'static')
 STATIC_ROOT = BASE_DIR / 'static'
 
 SASS_PROCESSOR_ROOT = STATIC_ROOT
+
+
+LOGIN_REDIRECT_URL = '/HomeView'
+LOGOUT_REDIRECT_URL = '/HomeView'
