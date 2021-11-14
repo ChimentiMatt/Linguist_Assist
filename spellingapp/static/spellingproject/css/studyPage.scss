@@ -1,7 +1,12 @@
 #studyPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     background: #1a1a1a;
-    color: white;
+    background: url('/static/spellingproject/media/paper.jpg') 50% 0 no-repeat fixed;
+    color: black;
+
 
     img{
         height: 30rem;
