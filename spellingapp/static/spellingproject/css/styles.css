@@ -18,10 +18,40 @@
 #studyPage div {
   background: url("/static/spellingproject/media/paper.jpg");
   background-size: auto 100%;
-  height: 90vh;
-  width: 70vh;
+  height: 44rem;
+  width: 38rem;
   -o-object-fit: fill;
      object-fit: fill;
+}
+
+#studyPage div section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-left: 8rem;
+  height: 4rem;
+  width: 15rem;
+  font-weight: bold;
+}
+
+#studyPage div section p:nth-child(2) {
+  margin-left: 12.6rem;
+}
+
+#studyPage div div:nth-child(1) {
+  margin-left: 8rem;
+}
+
+#studyPage div div {
+  background: initial;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 1.2rem;
+  margin-top: .28rem;
 }
 
 * {

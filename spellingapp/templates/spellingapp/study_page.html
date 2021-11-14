@@ -6,10 +6,21 @@
     <p>Study page</p>
     {% comment %} <img src="{% static "spellingproject/media/paper.jpg" %}"></img>  {% endcomment %}
     <div id="paper">
+       <section id="paperHeading">
+        <p>Word</p>
+        <p>Error</p>
+       </section>
         {% for item in object_list  %}
-            <p>{{ item.word }}</p>
-            <p>{{ item.spelling_error }}</p>
+            <div>
+                <div>
+                    <p>{{ item.word }}</p>
+                </div>
+                <div>
+                    <p>{{ item.spelling_error }}</p>
+                </div>
+            </div>
         {% endfor %}
+    
     </div>
 </div>
 

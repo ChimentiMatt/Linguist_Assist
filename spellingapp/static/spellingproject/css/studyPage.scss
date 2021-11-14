@@ -10,8 +10,45 @@
     div{
         background: url('/static/spellingproject/media/paper.jpg');
         background-size: auto 100%;
-        height: 90vh;
-        width: 70vh;
+        height: 44rem;
+        width: 38rem;
         object-fit: fill;
+
+        section{
+            display: flex;
+            align-items: flex-end;
+            margin-left: 8rem;
+            height: 4rem;
+            width: 15rem;
+            // background: red;
+            font-weight: bold;
+
+            p:nth-child(2){
+                margin-left: 12.6rem;
+            }
+        }
+
+        div:nth-child(1){
+            margin-left: 8rem;
+        }
+
+        div{
+            background: initial;
+            display: flex;
+            // background: blue;
+            // width: 32rem;
+            // height: 39rem;
+            height: 1.2rem;
+            // margin-left: 0rem;
+            margin-top: .28rem;
+        }
+
+        p{
+            // margin-top: .35rem;
+        }
+
+        p:nth-child(2){
+            // margin-left: 10rem;
+        }
     }
 }
