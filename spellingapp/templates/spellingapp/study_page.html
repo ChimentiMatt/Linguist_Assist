@@ -3,7 +3,7 @@
 
 {% block study %}
 <div id="studyPage">
-    <p>Study page</p>
+    {% comment %} <p>Study page</p> {% endcomment %}
     {% comment %} <img src="{% static "spellingproject/media/paper.jpg" %}"></img>  {% endcomment %}
     <div id="paper">
        <section id="paperHeading">
@@ -13,7 +13,11 @@
         {% for item in object_list  %}
             <div>
                 <div>
-                    <p>{{ item.word }}</p>
+                   <form method="POST">
+                        {% csrf_token %}
+                        <button>X</button>
+                   
+                   <p>{{ item.word }}</p>
                 </div>
                 <div>
                     <p>{{ item.spelling_error }}</p>

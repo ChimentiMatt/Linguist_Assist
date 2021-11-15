@@ -1,5 +1,6 @@
+from django.db import models
 from django.shortcuts import render, reverse
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 from django.http import HttpResponseRedirect, HttpResponse, request
 from .models import KeyVal
 
@@ -19,6 +20,9 @@ def HomeView(request):
     return render(request, 'spellingapp/user_home.html', context)
 
 
+class DeleteKeyVal(DeleteView):
+    model = KeyVal
+    template_name = 'spellingapp/study_page.html' 
 
 
 class StudyView(ListView):

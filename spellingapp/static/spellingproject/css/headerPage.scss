@@ -1,6 +1,13 @@
 #header{
     display: flex;
+    align-items: center;
     height: 3rem;
     background: #1b1b1b;
     color: white;
+
+    a{
+        margin-left: 2.5rem;
+        color: white;
+        text-decoration: none;
+    }
 }

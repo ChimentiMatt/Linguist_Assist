@@ -12,10 +12,15 @@
   </head>
   <body>
   <div id="header">
-    <a href="{% url 'spellingapp:HomeView' %}">Home</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'spellingapp:study_page' %}">Home</a>
+    {% else %}
+      <a href="{% url 'spellingapp:HomeView' %}">Home</a>
+
+    {% endif %}
+
 
     {% if user.is_authenticated %}
-      <p>authenticated</p>
       <a href="{% url 'logout' %}">Logout</a>
     {% else %}
       <a href="{% url 'login' %}">Login</a>
