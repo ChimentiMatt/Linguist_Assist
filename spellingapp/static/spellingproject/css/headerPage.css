@@ -1,0 +1,9 @@
+#header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3rem;
+  background: #1b1b1b;
+  color: white;
+}
+/*# sourceMappingURL=headerPage.css.map */

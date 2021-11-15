@@ -9,8 +9,10 @@ def BaseView(request):
 def HomeView(request):
 
     # request.user is the user who is logged in
-    spelling_list = KeyVal.objects.filter(user=request.user)
-
+    if KeyVal.objects == True:
+        spelling_list = KeyVal.objects.filter(user=request.user)
+    else:
+        spelling_list = ''
     context = {
         'spelling_list': spelling_list,
     }
