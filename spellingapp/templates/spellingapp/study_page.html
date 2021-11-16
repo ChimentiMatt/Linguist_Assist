@@ -6,10 +6,18 @@
     {% comment %} <p>Study page</p> {% endcomment %}
     {% comment %} <img src="{% static "spellingproject/media/paper.jpg" %}"></img>  {% endcomment %}
     <div id="paper">
-       <section id="paperHeading">
+        <section id="paperHeading">
         <p>Word</p>
         <p>Error</p>
-       </section>
+        </section>
+       
+        <form action="{% 'spellingapp:add_key_val' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="word">
+            <input type="text" name="spelling_error">
+            <input type="submit" value="add">
+        </form>
+
         {% for item in spelling_list  %}
             <div>
                 <div>

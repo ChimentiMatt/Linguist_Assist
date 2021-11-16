@@ -25,6 +25,16 @@ def remove_key_val(request, pk):
     word_delete.delete()
     return redirect('spellingapp:studyView')
 
+def add_key_val(request):
+    word = request.POST.get('word')
+    spelling_error = request.POST.get('spelling_error')
+    KeyVal.objects.create(
+        word=word,
+        spelling_error=spelling_error
+    )
+    return redirect('spellingapp:study_page')
+
+
 
 def studyView(request):
     spelling_list = KeyVal.objects.filter(user=request.user)
