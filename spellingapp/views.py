@@ -23,20 +23,21 @@ def HomeView(request):
 def remove_key_val(request, pk):
     word_delete = get_object_or_404(KeyVal, pk=pk)
     word_delete.delete()
-    return redirect('spellingapp:studyView')
+    return redirect('spellingapp:study_view')
 
 def add_key_val(request):
     word = request.POST.get('word')
     spelling_error = request.POST.get('spelling_error')
     KeyVal.objects.create(
         word=word,
-        spelling_error=spelling_error
+        spelling_error=spelling_error,
+        user=request.user
     )
-    return redirect('spellingapp:studyView')
+    return redirect('spellingapp:study_view')
 
 
 
-def studyView(request):
+def study_view(request):
     spelling_list = KeyVal.objects.filter(user=request.user)
     context = {
         'spelling_list': spelling_list,
