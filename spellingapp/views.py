@@ -32,7 +32,7 @@ def add_key_val(request):
         word=word,
         spelling_error=spelling_error
     )
-    return redirect('spellingapp:study_page')
+    return redirect('spellingapp:studyView')
 
 
 
