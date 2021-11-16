@@ -10,13 +10,10 @@
         <p>Word</p>
         <p>Error</p>
        </section>
-        {% for item in object_list  %}
+        {% for item in spelling_list  %}
             <div>
                 <div>
-                   <form method="POST">
-                        {% csrf_token %}
-                        <button>X</button>
-                   
+                   <a  href="{% url 'spellingapp:remove_key_val' pk=item.pk %}">x</a>
                    <p>{{ item.word }}</p>
                 </div>
                 <div>
