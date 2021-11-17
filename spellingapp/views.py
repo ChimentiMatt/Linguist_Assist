@@ -29,8 +29,8 @@ def remove_key_val(request, pk):
     return redirect('spellingapp:study_view')
 
 def add_key_val(request):
-    word = request.POST.get('word').title()
-    spelling_error = request.POST.get('spelling_error').title()
+    word = request.POST.get('word')
+    spelling_error = request.POST.get('spelling_error')
 
     if word == '' or spelling_error == '':
         return redirect('spellingapp:study_view')  
