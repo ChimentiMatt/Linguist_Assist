@@ -3,8 +3,13 @@
 
 {% block learning %}
 
-<div >
-    <p>learning.html test</p>
+<div id="learningPage">
+    <div>
+        [[ message]]
+        <p>Enter the word below</p>
+        <input value="here">
+        <input v-on:click="checkWord" type='submit' value="Submit">
+    </div>
 </div>
 
 {% endblock learning %}
