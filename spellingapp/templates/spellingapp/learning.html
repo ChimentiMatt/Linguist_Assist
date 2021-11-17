@@ -5,9 +5,9 @@
 
 <div id="learningPage">
     <div>
-        [[ message]]
+        <p id="newWord">[[ message]] [[word]]</p>
         <p>Enter the word below</p>
-        <input value="here">
+        <input id="inputValue" placeholder="here">
         <input v-on:click="checkWord" type='submit' value="Submit">
     </div>
 </div>
