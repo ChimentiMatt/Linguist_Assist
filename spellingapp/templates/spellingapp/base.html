@@ -51,8 +51,7 @@
       {% csrf_token %}
     </div>
 	  <script src="https://unpkg.com/vue@next"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
-
+	  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         const App = {
             delimiters: ['[[', ']]'],
@@ -60,9 +59,10 @@
             data() {
                   return  {
                         message: 'Sup',
-                        word: '',
+                        newWord: '',
                         spelling_error: '',
                         csrfmiddlewaretoken: '',
+                        user: 'matt'
                   }
             },
             methods: {
@@ -80,9 +80,9 @@
                         // url: "{% url 'spellingapp:add_key_val' %}",
                         url: '/add_key_val/',
                         data: {
-                          word: newWord,
-                          spelling_error: inputValue,      
-                          user: 'matt'
+                          spelling_error: this.message,
+                          word: this.message,
+                          user: this.user
                         },
                         headers: {
                           'X-CSRFToken': this.csrfmiddlewaretoken
@@ -93,14 +93,14 @@
                         alert('added word')
                       })
                     }
-              }
+                }
             },
             mounted() {
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-			}
-        }
-        Vue.createApp(App).mount('#app')
-        </script>
+            }
+          }
+          Vue.createApp(App).mount('#app')
+    </script>
 
 
   </body>
