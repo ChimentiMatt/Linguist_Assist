@@ -10,4 +10,8 @@
           align-items: center;
   height: 95vh;
 }
+
+#newWordValue {
+  display: none;
+}
 /*# sourceMappingURL=learningPage.css.map */

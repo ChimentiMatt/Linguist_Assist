@@ -29,6 +29,10 @@
   height: 95vh;
 }
 
+#newWordValue {
+  display: none;
+}
+
 #studyPage {
   display: -webkit-box;
   display: -ms-flexbox;

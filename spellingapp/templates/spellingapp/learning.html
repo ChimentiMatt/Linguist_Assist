@@ -5,12 +5,17 @@
 
 <div id="learningPage">
     <div>
-        <form @submit.prevent="checkWord">
-            <p id="newWord">[[ message]] </p>
+        <button v-on:click="newWordFunc">New Word</button>
+        <button v-on:click="testFunc">x</button>
+        {% comment %} <button v-on:click="checkWord">x</button> {% endcomment %}
+        <form action="{% url 'spellingapp:add_key_val' %}" method="POST" >
+        {% csrf_token %}
+            <input id="newWordValue" name="word" value="[[message]]">
+            <p name="word"  id="newWord">[[message]]</p>
             <p>Enter the word below</p>
-            <input id="inputValue" placeholder="here" v-model="wrongSpelling">
+            <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
 
-            <input v-on:click="checkWord" type='submit' value="Submit">
+            <input type='submit' value="Submit">
         </form>
     </div>
 </div>
