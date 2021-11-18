@@ -81,16 +81,16 @@
 
                         url: '/add_key_val/',
                         data: {
-                          spelling_error: this.wrongSpelling,
+                          this.spelling_error: this.wrongSpelling,
                           word: 'cat',
-    
                         },
+
                         headers: {
                           'X-CSRFToken': this.csrfmiddlewaretoken
                         }
     
                       }).then(response => {
-                        console.log(response)
+                        console.log(this.word)
              
                       })
                     }
