@@ -60,9 +60,9 @@
                   return  {
                         message: 'Sup',
                         newWord: '',
-                        spelling_error: '',
+                        // spelling_error: '',
                         csrfmiddlewaretoken: '',
-                        user: 'matt',
+                        // user: 'matt',
                         wrongSpelling: '',
                   }
             },
@@ -81,16 +81,17 @@
 
                         url: '/add_key_val/',
                         data: {
-                          this.spelling_error: this.wrongSpelling,
+                          spelling_error: 'test',
                           word: 'cat',
                         },
 
                         headers: {
+                          
                           'X-CSRFToken': this.csrfmiddlewaretoken
                         }
     
                       }).then(response => {
-                        console.log(this.word)
+                        console.log(response)
              
                       })
                     }
