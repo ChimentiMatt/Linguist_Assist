@@ -1,8 +1,11 @@
 from django.db import models
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.views.generic import ListView, DetailView, DeleteView
-from django.http import HttpResponseRedirect, HttpResponse, request
+from django.http import HttpResponseRedirect, HttpResponse, request, JsonResponse
 from .models import KeyVal
+
+import json
+
 
 def BaseView(request):
     return render(request, 'spellingapp/landing.html')
@@ -28,16 +31,17 @@ def remove_key_val(request, pk):
     word_delete.delete()
     return redirect('spellingapp:study_view')
 
+
 def add_key_val(request):
     word = request.POST.get('word')
     spelling_error = request.POST.get('spelling_error')
 
-    if word == '' or spelling_error == '':
-        return redirect('spellingapp:study_view')  
+    # if word == '' or spelling_error == '':
+    #     return redirect('spellingapp:study_view')  
         
     KeyVal.objects.create(
-        word=word,
         spelling_error=spelling_error,
+        word=word,
         user=request.user
     )
     return redirect('spellingapp:study_view')
@@ -51,5 +55,7 @@ def study_view(request):
     }
 
     return render(request, 'spellingapp/study_page.html', context)
+
+
 
 

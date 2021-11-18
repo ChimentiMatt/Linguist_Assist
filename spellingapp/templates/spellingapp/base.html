@@ -50,8 +50,8 @@
       {% endblock %}
       {% csrf_token %}
     </div>
-	  <script src="https://unpkg.com/vue@next"></script>
-	  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         const App = {
             delimiters: ['[[', ']]'],
@@ -62,7 +62,8 @@
                         newWord: '',
                         spelling_error: '',
                         csrfmiddlewaretoken: '',
-                        user: 'matt'
+                        user: 'matt',
+                        wrongSpelling: '',
                   }
             },
             methods: {
@@ -71,18 +72,18 @@
                     let inputValue = document.getElementById('inputValue').value
 
                     if (newWord.toLowerCase() == inputValue.toLowerCase()) {
-                      alert(inputValue)
+                      alert(inputValue, newWord)
                     }
       
                     else{
                       axios({
                         method: 'post',
-                        // url: "{% url 'spellingapp:add_key_val' %}",
+
                         url: '/add_key_val/',
                         data: {
-                          spelling_error: this.message,
-                          word: this.message,
-                          user: this.user
+                          spelling_error: this.wrongSpelling,
+                          word: 'cat',
+    
                         },
                         headers: {
                           'X-CSRFToken': this.csrfmiddlewaretoken
@@ -90,10 +91,11 @@
     
                       }).then(response => {
                         console.log(response)
-                        alert('added word')
+             
                       })
                     }
                 }
+
             },
             mounted() {
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value

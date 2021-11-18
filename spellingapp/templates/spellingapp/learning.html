@@ -5,10 +5,13 @@
 
 <div id="learningPage">
     <div>
-        <p id="newWord">[[ message]] </p>
-        <p>Enter the word below</p>
-        <input id="inputValue" placeholder="here">
-        <input v-on:click="checkWord" type='submit' value="Submit">
+        <form @submit.prevent="checkWord">
+            <p id="newWord">[[ message]] </p>
+            <p>Enter the word below</p>
+            <input id="inputValue" placeholder="here" v-model="wrongSpelling">
+
+            <input v-on:click="checkWord" type='submit' value="Submit">
+        </form>
     </div>
 </div>
 
