@@ -33,25 +33,27 @@ def remove_key_val(request, pk):
 
 
 def add_key_val(request):
-    print()
-    print(dir(request.META), 'here')
-
-
-    # print(request.POST, 'THIS ONE')
-    # spelling_error = request.data.get('spelling_error')
-    # word = request.data.get('word')
     word = request.POST.get('word')
     spelling_error = request.POST.get('spelling_error')
-    # print(spelling_error, 'spelling Error'
-
     KeyVal.objects.create(
         spelling_error=spelling_error,
         word=word,
         user=request.user
     )
+
     return redirect('spellingapp:study_view')
+    
+def learning_add_key_val(request):
+    word = request.POST.get('word')
+    spelling_error = request.POST.get('spelling_error')
+    KeyVal.objects.create(
+        spelling_error=spelling_error,
+        word=word,
+        user=request.user
+    )
+    return HttpResponseRedirect('/learning')
 
-
+    
 
 def study_view(request):
     spelling_list = KeyVal.objects.filter(user=request.user)

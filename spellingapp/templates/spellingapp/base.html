@@ -55,6 +55,7 @@
     <script>
         var form = document.querySelector('form');
         var data = new FormData(form);
+
         const App = {
             delimiters: ['[[', ']]'],
 
@@ -77,32 +78,26 @@
                 //     console.log(data)
                 //     let newWord = document.getElementById('newWord').innerHTML
                 //     let inputValue = document.getElementById('inputValue').value
-
                 //     if (newWord.toLowerCase() == inputValue.toLowerCase()) {
                 //       alert(inputValue, newWord)
                 //     }
-      
                 //     else{
                 //       axios({
                 //         method: 'post',
-
                 //         url: '/add_key_val/',
                 //         data: {
                 //           spelling_error: 'test',
                 //           word: 'cat',
                 //         },
-
-                //         headers: {
-                          
+                //         headers: {           
                 //           'X-CSRFToken': this.csrfmiddlewaretoken
-                //         }
-    
+                //         }  
                 //       }).then(response => {
                 //         console.log(response)
-             
                 //       })
                 //     }
                 // },
+
                 testFunc() {
                   // this.message = 'cat'
                   document.getElementById('newWordValue').value = 'cat'
@@ -115,16 +110,35 @@
                   this.message = randomItem
                   document.getElementById('newWordValue').value = this.message
                   document.getElementById('newWord').innerHTML = this.message
-
-
-    
                   // let randomItem = this.messages
                 },
+                checkWord() {
+                  let newWord = document.getElementById('newWord').innerHTML
+                  let inputValue = document.getElementById('inputValue').value
+                  if (newWord == inputValue){
+                    console.log('you made it', inputValue)
+                     this.newWordFunc()
+                     inputValue = ''
+   
+                  }
 
+                },
             },
             mounted() {
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-              console.log(this.csrfmiddlewaretoken, 'this one beotch');
+              this.newWordFunc()
+
+
+              let inputBox = document.getElementById('inputValue')
+              inputBox.addEventListener('keypress', function (e) {
+                            if (e.keyCode === 13 || e.which === 13) {
+                                e.preventDefault();
+                                return false;
+                            }
+                            
+                        });
+
+
             }
           }
           Vue.createApp(App).mount('#app')

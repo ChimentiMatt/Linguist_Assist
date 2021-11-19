@@ -4,7 +4,7 @@
 {% block user_home %}
 <p>user_home</p>
 
-<a href="{% url 'spellingapp:HomeView' %}"">
+<a href="{% url 'spellingapp:HomeView' %}">
 {% for item in spelling_list  %}
       <p>{{ item.word }}</p>
       <p>{{ item.spelling_error }}</p>

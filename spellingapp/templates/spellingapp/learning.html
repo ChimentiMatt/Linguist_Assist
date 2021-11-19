@@ -6,16 +6,16 @@
 <div id="learningPage">
     <div>
         <button v-on:click="newWordFunc">New Word</button>
-        <button v-on:click="testFunc">x</button>
+
         {% comment %} <button v-on:click="checkWord">x</button> {% endcomment %}
-        <form action="{% url 'spellingapp:add_key_val' %}" method="POST" >
+        <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" >
         {% csrf_token %}
             <input id="newWordValue" name="word" value="[[message]]">
             <p name="word"  id="newWord">[[message]]</p>
             <p>Enter the word below</p>
             <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
-
-            <input type='submit' value="Submit">
+            <p id="checkWord" v-on:click="checkWord">Check Word</p>
+            <input type='submit' id="submitPost" value="Submit">
         </form>
     </div>
 </div>

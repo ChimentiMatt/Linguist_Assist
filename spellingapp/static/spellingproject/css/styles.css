@@ -33,6 +33,10 @@
   display: none;
 }
 
+#submitPost {
+  display: none;
+}
+
 #studyPage {
   display: -webkit-box;
   display: -ms-flexbox;
