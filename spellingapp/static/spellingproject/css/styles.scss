@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+@import "landingPage";
 @import "headerPage";
 @import "learningPage";
 @import "studyPage";
@@ -6,10 +9,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
 }
 
-#landingPage{
-    background: #1a1a1a;
-    color: white;
-    height: 100vh;
-}

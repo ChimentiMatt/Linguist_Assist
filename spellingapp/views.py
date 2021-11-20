@@ -22,10 +22,11 @@ def HomeView(request):
     }
     return render(request, 'spellingapp/user_home.html', context)
 
+
+
 def learning_view(request):
     spelling_list = KeyVal.objects.filter(user=request.user)
-
-
+    
     context = {
         'spelling_list': spelling_list,
     }
