@@ -7,7 +7,7 @@
     <div>
         {% comment %} <button v-on:click="newWordFunc">New Word</button> {% endcomment %}
 
-        <button v-on:click="testPost">Test</button>
+        {% comment %} <button v-on:click="testPost">Test</button> {% endcomment %}
 
         {% comment %} <button v-on:click="checkWord">x</button> {% endcomment %}
         <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" >
