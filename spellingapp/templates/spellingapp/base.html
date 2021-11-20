@@ -60,6 +60,7 @@
             delimiters: ['[[', ']]'],
 
             data() {
+              
                   return  {
                         messages: [
                           'apple',
@@ -106,11 +107,10 @@
                 newWordFunc(){
                   let messagesLength = this.messages.length
                   let randomItem = this.messages[Math.floor(Math.random()*messagesLength)]
-                  // console.log(randomItem);
                   this.message = randomItem
                   document.getElementById('newWordValue').value = this.message
                   document.getElementById('newWord').innerHTML = this.message
-                  // let randomItem = this.messages
+ 
                 },
                 checkWord() {
                   let newWord = document.getElementById('newWord').innerHTML
@@ -118,11 +118,14 @@
                   if (newWord == inputValue){
                     console.log('you made it', inputValue)
                      this.newWordFunc()
-                     inputValue = ''
-   
+                     document.getElementById('inputValue').value = ''
+                      document.getElementById('submitPost').style.display = 'none'
                   }
-
+                  else{
+                    document.getElementById('submitPost').style.display = 'block'
+                  }
                 },
+
             },
             mounted() {
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
@@ -130,17 +133,17 @@
 
 
               let inputBox = document.getElementById('inputValue')
+
+              // diables form submission so wrong answers 
               inputBox.addEventListener('keypress', function (e) {
                             if (e.keyCode === 13 || e.which === 13) {
                                 e.preventDefault();
-                                return false;
-                            }
-                            
-                        });
-
-
+                                // return false;
+                           
+                           }                 
+               });
+              }
             }
-          }
           Vue.createApp(App).mount('#app')
     </script>
 

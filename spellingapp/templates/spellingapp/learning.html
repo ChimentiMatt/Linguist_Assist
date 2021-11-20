@@ -5,7 +5,7 @@
 
 <div id="learningPage">
     <div>
-        <button v-on:click="newWordFunc">New Word</button>
+        {% comment %} <button v-on:click="newWordFunc">New Word</button> {% endcomment %}
 
         {% comment %} <button v-on:click="checkWord">x</button> {% endcomment %}
         <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" >
@@ -17,6 +17,19 @@
             <p id="checkWord" v-on:click="checkWord">Check Word</p>
             <input type='submit' id="submitPost" value="Submit">
         </form>
+        <br>
+        <div>
+
+            {% for item in spelling_list  %}
+                {% if forloop.last %}
+                    <p>Word:{{ item.word }}</p>
+                    <p>Error:{{ item.spelling_error}}</p>
+                {% endif%}
+            {% endfor %}
+
+
+        </div>
+        
     </div>
 </div>
 
