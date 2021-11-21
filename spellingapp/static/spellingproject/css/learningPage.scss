@@ -6,6 +6,8 @@
 }
 
 #newWordValue{
+    // display: none;
+    background: rebeccapurple;
     display: none;
 }
 
@@ -16,5 +18,11 @@
 
 #submitPost{
     display: none;
+}
 
+#speachSelect{
+    display: none;
+}
+#hearBtn{
+    border: 1px solid black;
 }

@@ -10,10 +10,14 @@
         {% comment %} <button v-on:click="testPost">Test</button> {% endcomment %}
 
         {% comment %} <button v-on:click="checkWord">x</button> {% endcomment %}
+
+        <p v-on:click="speachFunc" id="hearBtn">Hear word<p>
+        <select id="speachSelect"></select>
+
         <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" >
         {% csrf_token %}
-            <input id="newWordValue" name="word" value="[[message]]">
-            <p name="word"  id="newWord">[[message]]</p>
+            <input id="newWordValue" name="word">
+            <p name="word"  id="newWord"></p>
             <p>Enter the word below</p>
             <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
             <p id="checkWord" v-on:click="checkWord">Check Word</p>
