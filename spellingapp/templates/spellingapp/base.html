@@ -56,17 +56,7 @@
     <script>
         // var form = document.querySelector('form');
         // var data = new FormData(form);
-                 var synth = window.speechSynthesis;
-                  var voices = synth.getVoices();
 
-                  var voiceSelect = document.getElementById('speachSelect')
-
-                  for(var i = 0; i < voices.length; i++) {
-                    var option = document.createElement('option');
-                    option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
-                    option.value = i;
-                    voiceSelect.appendChild(option);
-                  }         
 
 
         const App = {
@@ -127,7 +117,17 @@
                     //   })
                     // }
                 speachFunc() {
-      
+                  var synth = window.speechSynthesis;
+                  var voices = synth.getVoices();
+
+                  var voiceSelect = document.getElementById('speachSelect')
+
+                  for(var i = 0; i < voices.length; i++) {
+                    var option = document.createElement('option');
+                    option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+                    option.value = i;
+                    voiceSelect.appendChild(option);
+                  }               
 
                   var inputTxt = document.getElementById('newWordValue');
                   // console.log(inputTxt.innerHTML)
@@ -165,23 +165,25 @@
 
             },
             mounted() {
-              // alert('cat')
-              // gsap.to('#landingTitle', {color: 'red'})
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-              this.newWordFunc()
 
+              if (window.location.pathname  == '/'){
+                  gsap.to('#landingTitle', {color: 'red'})  
 
+              }
 
+              // Learning Page 
+              if (window.location.href.includes('learning')){
+                this.newWordFunc()
 
-              // diables form submission so wrong answers 
-              document.getElementById('inputValue').addEventListener('keypress', function (e) {
+                document.getElementById('inputValue').addEventListener('keypress', function (e) {
+                                  if (e.keyCode === 13 || e.which === 13) {
+                                      e.preventDefault();
+                                      // return false;          
+                                }                 
+                    });
+                }
 
-                            if (e.keyCode === 13 || e.which === 13) {
-                                e.preventDefault();
-                                // return false;
-                       
-                           }                 
-               });
               }
             }
           Vue.createApp(App).mount('#app')
