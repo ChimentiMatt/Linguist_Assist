@@ -13,13 +13,14 @@
 
         <div id="gameFace">
          
-                <p v-on:click="speachFunc" id="hearBtn">Hear word<p>
+            <p v-on:click="speachFunc" id="hearBtn">Hear word<p>
         
             <select id="speachSelect"></select>
 
             <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" >
                 {% csrf_token %}
                 <input id="newWord" name="word" >
+        
                 <p>Enter the word below</p>
                 <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
                 <p id="checkWord" v-on:click="checkWord">Check Word</p>

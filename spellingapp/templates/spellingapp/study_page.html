@@ -35,6 +35,19 @@
             [[item.word]]
             [[item.spelling_error]]
         </div>
+        <br>
+
+        <div v-for="item in lastWords">
+            [[item]]
+        </div>
+
+
+        <div v-on:click="testPost">
+            <button type="submit">Send Post</button>
+        
+        </div>
+            
+
     </div>
 </div>
 

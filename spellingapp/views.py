@@ -25,6 +25,10 @@ def HomeView(request):
 
 
 def fetch_get(request):
+    # if request.method == "POST":
+    #     post_data = json.loads(request.body.decode("utf-8"))
+    #     print(post_data)
+
     all_data = KeyVal.objects.all()
     data_list = []
     for item in all_data:
@@ -66,18 +70,29 @@ def add_key_val(request):
 
     return redirect('spellingapp:study_view')
     
-def learning_add_key_val(request):
-    word = request.POST.get('word')
-    spelling_error = request.POST.get('spelling_error')
-    print(word, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-    print(spelling_error, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+# def learning_add_key_val(request):
+#     word = request.POST.get('word')
+#     spelling_error = request.POST.get('spelling_error')
+#     print(word, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+#     print(spelling_error, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
 
-    KeyVal.objects.create(
-        spelling_error=spelling_error,
-        word=word,
-        user=request.user
-    )
-    return HttpResponseRedirect('/learning')
+#     KeyVal.objects.create(
+#         spelling_error=spelling_error,
+#         word=word,
+#         user=request.user
+#     )
+#     return HttpResponseRedirect('/learning')
+
+def learning_add_key_val(request):
+    keyVal_data = json.loads(request.body)
+    word = keyVal_data['word']
+    spelling_error = keyVal_data['spelling_error']
+    user=request.user
+
+    newKeyVal = KeyVal(word=word, spelling_error=spelling_error, user=user)
+    newKeyVal.save()
+
+    return HttpResponse('ok')
 
     
 
