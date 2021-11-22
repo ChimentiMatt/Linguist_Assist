@@ -41,8 +41,10 @@ def remove_key_val(request, pk):
 
 
 def add_key_val(request):
+
     word = request.POST.get('word')
     spelling_error = request.POST.get('spelling_error')
+
     KeyVal.objects.create(
         spelling_error=spelling_error,
         word=word,
@@ -54,6 +56,9 @@ def add_key_val(request):
 def learning_add_key_val(request):
     word = request.POST.get('word')
     spelling_error = request.POST.get('spelling_error')
+    print(word, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+    print(spelling_error, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+
     KeyVal.objects.create(
         spelling_error=spelling_error,
         word=word,

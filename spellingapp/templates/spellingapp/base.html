@@ -78,10 +78,7 @@
                         ],
                         message: 'phone',
                         newWord: '',
-                        // spelling_error: '',
                         csrfmiddlewaretoken: '',
-                        // user: 'matt',
-                        wrongSpelling: '',
                   }
             },
             methods: {
@@ -139,7 +136,7 @@
 
                   var inputTxt = document.getElementById('newWord');
                   // console.log(inputTxt.innerHTML)
-                  var utterThis = new SpeechSynthesisUtterance(inputTxt.innerHTML);
+                  var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
                   utterThis.voice = voices[voiceSelect.value];
                   synth.speak(utterThis);
                   inputTxt.blur();
@@ -158,13 +155,13 @@
 
                 startNewWord(){
                   // console.log('Olive', this.api_word, this.api_def)
-                  document.getElementById('newWord').innerHTML = this.api_word
+                  document.getElementById('newWord').value = this.api_word
                   document.getElementById('htmlDef').innerHTML = this.api_def
                   // document.getElementById('htmlDef').innerHTML = this.apiDef
 
                 },
                 checkWord() {
-                  let newWord = document.getElementById('newWord').innerHTML
+                  let newWord = document.getElementById('newWord').value
                   let inputValue = document.getElementById('inputValue').value
                   console.log('new word', newWord, 'new word', inputValue)
                   if (newWord == inputValue){
@@ -218,9 +215,13 @@
                 document.getElementById('inputValue').addEventListener('keypress', function (e) {
                                   if (e.keyCode === 13 || e.which === 13) {
                                       e.preventDefault();
+                                      this.checkWord()
                                       // return false;          
                                 }                 
                     })
+               
+
+                
                 this.getObject()
 
             

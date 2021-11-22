@@ -11,35 +11,34 @@
 
         {% comment %} <button v-on:click="checkWord">x</button> {% endcomment %}
 
-        <p v-on:click="speachFunc" id="hearBtn">Hear word<p>
-        <select id="speachSelect"></select>
+        <div id="gameFace">
+         
+                <p v-on:click="speachFunc" id="hearBtn">Hear word<p>
+        
+            <select id="speachSelect"></select>
 
-        <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" >
-        {% csrf_token %}
-
-            <p name="word"  id="newWord"></p>
-            <p>Enter the word below</p>
-            <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
-            <p id="checkWord" v-on:click="checkWord">Check Word</p>
-
-
-            <input type='submit' id="submitPost" value="Submit">
-        </form>
-        <br>
-        <p id='htmlDef'></p>
-
-
-
-        <br>
-        <div>
-            {% for item in spelling_list  %}
-                {% if forloop.last %}
-                    <p>Word:{{ item.word }}</p>
-                    <p>Error:{{ item.spelling_error}}</p>
-                {% endif%}
-            {% endfor %}
+            <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" >
+                {% csrf_token %}
+                <input id="newWord" name="word" >
+                <p>Enter the word below</p>
+                <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
+                <p id="checkWord" v-on:click="checkWord">Check Word</p>
+                <input type='submit' id="submitPost" value="Submit">
+            </form>
         </div>
-
+        <br>
+        <div id='defAndOld'>
+            <p id='htmlDef'></p>
+            <br>
+            <div>
+                {% for item in spelling_list  %}
+                    {% if forloop.last %}
+                        <p>Word:{{ item.word }}</p>
+                        <p>Error:{{ item.spelling_error}}</p>
+                    {% endif%}
+                {% endfor %}
+            </div>
+        </div>
 
         {% comment %} <p v-on:click="startNewWord">START BUTTON and test new Word</p> {% endcomment %}
     </div>

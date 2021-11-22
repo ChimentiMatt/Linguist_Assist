@@ -5,6 +5,14 @@
     height: 95vh;
 }
 
+#gameFace{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // background: cornflowerblue;
+}
+
 #newWordValue{
     // display: none;
     background: rebeccapurple;
@@ -29,4 +37,18 @@
 }
 #hearBtn{
     border: 1px solid black;
+    
+}
+
+#htmlDef{
+    text-align: center;
+    width: 60vw;
+
+}
+
+#defAndOld{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
