@@ -24,6 +24,19 @@ def HomeView(request):
 
 
 
+def fetch_get(request):
+    all_data = KeyVal.objects.all()
+    data_list = []
+    for item in all_data:
+        data_list.append({
+            'word': item.word,
+            'spelling_error': item.spelling_error
+        })
+
+    return JsonResponse({'items': data_list})
+
+
+
 def learning_view(request):
     spelling_list = KeyVal.objects.filter(user=request.user)
     

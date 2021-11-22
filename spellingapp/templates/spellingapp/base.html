@@ -79,6 +79,7 @@
                         message: 'phone',
                         newWord: '',
                         csrfmiddlewaretoken: '',
+                        getList: [],
                   }
             },
             methods: {
@@ -195,12 +196,26 @@
                   })
                   .then(this.startNewWord())
 
+              },
+
+              testFunc: function() {
+                const myOption = {
+                  method: 'GET',
+                };
+                fetch('/fetch_get', myOption)
+                .then((res) => res.json())
+                .then((res) => {
+                  // console.log(res.items, 'Fetch Request Worked')
+                  this.getList = res.items
+                  console.log(this.getList, 'getlist')
+                })
               }
-  
+
 
             },
             mounted() {
-              
+   
+              this.testFunc()
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
               this.randomWord()
               // Home Page not loggin in

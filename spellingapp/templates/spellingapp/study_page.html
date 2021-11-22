@@ -30,7 +30,11 @@
                 </div>
             </div>
         {% endfor %}
-    
+        <br>
+        <div v-for="item in getList">
+            [[item.word]]
+            [[item.spelling_error]]
+        </div>
     </div>
 </div>
 
