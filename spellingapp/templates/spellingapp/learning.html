@@ -16,26 +16,32 @@
 
         <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" >
         {% csrf_token %}
-            <input id="newWordValue" name="word">
+
             <p name="word"  id="newWord"></p>
             <p>Enter the word below</p>
             <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
             <p id="checkWord" v-on:click="checkWord">Check Word</p>
+
+
             <input type='submit' id="submitPost" value="Submit">
         </form>
         <br>
-        <div>
+        <p id='htmlDef'>[[api_def]]</p>
 
+
+
+        <br>
+        <div>
             {% for item in spelling_list  %}
                 {% if forloop.last %}
                     <p>Word:{{ item.word }}</p>
                     <p>Error:{{ item.spelling_error}}</p>
                 {% endif%}
             {% endfor %}
-
-
         </div>
-        
+
+        {% comment %} <p v-on:click="testFunc">test API</p> {% endcomment %}
+        <p v-on:click="testNewWord">START BUTTON and test new Word</p>
     </div>
 </div>
 

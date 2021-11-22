@@ -50,6 +50,10 @@
   display: none;
 }
 
+#newWord {
+  display: none;
+}
+
 #checkWord {
   border: 1px solid black;
   border-radius: 2px;

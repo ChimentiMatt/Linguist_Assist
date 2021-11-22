@@ -65,6 +65,8 @@
             data() {
               
                   return  {
+                        api_word: '',
+                        api_def: '',
                         messages: [
                           'apple',
                           'pear'
@@ -129,9 +131,9 @@
                     voiceSelect.appendChild(option);
                   }               
 
-                  var inputTxt = document.getElementById('newWordValue');
+                  var inputTxt = document.getElementById('newWord');
                   // console.log(inputTxt.innerHTML)
-                  var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
+                  var utterThis = new SpeechSynthesisUtterance(inputTxt.innerHTML);
                   utterThis.voice = voices[voiceSelect.value];
                   synth.speak(utterThis);
                   inputTxt.blur();
@@ -141,47 +143,73 @@
 
 
 
-                newWordFunc(){
-                  let messagesLength = this.messages.length
-                  let randomItem = this.messages[Math.floor(Math.random()*messagesLength)]
-                  this.message = randomItem
-                  document.getElementById('newWordValue').value = this.message
-                  document.getElementById('newWord').innerHTML = this.message
- 
+                testNewWord(){
+                  console.log('Olive', this.api_word)
+                  // let messagesLength = this.messages.length
+                  // let randomItem = this.messages[Math.floor(Math.random()*messagesLength)]
+                  // this.message = randomItem
+                  document.getElementById('newWord').innerHTML = this.api_word
+                  // document.getElementById('htmlDef').innerHTML = this.apiDef
+
                 },
                 checkWord() {
                   let newWord = document.getElementById('newWord').innerHTML
                   let inputValue = document.getElementById('inputValue').value
                   if (newWord == inputValue){
                     console.log('you made it', inputValue)
-                     this.newWordFunc()
-                     document.getElementById('inputValue').value = ''
-                      document.getElementById('submitPost').style.display = 'none'
+                    // this.newWordFunc()
+
+                    // random word logic needed below
+                    document.getElementById('inputValue').value = 'help'
+                    document.getElementById('newWord').innerHTML = 'help'
+                    document.getElementById('submitPost').style.display = 'none'
                   }
                   else{
+                 
                     document.getElementById('submitPost').style.display = 'block'
                   }
                 },
+                
+                getObject() { 
+                  fetch('https://api.dictionaryapi.dev/api/v2/entries/en/apple')
+                  .then(res => res.json())
+                  .then((res)=> {
+                      // save word
+                      this.api_word = res[0]['word']
+                      console.log(this.api_word);
+                      // save def
+                      this.api_def = res[0]['meanings'][0]['definitions'][0]['definition']
+                  })
+                  .then(this.testNewWord())
+              },
+              testFunc() {
+                console.log(this.api_word)
+                console.log(this.api_def)
+              }
 
             },
             mounted() {
+              
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
 
+              // Home Page not loggin in
               if (window.location.pathname  == '/'){
                   gsap.to('#landingTitle', {color: 'red'})  
-
               }
 
               // Learning Page 
               if (window.location.href.includes('learning')){
-                this.newWordFunc()
+                // this.newWordFunc()
 
                 document.getElementById('inputValue').addEventListener('keypress', function (e) {
                                   if (e.keyCode === 13 || e.which === 13) {
                                       e.preventDefault();
                                       // return false;          
                                 }                 
-                    });
+                    })
+                this.getObject()
+
+            
                 }
 
               }
