@@ -29,11 +29,6 @@
 
 #newWordValue {
   background: rebeccapurple;
-  display: none;
-}
-
-#newWord {
-  display: none;
 }
 
 #checkWord {
@@ -42,10 +37,6 @@
 }
 
 #submitPost {
-  display: none;
-}
-
-#speachSelect {
   display: none;
 }
 

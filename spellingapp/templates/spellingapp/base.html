@@ -82,17 +82,23 @@
                         newWord: '',
                         csrfmiddlewaretoken: '',
                         getList: [],
+
+                        correctWord: '',
+                        wrongWord: '',
                         lastWords: []
                   }
             },
             methods: {
-                testPost: function() {
+
+
+
+                axiosPost: function() {
                   axios({
                       url: "{% url 'spellingapp:learning_add_key_val' %}",
                       method: 'post',
                       data: {
-                        word: 'cat',
-                        spelling_error: 'dog'
+                        word: this.correctWord,
+                        spelling_error: this.wrongWord
                       },
                       headers: {
                         'X-CSRFToken': this.csrfmiddlewaretoken
@@ -102,12 +108,12 @@
                     })
                     .then(() => {
                       this.fetchData()
+                      this.randomWord()
+                      this.startNewWord()
                     })
-                      },
+                },
 
-               
-
-
+              
 
                 speachFunc() {
                   this.startNewWord()
@@ -168,6 +174,15 @@
                   }
                   else{
                     document.getElementById('submitPost').style.display = 'block'
+                    console.log('apples')
+                    let newWord = document.getElementById('newWord').value
+                    let inputValue = document.getElementById('inputValue').value
+                    // console.log(newWord,' nw');
+                    this.correctWord = newWord
+                    this.wrongWord = inputValue
+                    // console.log(this.correctWord, 'cw')
+                    // console.log(wrongWord, 'ww')
+                    // console.log(inputValue, 'iv')
                   }
                 },
                 
@@ -242,18 +257,7 @@
 
               // Learning Page 
               if (window.location.href.includes('learning')){
-                // this.newWordFunc()
-
-                document.getElementById('inputValue').addEventListener('keypress', function (e) {
-                                  if (e.keyCode === 13 || e.which === 13) {
-                                      e.preventDefault();
-                                      this.checkWord()
-                                      // return false;          
-                                }                 
-                    })
-               
-
-                
+ 
                 this.getObject()
 
             

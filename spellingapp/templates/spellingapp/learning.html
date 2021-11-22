@@ -17,29 +17,25 @@
         
             <select id="speachSelect"></select>
 
-            <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" >
+            {% comment %} <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" > {% endcomment %}
                 {% csrf_token %}
                 <input id="newWord" name="word" >
         
                 <p>Enter the word below</p>
                 <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
                 <p id="checkWord" v-on:click="checkWord">Check Word</p>
-                <input type='submit' id="submitPost" value="Submit">
-            </form>
+                <input type='submit' id="submitPost" value="Submit" v-on:click="axiosPost">
+            {% comment %} </form> {% endcomment %}
         </div>
         <br>
         <div id='defAndOld'>
             <p id='htmlDef'></p>
             <br>
-            <div>
-                {% for item in spelling_list  %}
-                    {% if forloop.last %}
-                        <p>Word:{{ item.word }}</p>
-                        <p>Error:{{ item.spelling_error}}</p>
-                    {% endif%}
-                {% endfor %}
+            <div v-for="item in lastWords">
+                [[item]]
             </div>
         </div>
+
 
         {% comment %} <p v-on:click="startNewWord">START BUTTON and test new Word</p> {% endcomment %}
     </div>
