@@ -69,9 +69,14 @@
                         api_def: '',
                         messages: [
                           'apple',
-                          'pear'
+                          'pear',
+                          'dog',
+                          'cat',
+                          'tree',
+                          'small',
+                    
                         ],
-                        message: 'Sup',
+                        message: 'phone',
                         newWord: '',
                         // spelling_error: '',
                         csrfmiddlewaretoken: '',
@@ -119,6 +124,7 @@
                     //   })
                     // }
                 speachFunc() {
+                  this.startNewWord()
                   var synth = window.speechSynthesis;
                   var voices = synth.getVoices();
 
@@ -140,38 +146,47 @@
                 },
 
 
+                randomWord() {
+                  let messagesLength = this.messages.length
+                  let randomItem = this.messages[Math.floor(Math.random()*messagesLength)]
+                  this.message = randomItem
+                  
+                  this.getObject()
+
+                },
 
 
-
-                testNewWord(){
-                  console.log('Olive', this.api_word)
-                  // let messagesLength = this.messages.length
-                  // let randomItem = this.messages[Math.floor(Math.random()*messagesLength)]
-                  // this.message = randomItem
+                startNewWord(){
+                  // console.log('Olive', this.api_word, this.api_def)
                   document.getElementById('newWord').innerHTML = this.api_word
+                  document.getElementById('htmlDef').innerHTML = this.api_def
                   // document.getElementById('htmlDef').innerHTML = this.apiDef
 
                 },
                 checkWord() {
                   let newWord = document.getElementById('newWord').innerHTML
                   let inputValue = document.getElementById('inputValue').value
+                  console.log('new word', newWord, 'new word', inputValue)
                   if (newWord == inputValue){
                     console.log('you made it', inputValue)
                     // this.newWordFunc()
+                    this.randomWord()
+                    this.startNewWord()
 
                     // random word logic needed below
-                    document.getElementById('inputValue').value = 'help'
-                    document.getElementById('newWord').innerHTML = 'help'
+                    // document.getElementById('inputValue').value = 'help'
+                    document.getElementById('inputValue').value = ''
                     document.getElementById('submitPost').style.display = 'none'
+                    document.getElementById('htmlDef').innerHTML = ''
+                    
                   }
                   else{
-                 
                     document.getElementById('submitPost').style.display = 'block'
                   }
                 },
                 
                 getObject() { 
-                  fetch('https://api.dictionaryapi.dev/api/v2/entries/en/apple')
+                  fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.message}`)
                   .then(res => res.json())
                   .then((res)=> {
                       // save word
@@ -179,19 +194,18 @@
                       console.log(this.api_word);
                       // save def
                       this.api_def = res[0]['meanings'][0]['definitions'][0]['definition']
+                      
                   })
-                  .then(this.testNewWord())
-              },
-              testFunc() {
-                console.log(this.api_word)
-                console.log(this.api_def)
+                  .then(this.startNewWord())
+
               }
+  
 
             },
             mounted() {
               
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-
+              this.randomWord()
               // Home Page not loggin in
               if (window.location.pathname  == '/'){
                   gsap.to('#landingTitle', {color: 'red'})  
