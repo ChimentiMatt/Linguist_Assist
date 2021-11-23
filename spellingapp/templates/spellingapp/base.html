@@ -68,7 +68,7 @@
                   return  {
                         api_word: '',
                         api_def: '',
-                        messages: [
+                        easy: [
                           'anchor',
                           'deer',
                           'dog',
@@ -78,7 +78,11 @@
                           'animal',
                           'fast',
                           'audio'
-                    
+                        ],
+                        hard: [
+                          'red',
+                          'blue',
+                          'green',
                         ],
                         message: 'phone',
                         newWord: '',
@@ -92,6 +96,9 @@
                         lastError: '',
 
                         progressCounter : 0,
+                        newGame: true,
+                        easyTrigger: true,
+                        hardTrigger: false,
                   }
             },
             methods: {
@@ -109,7 +116,7 @@
                     }).then(response => {
                       console.log(response.data)
                     })
-                    .then(() => {
+                    .then(() => {s
                       this.fetchData()
                       this.randomWord()
                       this.startNewWord()
@@ -117,13 +124,24 @@
                     })
                 },
 
-              
+                easyFunc() {
+                  this.easyTrigger = true
+                  this.easyTrigger = false
+                },
+                hardFunc() {
+                  this.easyTrigger = false
+                  this.hardTrigger = true
+                },
 
                 speachFunc() {
-                  this.startNewWord()
+                  // this.startNewWord()
+                  if (this.newGame){
+                    this.randomWord()
+                    document.getElementById('hearBtn').innerHTML = 'Hear Word'
+                    this.newGame = false
+                  }
                   var synth = window.speechSynthesis;
                   var voices = synth.getVoices();
-
                   var voiceSelect = document.getElementById('speachSelect')
 
                   for(var i = 0; i < voices.length; i++) {
@@ -132,7 +150,6 @@
                     option.value = i;
                     voiceSelect.appendChild(option);
                   }               
-
                   var inputTxt = document.getElementById('newWord');
                   var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
                   utterThis.voice = voices[voiceSelect.value];
@@ -142,11 +159,18 @@
 
 
                 randomWord() {
-                  let messagesLength = this.messages.length
-                  let randomItem = this.messages[Math.floor(Math.random()*messagesLength)]
-                  this.message = randomItem
-                  this.getObject()
-
+                  if (this.easyTrigger){
+                    let messagesLength = this.easy.length
+                    let randomItem = this.easy[Math.floor(Math.random()*messagesLength)]
+                    this.message = randomItem
+                    this.getObject()
+                  }
+                  else if (this.hardTrigger){
+                    let messagesLength = this.hard.length
+                    let randomItem = this.hard[Math.floor(Math.random()*messagesLength)]
+                    this.message = randomItem
+                    this.getObject()
+                  }
                 },
                 startNewWord(){
                   document.getElementById('newWord').value = this.api_word
@@ -160,39 +184,55 @@
 
 
                   if (newWord == inputValue){
+                    this.progressCounter += 1
                     this.randomWord()
                     this.startNewWord()
                     document.getElementById('inputValue').value = ''
-                    document.getElementById('submitPost').style.display = 'none'
+                    // document.getElementById('submitPost').style.display = 'none'
                     document.getElementById('htmlDef').innerHTML = ''
 
                     this.progressBarFunc()
+                    this.startNewWord()
                   }
                   else if(inputValue == ''){
 
                   }
                   else{
-                    document.getElementById('submitPost').style.display = 'block'
-                    console.log('apples')
+                    this.progressCounter -= 1
+                    this.progressBarFunc()
+                    // document.getElementById('submitPost').style.display = 'block'
+                    // console.log('apples')
+
+                    // populate states for axios push
                     let newWord = document.getElementById('newWord').value
                     let inputValue = document.getElementById('inputValue').value
                     this.correctWord = newWord
                     this.wrongWord = inputValue
+                    // push to axios
+                    this.axiosPost()
 
                   }
                 },
 
                 progressBarFunc() {
                   console.log(this.progressCounter, 'prog counter')
-                  this.progressCounter += 1
-                  if (this.progressCounter == 1){
+                  if (this.progressCounter < 0){
+                    this.progressCounter = 0
+                  }
+                  if ( this.progressCounter == 0){
+                    gsap.to('#oneOutOfTen', {width: 0})
+                  }
+                  else if (this.progressCounter == 1){
                     gsap.to('#oneOutOfTen', {width: '3rem', duration: 1})
+                    gsap.to('#twoOutOfTen, #threeOutOfTen, #fourOutOfTen, #fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen', {width: 0})
                   }
                   else if (this.progressCounter == 2){
                     gsap.to('#twoOutOfTen', {width: '3rem', duration: 1})
+                    gsap.to('#threeOutOfTen, #fourOutOfTen, #fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen', {width: 0})
                   }
                   else if (this.progressCounter == 3){
                     gsap.to('#threeOutOfTen', {width: '3rem', duration: 1})
+                    gsap.to('#fourOutOfTen, #fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen', {width: 0})
                   }
                   else if (this.progressCounter == 4){
                     gsap.to('#fourOutOfTen', {width: '3rem', duration: 1})
@@ -263,7 +303,8 @@
      
          
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-              this.randomWord()
+              // this.randomWord()
+              this.startNewWord()
               // Home Page not loggin in
               if (window.location.pathname  == '/'){
                   gsap.to('#landingTitle', {color: 'red'})  

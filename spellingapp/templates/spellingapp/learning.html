@@ -12,13 +12,11 @@
         <div id='sevenOutOfTen'></div> <div id='eightOutOfTen'></div>
         <div id='nineOutOfTen'></div> <div id='tenOutOfTen'></div>
     </div>
-
     <div>
-
-
         <div id="gameFace">
-         
-            <button v-on:click="speachFunc" id="hearBtn">Hear word</button>
+            <button v-on:click="easyFunc">easy</button>
+            <button v-on:click="hardFunc">hard</button>
+            <button v-on:click="speachFunc" id="hearBtn">Start</button>
         
             <select id="speachSelect"></select>
 
@@ -29,7 +27,7 @@
                 <h2>Enter the word below</h2>
                 <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
                 <p id="checkWord" v-on:click="checkWord">Check Word</p>
-                <input type='submit' id="submitPost" value="Submit" v-on:click="axiosPost">
+                {% comment %} <input type='submit' id="submitPost" value="Submit" v-on:click="axiosPost"> {% endcomment %}
             {% comment %} </form> {% endcomment %}
         </div>
         <br>
