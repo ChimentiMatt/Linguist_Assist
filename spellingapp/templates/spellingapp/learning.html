@@ -7,10 +7,12 @@
     {% comment %} <p id="testLanding">Test for GSAP</p> {% endcomment %}
 
     <div id="preGameScreen">
-        <h1>Select your difficulty</h1>
+        <h1 id="preGameH1">Select your difficulty</h1>
         <div>
-            <button v-on:click="easyFunc">easy</button>
-            <button v-on:click="hardFunc">hard</button>
+            <button id="easyBtn" class="preGameBtns" v-on:click="easyFunc">EASY</button>
+            <button id="hardBtn" class="preGameBtns" v-on:click="hardFunc">HARD</button>
+     
+            <button v-on:click="speachFunc">Start</button>
         </div>
     </div>
     <div id="progressBar">
@@ -20,38 +22,39 @@
         <div id='sevenOutOfTen'></div> <div id='eightOutOfTen'></div>
         <div id='nineOutOfTen'></div> <div id='tenOutOfTen'></div>
     </div>
-    <div>
-        <div id="gameFace">
-
-            <button v-on:click="speachFunc" id="hearBtn">Hear Word</button>
-        
-            <select id="speachSelect"></select>
-
-            {% comment %} <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" > {% endcomment %}
-                {% csrf_token %}
-                <input id="newWord" name="word" >
-        
-                <h2>Enter the word below</h2>
-                <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
-                <p id="checkWord" v-on:click="checkWord">Check Word</p>
-                {% comment %} <input type='submit' id="submitPost" value="Submit" v-on:click="axiosPost"> {% endcomment %}
-            {% comment %} </form> {% endcomment %}
-        </div>
-        <br>
+    <div id="gameFace">
         <div id='defAndOld'>
+            <h1>Definition</h1>
             <p id='htmlDef'></p>
-            <br>
-            <h3>Previous Typo</h3>
-            {% comment %} <div v-for="item in lastCorrect">
-                [[item]]
-            </div> {% endcomment %}
-            <p>Correct: [[lastCorrect]]</p>
-            <p>Incorrect: [[lastError]]</p>
+        </div>
+
+        <button v-on:click="speachFunc" id="hearBtn">Hear Word</button>
+    
+        <select id="speachSelect"></select>
+
+        {% comment %} <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" > {% endcomment %}
+            {% csrf_token %}
+            <input id="newWord" name="word" >
+    
+            <input type=s"text" id="inputValue" placeholder="Type Word Here" name="spelling_error" >
+
+
+            <button v-on:click="checkWord" id="checkWord" type="submit">Check Word</button>
+
+            {% comment %} <input type='submit' id="submitPost" value="Submit" v-on:click="axiosPost"> {% endcomment %}
+        {% comment %} </form> {% endcomment %}
+    </div>
+
+
+        <div id="lastTypo">
+            <h2>Previous Typo</h2>
+            <h3>Correct: [[lastCorrect]]</h3>
+            <h3>Incorrect: [[lastError]]</h3>
         </div>
 
 
         {% comment %} <p v-on:click="startNewWord">START BUTTON and test new Word</p> {% endcomment %}
-    </div>
+
 </div>
 
 {% endblock learning %}

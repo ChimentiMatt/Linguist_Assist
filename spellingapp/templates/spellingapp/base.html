@@ -128,19 +128,24 @@
                   gsap.to('#oneOutOfTen', {width: 0, duration: 0})
                   this.easyTrigger = true
                   this.hardTrigger = false
-                  document.getElementById('preGameScreen').style.display = 'none'
+                  // document.getElementById('preGameScreen').style.display = 'none'
+                  // gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
+
                   this.randomWord()
+  
                 },
                 hardFunc() {
                   gsap.to('#oneOutOfTen', {width: 0, duration: 0})
                   this.easyTrigger = false
                   this.hardTrigger = true
-                  document.getElementById('preGameScreen').style.display = 'none'
+                  // document.getElementById('preGameScreen').style.display = 'none'
+                  // gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
                   this.randomWord()
                 },
 
                 speachFunc() {
                   // this.newWordInHTML()
+                  gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
                   if (this.newGame){
                     this.randomWord()
                     document.getElementById('hearBtn').innerHTML = 'Hear Word'
@@ -285,7 +290,8 @@
                   else if (this.progressCounter == 10){
                     gsap.to('#tenOutOfTen', {width: '3rem', duration: 1})
                     this.progressCounter = 0
-                    document.getElementById('preGameScreen').style.display = 'flex'
+
+                    gsap.to('#preGameScreen', {duration: 1, opacity: 1, display:"flex"})
                     gsap.to('#oneOutofTen, #twoOutOfTen, #threeOutOfTen, #fourOutOfTen, #fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen', {delay: 1.1, width: 0, duration: 0})
                     this.newGame = true
                 
@@ -338,12 +344,27 @@
               // Learning Page 
               if (window.location.href.includes('learning')){
                 // this.getObject()
-                let tl = gsap.timeline({repeat: -1})
-                tl.to('#testLanding', {x: '20rem', duration: 10})  
-                tl.to('#testLanding', {x: "0rem", duration: 10})  
+               
+ 
 
-                
 
+                  //Pre Game Screen
+                  gsap.to('#preGameH1', {opacity: 1, duration: 2})
+
+                  let easyBtn = document.getElementById('easyBtn')
+                  easyBtn.addEventListener('mouseenter', () => {
+                    gsap.to('#easyBtn', {opacity: 1, scale: 1.2})
+                  })
+                  easyBtn.addEventListener('mouseleave', () => {
+                    gsap.to('#easyBtn', {opacity: .5, scale: 1})
+                  })
+                  let hardBtn = document.getElementById('hardBtn')
+                  hardBtn.addEventListener('mouseenter', () => {
+                    gsap.to('#hardBtn', {opacity: 1, scale: 1.2})
+                  })
+                  hardBtn.addEventListener('mouseleave', () => {
+                    gsap.to('#hardBtn', {opacity: .5, scale: 1})
+                  })
                 }
                          
               }

@@ -2,9 +2,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -19,7 +16,6 @@
   background: skyblue;
   width: 30rem;
   height: 1rem;
-  margin-bottom: 2.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,6 +23,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 #oneOutOfTen, #twoOutOfTen, #threeOutOfTen, #fourOutOfTen, #fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen {
@@ -72,9 +70,36 @@
 #htmlDef {
   text-align: center;
   width: 60vw;
+  font-size: 2rem;
+}
+
+#inputValue {
+  font-size: 2.5em;
+  text-align: center;
+  border: none;
+}
+
+#inputValue:focus {
+  outline: none;
 }
 
 #defAndOld {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 12rem;
+}
+
+#lastTypo {
+  margin-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,6 +119,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
+  z-index: 2;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -109,5 +136,25 @@
   background: steelblue;
   width: 100vw;
   height: 95vh;
+}
+
+#preGameScreen h1 {
+  opacity: 0;
+  font-size: 5rem;
+}
+
+#preGameScreen button {
+  opacity: 0;
+  margin-top: 1rem;
+  border: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 2.5rem;
+  background: none;
+  opacity: .5;
+}
+
+#preGameScreen button:hover {
+  opacity: .5;
 }
 /*# sourceMappingURL=learningPage.css.map */
