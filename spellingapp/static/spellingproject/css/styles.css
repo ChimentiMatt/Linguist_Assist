@@ -42,7 +42,31 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 95vh;
+}
+
+#progressBar {
+  background: skyblue;
+  width: 30rem;
+  height: 1rem;
+  margin-bottom: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#oneOutOfTen, #twoOutOfTen, #threeOutOfTen, #fourOutOfTen, #fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen {
+  background: slategrey;
+  height: 1rem;
+  width: 0rem;
 }
 
 #gameFace {
@@ -63,6 +87,11 @@
 
 #newWordValue {
   background: rebeccapurple;
+  display: none;
+}
+
+#newWord {
+  display: none;
 }
 
 #checkWord {
@@ -74,8 +103,8 @@
   display: none;
 }
 
-#hearBtn {
-  border: 1px solid black;
+#speachSelect {
+  display: none;
 }
 
 #htmlDef {
@@ -160,5 +189,11 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'Questrial', sans-serif;
+}
+
+#testLanding {
+  position: absolute;
+  top: 12rem;
+  font-size: 3rem;
 }
 /*# sourceMappingURL=styles.css.map */

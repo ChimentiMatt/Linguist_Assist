@@ -3,17 +3,22 @@
 
 {% block learning %}
 
-<div id="learningPage">
+<div id="learningPage"> 
+    <p id="testLanding">Test for GSAP</p>
+    <div id="progressBar">
+        <div id='oneOutOfTen'></div><div id='twoOutOfTen'></div>
+        <div id='threeOutOfTen'></div> <div id='fourOutOfTen'></div>
+        <div id='fiveOutOfTen'></div> <div id='sixOutOfTen'></div>
+        <div id='sevenOutOfTen'></div> <div id='eightOutOfTen'></div>
+        <div id='nineOutOfTen'></div> <div id='tenOutOfTen'></div>
+    </div>
+
     <div>
-        {% comment %} <button v-on:click="newWordFunc">New Word</button> {% endcomment %}
 
-        {% comment %} <button v-on:click="testPost">Test</button> {% endcomment %}
-
-        {% comment %} <button v-on:click="checkWord">x</button> {% endcomment %}
 
         <div id="gameFace">
          
-            <p v-on:click="speachFunc" id="hearBtn">Hear word<p>
+            <button v-on:click="speachFunc" id="hearBtn">Hear word</button>
         
             <select id="speachSelect"></select>
 
@@ -21,7 +26,7 @@
                 {% csrf_token %}
                 <input id="newWord" name="word" >
         
-                <p>Enter the word below</p>
+                <h2>Enter the word below</h2>
                 <input type="text" id="inputValue" placeholder="here" name="spelling_error" >
                 <p id="checkWord" v-on:click="checkWord">Check Word</p>
                 <input type='submit' id="submitPost" value="Submit" v-on:click="axiosPost">
@@ -31,9 +36,12 @@
         <div id='defAndOld'>
             <p id='htmlDef'></p>
             <br>
-            <div v-for="item in lastWords">
+            <h3>Previous Typo</h3>
+            {% comment %} <div v-for="item in lastCorrect">
                 [[item]]
-            </div>
+            </div> {% endcomment %}
+            <p>Correct: [[lastCorrect]]</p>
+            <p>Incorrect: [[lastError]]</p>
         </div>
 
 

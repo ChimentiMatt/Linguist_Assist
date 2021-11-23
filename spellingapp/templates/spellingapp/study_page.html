@@ -31,21 +31,20 @@
             </div>
         {% endfor %}
         <br>
-        <div v-for="item in getList">
+        {% comment %} <div v-for="item in getList">
             [[item.word]]
             [[item.spelling_error]]
         </div>
         <br>
 
+ 
         <div v-for="item in lastWords">
             [[item]]
         </div>
 
-
         <div v-on:click="axiosPost">
             <button type="submit">Send Post</button>
-        
-        </div>
+        </div> {% endcomment %}
             
 
     </div>

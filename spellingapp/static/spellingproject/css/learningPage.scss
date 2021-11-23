@@ -2,8 +2,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 95vh;
 }
+
+#progressBar{
+    background: skyblue;
+    width: 30rem;
+    height: 1rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+#oneOutOfTen, #twoOutOfTen, #threeOutOfTen, #fourOutOfTen, #fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen{
+    background: slategrey;
+    height: 1rem;
+    width:0rem;
+}
+
 
 #gameFace{
     display: flex;
@@ -15,11 +32,11 @@
 
 #newWordValue{
     background: rebeccapurple;
-    // display: none;
+    display: none;
 }
 
 #newWord{
-    // display: none;
+    display: none;
 }
 
 #checkWord{
@@ -32,11 +49,10 @@
 }
 
 #speachSelect{
-    // display: none;
+    display: none;
 }
 #hearBtn{
-    border: 1px solid black;
-    
+
 }
 
 #htmlDef{
