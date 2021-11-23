@@ -81,8 +81,8 @@
                         ],
                         hard: [
                           'red',
-                          'blue',
-                          'green',
+                          // 'blue',
+                          // 'green',
                         ],
                         message: 'phone',
                         newWord: '',
@@ -125,12 +125,14 @@
                 },
 
                 easyFunc() {
+                  gsap.to('#oneOutOfTen', {width: 0, duration: 0})
                   this.easyTrigger = true
                   this.hardTrigger = false
                   document.getElementById('preGameScreen').style.display = 'none'
                   this.randomWord()
                 },
                 hardFunc() {
+                  gsap.to('#oneOutOfTen', {width: 0, duration: 0})
                   this.easyTrigger = false
                   this.hardTrigger = true
                   document.getElementById('preGameScreen').style.display = 'none'
@@ -176,6 +178,21 @@
                     this.getObject()
                   }
                 },
+                getObject() { 
+                    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.message}`)
+                    .then(res => res.json())
+                    .then((res)=> {
+                        // save word
+                        this.api_word = res[0]['word']
+                        // console.log(this.api_word);
+                        // save def
+                        this.api_def = res[0]['meanings'][0]['definitions'][0]['definition']
+                        
+                    })
+                    .then(this.newWordInHTML())
+                    
+                },
+
                 newWordInHTML(){
                   document.getElementById('newWord').value = this.api_word
                   document.getElementById('htmlDef').innerHTML = this.api_def
@@ -243,45 +260,41 @@
                   }
                   else if (this.progressCounter == 4){
                     gsap.to('#fourOutOfTen', {width: '3rem', duration: 1})
+                    gsap.to('#fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen', {width: 0})
                   }
                   else if (this.progressCounter == 5){
                     gsap.to('#fiveOutOfTen', {width: '3rem', duration: 1})
+                    gsap.to('#sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen', {width: 0})
                   }
                   else if (this.progressCounter == 6){
                     gsap.to('#sixOutOfTen', {width: '3rem', duration: 1})
+                    gsap.to('#sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen', {width: 0})
                   }
                   else if (this.progressCounter == 7){
                     gsap.to('#sevenOutOfTen', {width: '3rem', duration: 1})
+                    gsap.to('#eightOutOfTen, #nineOutOfTen, #tenOutOfTen', {width: 0})
                   }
                   else if (this.progressCounter == 8){
                     gsap.to('#eightOutOfTen', {width: '3rem', duration: 1})
+                    gsap.to('#nineOutOfTen, #tenOutOfTen', {width: 0})
                   }
                   else if (this.progressCounter == 9){
                     gsap.to('#nineOutOfTen', {width: '3rem', duration: 1})
+                    gsap.to('#tenOutOfTen', {width: 0})
                   }
                   else if (this.progressCounter == 10){
                     gsap.to('#tenOutOfTen', {width: '3rem', duration: 1})
                     this.progressCounter = 0
+                    document.getElementById('preGameScreen').style.display = 'flex'
+                    gsap.to('#oneOutofTen, #twoOutOfTen, #threeOutOfTen, #fourOutOfTen, #fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen', {delay: 1.1, width: 0, duration: 0})
+                    this.newGame = true
+                
                   }
 
 
 
                 },
-                
-                getObject() { 
-                  fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.message}`)
-                  .then(res => res.json())
-                  .then((res)=> {
-                      // save word
-                      this.api_word = res[0]['word']
-                      // console.log(this.api_word);
-                      // save def
-                      this.api_def = res[0]['meanings'][0]['definitions'][0]['definition']
-                      
-                  })
-                  .then(this.newWordInHTML())
-
-              },
+              
 
               fetchData: function() {
                 const myOption = {
@@ -324,7 +337,7 @@
 
               // Learning Page 
               if (window.location.href.includes('learning')){
-                this.getObject()
+                // this.getObject()
                 let tl = gsap.timeline({repeat: -1})
                 tl.to('#testLanding', {x: '20rem', duration: 10})  
                 tl.to('#testLanding', {x: "0rem", duration: 10})  
