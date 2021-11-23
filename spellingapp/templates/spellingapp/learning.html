@@ -4,7 +4,15 @@
 {% block learning %}
 
 <div id="learningPage"> 
-    <p id="testLanding">Test for GSAP</p>
+    {% comment %} <p id="testLanding">Test for GSAP</p> {% endcomment %}
+
+    <div id="preGameScreen">
+        <h1>Select your difficulty</h1>
+        <div>
+            <button v-on:click="easyFunc">easy</button>
+            <button v-on:click="hardFunc">hard</button>
+        </div>
+    </div>
     <div id="progressBar">
         <div id='oneOutOfTen'></div><div id='twoOutOfTen'></div>
         <div id='threeOutOfTen'></div> <div id='fourOutOfTen'></div>
@@ -14,9 +22,8 @@
     </div>
     <div>
         <div id="gameFace">
-            <button v-on:click="easyFunc">easy</button>
-            <button v-on:click="hardFunc">hard</button>
-            <button v-on:click="speachFunc" id="hearBtn">Start</button>
+
+            <button v-on:click="speachFunc" id="hearBtn">Hear Word</button>
         
             <select id="speachSelect"></select>
 

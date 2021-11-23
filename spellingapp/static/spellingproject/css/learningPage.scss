@@ -67,3 +67,17 @@
     justify-content: center;
     align-items: center;
 }
+
+// Pre Game Screen
+#preGameScreen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border: 1px solid black;
+    background: steelblue;
+    width: 100vw;
+    height: 95vh;
+    // display: none;
+}
