@@ -18,7 +18,7 @@
                 <p id="hardBtn" class="preGameBtns" v-on:click="hardFunc">HARD</p>
                 <p id="borderTopHard"></p>
              </div>
-            <p v-on:click="speachFunc" id="startBtn">Start</p>
+            <p v-on:click="speechFunc" id="startBtn">Start</p>
         </div>
     </div>
     <div id="progressBar">
@@ -31,12 +31,19 @@
     <div id="gameFace">
         <div id='defAndOld'>
             <h1>Definition</h1>
+        <select id="speachSelect"></select>
+        <div v-on:click="speechFunc" >
+            <i class="fas fa-volume-up"></i>
+        </div>
             <p id='htmlDef'></p>
         </div>
 
-        <button v-on:click="speachFunc" id="hearBtn">Hear Word</button>
-    
-        <select id="speachSelect"></select>
+        {% comment %} <button v-on:click="speechFunc" id="hearBtn">Hear Word</button>
+        <br>
+        <div v-on:click="speechFunc" >
+            <i class="fas fa-volume-up"></i>
+        </div>  {% endcomment %}
+        {% comment %} <select id="speachSelect"></select> {% endcomment %}
 
         {% comment %} <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" > {% endcomment %}
             {% csrf_token %}
@@ -53,9 +60,9 @@
 
 
         <div id="lastTypo">
-            <h2>Previous Typo</h2>
-            <h3>Correct: [[lastCorrect]]</h3>
-            <h3>Incorrect: [[lastError]]</h3>
+            <p>Previous Typo</p>
+            <p>Correct: [[lastCorrect]]</p>
+            <p>Incorrect: [[lastError]]</p>
         </div>
 
 

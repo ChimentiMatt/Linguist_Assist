@@ -54,7 +54,11 @@
       {% csrf_token %}
     </div>
 
+  {% comment %} GSAP {% endcomment %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+
+  {% comment %} font awesome {% endcomment %}
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-a11y="true"></script>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://unpkg.com/vue@next"></script>
@@ -99,6 +103,8 @@
                         newGame: true,
                         easyTrigger: true,
                         hardTrigger: false,
+                        objectPopulated: false,
+                        selectpopulated: false,
                   }
             },
             methods: {
@@ -125,6 +131,7 @@
                 },
 
                 easyFunc() {
+                  this.objectPopulated = true
                   gsap.to('#oneOutOfTen', {width: 0, duration: 0})
                   this.easyTrigger = true
                   this.hardTrigger = false
@@ -134,9 +141,10 @@
                   document.getElementById('easyBtn').style.fontWeight = 'bold'
                   gsap.to('#borderTopHard', {width: '0'})
                   this.randomWord()
-  
+      
                 },
                 hardFunc() {
+                  this.objectPopulated = true
                   gsap.to('#oneOutOfTen', {width: 0, duration: 0})
                   this.easyTrigger = false
                   this.hardTrigger = true
@@ -146,31 +154,41 @@
                   document.getElementById('hardBtn').style.fontWeight = 'bold'
                   gsap.to('#borderTopEasy', {width: '0'})
                   this.randomWord()
+       
                 },
 
-                speachFunc() {
-                  // this.newWordInHTML()
-                  gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
-                  if (this.newGame){
-                    this.randomWord()
-                    document.getElementById('hearBtn').innerHTML = 'Hear Word'
-                    this.newGame = false
+                speechFunc() {
+                  // checks for if list is made and difficulty is selected
+                  if (!this.objectPopulated){
                   }
-                  var synth = window.speechSynthesis;
-                  var voices = synth.getVoices();
-                  var voiceSelect = document.getElementById('speachSelect')
+                  else{
+                    gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
+                    
+                    if (this.newGame){
+                      this.randomWord()
+                      this.newGame = false
+                    }
 
-                  for(var i = 0; i < voices.length; i++) {
-                    var option = document.createElement('option');
-                    option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
-                    option.value = i;
-                    voiceSelect.appendChild(option);
-                  }               
-                  var inputTxt = document.getElementById('newWord');
-                  var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
-                  utterThis.voice = voices[voiceSelect.value];
-                  synth.speak(utterThis);
-                  inputTxt.blur();
+                    var synth = window.speechSynthesis;
+                    var voices = synth.getVoices();
+                    var voiceSelect = document.getElementById('speachSelect')
+
+                    if (!this.selectpopulated){
+                      for(var i = 0; i < voices.length; i++) {
+                        var option = document.createElement('option');
+                        option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+                        option.value = i;
+                        voiceSelect.appendChild(option);
+                        this.selectpopulated = true
+                      }            
+                    }   
+                    var inputTxt = document.getElementById('newWord');
+                    var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
+                    utterThis.voice = voices[voiceSelect.value];
+                    
+                    synth.speak(utterThis);
+                    inputTxt.blur();
+                  }
                 },
 
 
@@ -329,7 +347,7 @@
               },
             },
             mounted() {
-   
+
               this.fetchData()
 
      
@@ -340,6 +358,24 @@
 
               this.newWordInHTML()
 
+              //initalize speach options
+              var synth = window.speechSynthesis;
+              var voices = synth.getVoices();
+              var voiceSelect = document.getElementById('speachSelect')
+
+              for(var i = 0; i < voices.length; i++) {
+                var option = document.createElement('option');
+                option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+                option.value = i;
+                voiceSelect.appendChild(option);
+      
+              }     
+              var inputTxt = document.getElementById('newWord');
+              var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
+              utterThis.voice = voices[voiceSelect.value];
+              console.log(utterThis.voice, 'this one mattttt')
+              synth.speak(utterThis);
+              inputTxt.blur();
 
               // Home Page not loggin in
               if (window.location.pathname  == '/'){
