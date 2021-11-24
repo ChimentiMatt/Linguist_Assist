@@ -48,7 +48,7 @@
 
 #progressBarConatiner {
   background: skyblue;
-  background-image: -webkit-linear-gradient(top, #e1ddd9, #e9e5e2);
+  background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
   -webkit-box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
           box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
   width: 30rem;
@@ -61,7 +61,7 @@
       -ms-flex-direction: row;
           flex-direction: row;
   margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
   border-radius: 1rem 1rem 1rem 1rem;
   overflow: hidden;
 }
@@ -107,7 +107,7 @@
 #htmlDef {
   text-align: center;
   width: 60vw;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 #inputValue {
@@ -115,7 +115,7 @@
   font-size: 2.5em;
   text-align: center;
   border: none;
-  border-bottom: 1.5px solid black;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.5);
   padding-bottom: .5rem;
 }
 
@@ -186,17 +186,16 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 1rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   height: 12rem;
-  opacity: .5;
 }
 
 #defAndOld h1 {
   border-bottom: 3px solid black;
   margin-bottom: .5rem;
+  font-size: 1.5rem;
 }
 
 #lastTypo {

@@ -8,14 +8,14 @@
 
 #progressBarConatiner{
     background: $primary-color;
-    background-image: -webkit-linear-gradient(top, #e1ddd9, #e9e5e2);
+    background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
     box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
     width: 30rem;
     height: 2rem;
     display: flex;
     flex-direction: row;
     margin-top: 5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 2.5rem;
     border-radius: 1rem 1rem 1rem 1rem;
     overflow: hidden;
 }
@@ -26,6 +26,7 @@
     background-image: -webkit-linear-gradient(top, #66b3cc, #5da3ba);
     height: 2rem;
     width:0rem;
+    
 }
 
 
@@ -56,9 +57,10 @@
 }
 
 #htmlDef{
+
     text-align: center;
     width: 60vw;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 #inputValue{
@@ -66,8 +68,9 @@
     font-size: 2.5em;
     text-align: center;
     border: none;
-    border-bottom: 1.5px solid black;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.5);
     padding-bottom: .5rem;
+
 }
 
 #inputValue:focus{
@@ -106,14 +109,15 @@
 #defAndOld{
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
+    // margin-top: 1rem;
     align-items: center;
     height: 12rem;
-    opacity: .5;
+    // opacity: .7;
 
     h1{
         border-bottom: 3px solid black;
         margin-bottom: .5rem;
+        font-size: 1.5rem;
     }
 
     p{
