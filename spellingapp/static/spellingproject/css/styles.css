@@ -46,7 +46,7 @@
   height: 95vh;
 }
 
-#progressBar {
+#progressBarConatiner {
   background: skyblue;
   width: 30rem;
   height: 1rem;
@@ -59,9 +59,11 @@
           flex-direction: row;
   margin-top: 5rem;
   margin-bottom: 5rem;
+  border-radius: 10px 10px 10px 10px;
 }
 
-#oneOutOfTen, #twoOutOfTen, #threeOutOfTen, #fourOutOfTen, #fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen {
+#progressBar {
+  border-radius: 10px 10px 10px 10px;
   background: slategrey;
   height: 1rem;
   width: 0rem;
@@ -108,7 +110,7 @@
   font-size: 2.5em;
   text-align: center;
   border: none;
-  border-bottom: 3px solid black;
+  border-bottom: 1.5px solid black;
   padding-bottom: .5rem;
 }
 
@@ -158,12 +160,17 @@
   font-size: 1.5rem;
   margin-left: .5rem;
   margin-right: .5rem;
+  font-weight: bold;
 }
 
 #checkWord {
   margin-top: 1rem;
-  padding: 1rem 2rem 1rem 2rem;
+  padding: .5rem 1rem .5rem 1rem;
   border-radius: 5px;
+  font-size: 1.5rem;
+  background: skyblue;
+  border: none;
+  color: white;
 }
 
 #defAndOld {
@@ -179,15 +186,16 @@
       -ms-flex-align: center;
           align-items: center;
   height: 12rem;
+  opacity: .5;
 }
 
 #defAndOld h1 {
   border-bottom: 3px solid black;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 }
 
 #lastTypo {
-  margin-top: 2rem;
+  margin-top: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -201,6 +209,15 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#lastTypo h3 {
+  margin-bottom: .25rem;
+}
+
+#lastTypo p {
+  margin-top: .25rem;
+  margin-bottom: .25rem;
 }
 
 #preGameScreen {
@@ -221,7 +238,7 @@
           align-items: center;
   position: absolute;
   border: 1px solid black;
-  background: steelblue;
+  background: skyblue;
   width: 100vw;
   height: 95vh;
 }

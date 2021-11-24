@@ -24,12 +24,9 @@
     </div>
     <select id="speachSelect"></select>
     {% comment %} <p>Progress Bar</p> {% endcomment %}
-    <div id="progressBar">
-        <div id='oneOutOfTen'></div><div id='twoOutOfTen'></div>
-        <div id='threeOutOfTen'></div> <div id='fourOutOfTen'></div>
-        <div id='fiveOutOfTen'></div> <div id='sixOutOfTen'></div>
-        <div id='sevenOutOfTen'></div> <div id='eightOutOfTen'></div>
-        <div id='nineOutOfTen'></div> <div id='tenOutOfTen'></div>
+    <div id="progressBarConatiner">
+        <div id='progressBar'></div>
+
     </div>
     <div id="gameFace">
         <div id='defAndOld'>
@@ -47,7 +44,7 @@
         {% comment %} <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" > {% endcomment %}
             {% csrf_token %}
             <input id="newWord" name="word" >
-            <input type="text" id="inputValue" placeholder="Type Word Here" name="spelling_error" >
+            <input type="text" id="inputValue" placeholder="Type Here" name="spelling_error" >
             <div v-on:click="speechFunc" id="speachContainer">
                 <p>Hear Word</p><p><i class="fas fa-volume-up"></i></p>
             </div>
@@ -60,7 +57,7 @@
 
 
         <div id="lastTypo">
-            <p>Previous Typo</p>
+            <h3>Previous Typo</h3>
             <p>Correct: [[lastCorrect]]</p>
             <p>Incorrect: [[lastError]]</p>
         </div>
