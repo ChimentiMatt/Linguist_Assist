@@ -6,12 +6,12 @@
 
     <div id="paper">
         <section id="paperHeading">
-        <p>Word</p>
-        <p>Error</p>
+            <p>Word</p>
+            <p>Error</p>
         </section>
        
     
-        <form action="{% url 'spellingapp:add_key_val' %}" method="POST">
+        <form id="addAndRemoveForm" action="{% url 'spellingapp:add_key_val' %}" method="POST">
             {% csrf_token %}
             <input type="text" name="word">
             <input type="text" name="spelling_error">
@@ -22,7 +22,7 @@
         {% for item in spelling_list  %}
             <div>
                 <div>
-                   <a  href="{% url 'spellingapp:remove_key_val' pk=item.pk %}">x</a>
+                   <a id="removeWord" href="{% url 'spellingapp:remove_key_val' pk=item.pk %}">x</a>
                    <p>{{ item.word }}</p>
                 </div>
                 <div>

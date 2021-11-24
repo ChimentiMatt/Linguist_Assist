@@ -8,11 +8,26 @@
     object-fit: contain;
 
     div{
-        background: url('/static/spellingproject/media/paper.jpg');
+        // background: url('/static/spellingproject/media/paper.jpg');
         background-size: auto 100%;
         height: 44rem;
         width: 38rem;
         object-fit: fill;
+
+        #addAndRemoveForm{
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            
+            input{
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+
+        #removeWord{
+            margin-right: 1rem;
+        }
 
         section{
             display: flex;

@@ -84,7 +84,6 @@
 }
 
 #newWordValue {
-  background: rebeccapurple;
   display: none;
 }
 
@@ -92,9 +91,10 @@
   display: none;
 }
 
-#checkWord {
-  border: 1px solid black;
-  border-radius: 2px;
+#speachSelect {
+  position: absolute;
+  right: 1rem;
+  margin-top: 1rem;
 }
 
 #htmlDef {
@@ -104,13 +104,66 @@
 }
 
 #inputValue {
+  margin-top: 1rem;
   font-size: 2.5em;
   text-align: center;
   border: none;
+  border-bottom: 3px solid black;
+  padding-bottom: .5rem;
 }
 
 #inputValue:focus {
   outline: none;
+}
+
+#inputValue::-webkit-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: .4;
+  /* Firefox */
+}
+
+#inputValue:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: .4;
+  /* Firefox */
+}
+
+#inputValue::-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: .4;
+  /* Firefox */
+}
+
+#inputValue::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: .4;
+  /* Firefox */
+}
+
+#speachContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1rem;
+}
+
+#speachContainer p {
+  font-size: 1.5rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+#checkWord {
+  margin-top: 1rem;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 5px;
 }
 
 #defAndOld {
@@ -126,6 +179,11 @@
       -ms-flex-align: center;
           align-items: center;
   height: 12rem;
+}
+
+#defAndOld h1 {
+  border-bottom: 3px solid black;
+  margin-bottom: 1rem;
 }
 
 #lastTypo {
@@ -168,6 +226,10 @@
   height: 95vh;
 }
 
+#preGameScreen #preGameH1 {
+  color: black;
+}
+
 #preGameScreen #preGameBtnContainer {
   margin-top: 2rem;
   display: -webkit-box;
@@ -187,12 +249,12 @@
   margin: 0;
 }
 
-#preGameScreen #preGameBtnContainer #easyContainer #easyBtn:hover {
-  font-weight: bold;
+#preGameScreen #preGameBtnContainer #easyContainer #easyBtn {
+  color: black;
 }
 
 #preGameScreen #preGameBtnContainer #easyContainer #borderTopEasy {
-  border-top: 1px solid black;
+  border-top: 3px solid black;
   width: 0;
   margin-left: 1rem;
 }
@@ -209,12 +271,12 @@
   margin: 0;
 }
 
-#preGameScreen #preGameBtnContainer #hardContainer #hardBtn:hover {
-  font-weight: bold;
+#preGameScreen #preGameBtnContainer #hardContainer #hardBtn {
+  color: black;
 }
 
 #preGameScreen #preGameBtnContainer #hardContainer #borderTopHard {
-  border-top: 1px solid black;
+  border-top: 3px solid black;
   width: 0;
   margin-left: 1rem;
 }
@@ -225,10 +287,17 @@
   padding-right: 1rem;
 }
 
-#preGameScreen #preGameBtnContainer #startBtn {
+#preGameScreen #startBtn {
+  margin-top: 2.5rem;
   font-size: 2rem;
+  font-weight: bold;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: black;
+}
+
+#preGameScreen #startBtn:hover {
+  color: black;
 }
 
 #preGameScreen h1 {
@@ -253,12 +322,30 @@
 }
 
 #studyPage div {
-  background: url("/static/spellingproject/media/paper.jpg");
   background-size: auto 100%;
   height: 44rem;
   width: 38rem;
   -o-object-fit: fill;
      object-fit: fill;
+}
+
+#studyPage div #addAndRemoveForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1rem;
+}
+
+#studyPage div #addAndRemoveForm input {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#studyPage div #removeWord {
+  margin-right: 1rem;
 }
 
 #studyPage div section {

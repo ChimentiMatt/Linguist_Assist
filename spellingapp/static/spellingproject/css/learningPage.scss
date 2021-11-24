@@ -4,7 +4,6 @@
     align-items: center;
     flex-direction: column;
     height: 95vh;
-
 }
 
 #progressBar{
@@ -23,17 +22,14 @@
     width:0rem;
 }
 
-
 #gameFace{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    // background: cornflowerblue;
 }
 
 #newWordValue{
-    background: rebeccapurple;
     display: none;
 }
 
@@ -41,17 +37,12 @@
     display: none;
 }
 
-#checkWord{
-    border: 1px solid black;
-    border-radius: 2px;
-}
-
-// #submitPost{
-//     display: none;
-// }
 
 #speachSelect{
+    position: absolute;
+    right: 1rem;
     // display: none;
+    margin-top: 1rem;
 }
 #hearBtn{
 
@@ -64,12 +55,40 @@
 }
 
 #inputValue{
+    margin-top: 1rem;
     font-size: 2.5em;
     text-align: center;
     border: none;
+    border-bottom: 3px solid black;
+    padding-bottom: .5rem;
 }
+
 #inputValue:focus{
     outline: none;
+}
+
+#inputValue::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: .4; /* Firefox */
+  }
+
+#speachContainer{
+    display: flex;
+    align-items: center;
+    width: 20rem;
+    justify-content: center;
+    margin-top: 1rem;
+    
+    p{
+        font-size: 1.5rem;
+        margin-left: .5rem;
+        margin-right: .5rem;
+    }
+}
+
+#checkWord{
+    margin-top: 1rem;
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 5px;
 }
 
 #defAndOld{
@@ -78,6 +97,11 @@
     margin-top: 1rem;
     align-items: center;
     height: 12rem;
+
+    h1{
+        border-bottom: 3px solid black;
+        margin-bottom: 1rem;
+    }
 
     p{
         // text-align: start;
@@ -91,7 +115,12 @@
     align-items: center;
 }
 
-// Pre Game Screen
+
+
+
+
+
+// Pre Game Screen ------------------------------------------------------------
 #preGameScreen{
     display: flex;
     position: relative;
@@ -105,6 +134,10 @@
     width: 100vw;
     height: 95vh;
 
+    #preGameH1{
+        color: black;
+    }
+
     #preGameBtnContainer{
         margin-top: 2rem;
         display: flex;
@@ -115,12 +148,12 @@
             flex-direction: column;
             margin: 0;
 
-            #easyBtn:hover{
-                font-weight: bold;
+            #easyBtn{
+                color: black;
             }
 
             #borderTopEasy{
-                border-top: 1px solid black;
+                border-top: 3px solid black;
                 width: 0;
                 margin-left: 1rem;
             }
@@ -131,12 +164,12 @@
             flex-direction: column;
             margin: 0;
 
-            #hardBtn:hover{
-                font-weight: bold;
+            #hardBtn{
+                color: black;
             }
 
             #borderTopHard{
-                border-top: 1px solid black;
+                border-top: 3px solid black;
                 width: 0;
                 margin-left: 1rem;
             }
@@ -146,12 +179,19 @@
             padding-left: 1rem;
             padding-right: 1rem;
         }
+    }
 
-        #startBtn{
-            font-size: 2rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
+    #startBtn{
+        margin-top: 2.5rem;
+        font-size: 2rem;
+        font-weight: bold;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        color: black;
+    }
+    
+    #startBtn:hover{
+        color: black;
     }
 
     h1{

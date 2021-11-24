@@ -105,6 +105,7 @@
                         hardTrigger: false,
                         objectPopulated: false,
                         selectpopulated: false,
+
                   }
             },
             methods: {
@@ -138,11 +139,12 @@
                   // document.getElementById('preGameScreen').style.display = 'none'
                   // gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
                   gsap.to('#borderTopEasy', {width: '5rem'})
-                  document.getElementById('easyBtn').style.fontWeight = 'bold'
+                  // document.getElementById('easyBtn').style.fontWeight = 'bold'
                   gsap.to('#borderTopHard', {width: '0'})
                   this.randomWord()
       
                 },
+
                 hardFunc() {
                   this.objectPopulated = true
                   gsap.to('#oneOutOfTen', {width: 0, duration: 0})
@@ -151,10 +153,9 @@
                   // document.getElementById('preGameScreen').style.display = 'none'
                   // gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
                   gsap.to('#borderTopHard', {width: '5.5rem'})
-                  document.getElementById('hardBtn').style.fontWeight = 'bold'
+                  // document.getElementById('hardBtn').style.fontWeight = 'bold'
                   gsap.to('#borderTopEasy', {width: '0'})
                   this.randomWord()
-       
                 },
 
                 speechFunc() {
@@ -162,7 +163,7 @@
                   if (!this.objectPopulated){
                   }
                   else{
-                    gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
+                    gsap.to('#preGameScreen', {duration: .5, opacity: 0, display: 'none'})
                     
                     if (this.newGame){
                       this.randomWord()
@@ -185,7 +186,8 @@
                     var inputTxt = document.getElementById('newWord');
                     var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
                     utterThis.voice = voices[voiceSelect.value];
-                    
+                    // utterThis.voice = '(en-GB)'
+                    // console.log(utterThis.voice, 'ut')
                     synth.speak(utterThis);
                     inputTxt.blur();
                   }
@@ -385,35 +387,14 @@
               // Learning Page 
               if (window.location.href.includes('learning')){
                 // this.getObject()
-               
- 
+
+                //Pre Game Screen
+                gsap.to('#preGameH1', {opacity: 1, duration: 1})
 
 
-                  //Pre Game Screen
-                  gsap.to('#preGameH1', {opacity: 1, duration: 2})
 
-                  // let easyBtn = document.getElementById('easyBtn')
-                  // easyBtn.addEventListener('mouseenter', () => {
-                  //   gsap.to('#borderTop', {width: '5rem'})
-                  // })
-                  // easyBtn.addEventListener('mouseleave', () => {
-                  //    gsap.to('#borderTop', {width: '0rem'})
-                  // })
-                  // let hardBtn = document.getElementById('hardBtn')
-                  // hardBtn.addEventListener('mouseenter', () => {
-                  //   gsap.to('#hardBtn', {opacity: 1, scale: 1.2})
-                  // })
-                  // hardBtn.addEventListener('mouseleave', () => {
-                  //   gsap.to('#hardBtn', {opacity: .5, scale: 1})
-                  // })
 
-                  let startBtn = document.getElementById('startBtn')
-                  startBtn.addEventListener('mouseenter', () => {
-                    gsap.to('#startBtn', {fontWeight: 'bold'})
-                  })
-                  startBtn.addEventListener('mouseleave', () => {
-                    gsap.to('#startBtn', {fontWeight: 'normal'})
-                  })
+
                 }
                          
               }
