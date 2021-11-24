@@ -3,9 +3,12 @@
     justify-content: center;
     align-items: center;
     background: $primary-background;
-    color: white;
+    color: $primary-color;
     height: 95vh;
 
+    span{
+        color: complement($primary-color);
+    }
     h1{
         font-size: 5rem;
     }

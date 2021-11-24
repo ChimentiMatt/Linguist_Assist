@@ -1,69 +1,114 @@
 #studyPage{
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
     height: 100vh;
-    // background: #1a1a1a;
-    color: black;
+    background: $primary-background;
+    color: white;
     object-fit: contain;
 
-    div{
-        // background: url('/static/spellingproject/media/paper.jpg');
+    #studyPageInner{
         background-size: auto 100%;
-        height: 44rem;
+        height: 95vh;
         width: 38rem;
+        // background: rgb(75, 75, 75);
         object-fit: fill;
 
-        #addAndRemoveForm{
+        #wordErrorLabel{
             display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-            
-            input{
-                margin-left: 1rem;
-                margin-right: 1rem;
-            }
-        }
-
-        #removeWord{
-            margin-right: 1rem;
-        }
-
-        section{
-            display: flex;
-            align-items: flex-end;
-            margin-left: 8rem;
-            height: 4rem;
-            width: 15rem;
-            // background: red;
+            font-size: 1.5rem;
             font-weight: bold;
-
-            p:nth-child(2){
-                margin-left: 12.6rem;
+            color: $primary-color;
+            div{
+                width: 45%;
+                margin-bottom: 1rem;
+                p:nth-child(1){
+                    padding-left: 2rem;
+                }
             }
         }
 
-        div:nth-child(1){
-            margin-left: 8rem;
-        }
 
-        div{
-            background: initial;
+        #spellingListContainer{
             display: flex;
-            // background: blue;
-            // width: 32rem;
-            // height: 39rem;
-            height: 1.2rem;
-            // margin-left: 0rem;
-            margin-top: .28rem;
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+
+            #spellingListLeft{ 
+                width: 50%;
+                display: flex;
+
+                a{
+                    text-decoration: none;
+                    margin-right: 1rem;
+                    color: complement($primary-color);
+
+                }
+                a:hover{
+                    color: $primary-color;
+                }
+
+            }
+            #spellingListRight{
+                width: 50%;
+            }
         }
 
-        p{
-            // margin-top: .35rem;
-        }
+        // div{
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     flex-direction: column;
+        // }
 
-        p:nth-child(2){
-            // margin-left: 10rem;
-        }
+        // section{
+        //     display: flex;
+        //     align-items: flex-end;
+        //     height: 4rem;
+        //     width: 15rem;
+        //     font-weight: bold;
+
+        //     p:nth-child(2){
+        //         margin-left: 12.6rem;
+        //     }
+        // }
+
+        // #addAndRemoveForm{
+        //     display: flex;
+        //     // justify-content: center;
+        //     margin-top: 1rem;
+            
+        //     input{
+        //         // margin-left: 1rem;
+        //         // margin-right: 1rem;
+        //     }
+        // }
+        // div:nth-child(1){
+   
+        // }
+
+        // div{
+        //     background: initial;
+        //     display: flex;
+        //     // background: blue;
+        //     // width: 32rem;
+        //     // height: 39rem;
+        //     height: 1.2rem;
+        //     // margin-left: 0rem;
+        //     margin-top: .28rem;
+        // }
+
+        // #removeWord{
+        //     margin-right: 1rem;
+        // }
+
+
+        // p{
+        //     // margin-top: .35rem;
+        // }
+
+        // p:nth-child(2){
+        //     // margin-left: 10rem;
+        // }
     }
 }

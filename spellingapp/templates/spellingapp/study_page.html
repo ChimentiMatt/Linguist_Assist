@@ -4,48 +4,49 @@
 {% block study %}
 <div id="studyPage">
 
-    <div id="paper">
-        <section id="paperHeading">
-            <p>Word</p>
-            <p>Error</p>
-        </section>
-       
-    
-        <form id="addAndRemoveForm" action="{% url 'spellingapp:add_key_val' %}" method="POST">
-            {% csrf_token %}
-            <input type="text" name="word">
-            <input type="text" name="spelling_error">
-            <input type="submit" value="add">
-        </form>
+    <div id="studyPageInner">
 
-
-        {% for item in spelling_list  %}
-            <div>
+            <section id="wordErrorLabel">
                 <div>
-                   <a id="removeWord" href="{% url 'spellingapp:remove_key_val' pk=item.pk %}">x</a>
-                   <p>{{ item.word }}</p>
+                    <p>Word</p>
                 </div>
                 <div>
-                    <p>{{ item.spelling_error }}</p>
+                    <p>Error</p>
                 </div>
+            </section>
+        
+            {% comment %} <form id="addAndRemoveForm" action="{% url 'spellingapp:add_key_val' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="word">
+                <input type="text" name="spelling_error">
+                <input type="submit" value="add">
+            </form> {% endcomment %}
+
+            {% for item in spelling_list  %}
+                <div id="spellingListContainer">
+                    <div id="spellingListLeft">
+                        <a id="removeWord" href="{% url 'spellingapp:remove_key_val' pk=item.pk %}"><i class="fas fa-eraser"></i></a>
+                        <p>{{ item.word }}</p>
+                    </div>
+                    <div id="spellingListRight">
+                        <p>{{ item.spelling_error }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            <br>
+            {% comment %} <div v-for="item in getList">
+                [[item.word]]
+                [[item.spelling_error]]
             </div>
-        {% endfor %}
-        <br>
-        {% comment %} <div v-for="item in getList">
-            [[item.word]]
-            [[item.spelling_error]]
-        </div>
-        <br>
+            <br>
 
- 
-        <div v-for="item in lastWords">
-            [[item]]
-        </div>
+            <div v-for="item in lastWords">
+                [[item]]
+            </div>
 
-        <div v-on:click="axiosPost">
-            <button type="submit">Send Post</button>
-        </div> {% endcomment %}
-            
+            <div v-on:click="axiosPost">
+                <button type="submit">Send Post</button>
+            </div> {% endcomment %}
 
     </div>
 </div>

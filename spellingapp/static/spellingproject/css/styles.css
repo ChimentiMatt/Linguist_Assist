@@ -10,8 +10,12 @@
       -ms-flex-align: center;
           align-items: center;
   background: #1a1a1a;
-  color: white;
+  color: #3AA8C1;
   height: 95vh;
+}
+
+#landingPage span {
+  color: #c1533a;
 }
 
 #landingPage h1 {
@@ -347,70 +351,66 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   height: 100vh;
-  color: black;
+  background: #1a1a1a;
+  color: white;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-#studyPage div {
+#studyPage #studyPageInner {
   background-size: auto 100%;
-  height: 44rem;
+  height: 95vh;
   width: 38rem;
   -o-object-fit: fill;
      object-fit: fill;
 }
 
-#studyPage div #addAndRemoveForm {
+#studyPage #studyPageInner #wordErrorLabel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 1rem;
-}
-
-#studyPage div #addAndRemoveForm input {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-#studyPage div #removeWord {
-  margin-right: 1rem;
-}
-
-#studyPage div section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  margin-left: 8rem;
-  height: 4rem;
-  width: 15rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: #3AA8C1;
 }
 
-#studyPage div section p:nth-child(2) {
-  margin-left: 12.6rem;
+#studyPage #studyPageInner #wordErrorLabel div {
+  width: 45%;
+  margin-bottom: 1rem;
 }
 
-#studyPage div div:nth-child(1) {
-  margin-left: 8rem;
+#studyPage #studyPageInner #wordErrorLabel div p:nth-child(1) {
+  padding-left: 2rem;
 }
 
-#studyPage div div {
-  background: initial;
+#studyPage #studyPageInner #spellingListContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 1.2rem;
-  margin-top: .28rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+#studyPage #studyPageInner #spellingListContainer #spellingListLeft {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#studyPage #studyPageInner #spellingListContainer #spellingListLeft a {
+  text-decoration: none;
+  margin-right: 1rem;
+  color: #c1533a;
+}
+
+#studyPage #studyPageInner #spellingListContainer #spellingListLeft a:hover {
+  color: #3AA8C1;
+}
+
+#studyPage #studyPageInner #spellingListContainer #spellingListRight {
+  width: 50%;
 }
 
 #registerPage {
@@ -440,16 +440,30 @@
   color: #3AA8C1;
 }
 
+#registerPage p:nth-child(2) input {
+  width: 30rem;
+}
+
 #registerPage p:nth-child(3) {
   margin-bottom: .5rem;
 }
 
+#registerPage p:nth-child(3) input {
+  margin-left: .33rem;
+  width: 30.05rem;
+}
+
 #registerPage p:nth-child(5) {
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 #registerPage p:nth-child(5) label {
   font-size: 2rem;
+}
+
+#registerPage p:nth-child(5) #id_password2 {
+  width: 120rem;
+  background: red;
 }
 
 #registerPage input {
@@ -457,7 +471,7 @@
   border-bottom: 1px solid #3AA8C1;
   font-size: 1.3rem;
   width: 15rem;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 }
 
 #registerPage input:focus {
@@ -474,19 +488,28 @@
 }
 
 #registerPage button {
-  margin-top: .5rem;
-  width: 100%;
+  margin-top: 1rem;
   font-weight: bold;
   font-size: 1.5rem;
-  background: #1a1a1a;
+  background: #c1533a;
   text-align: start;
+  width: 100%;
+  padding: .25rem 0 .25rem 0;
+  text-align: center;
+  border: 1px solid #3AA8C1;
   border: none;
   border-radius: .2rem;
-  color: #3AA8C1;
+  color: white;
 }
 
 #registerPage button:hover {
   color: #c1533a;
+  background: white;
+  border: none;
+}
+
+#registerPage #id_password2 {
+  width: 21.6rem;
 }
 
 #loginPage {
@@ -513,30 +536,40 @@
   width: 100%;
   text-align: start;
   margin-bottom: 1rem;
+  color: #3AA8C1;
+}
+
+#loginPage p:nth-child(3) label {
+  margin-right: .4rem;
 }
 
 #loginPage button {
   margin-top: .5rem;
-  width: 100%;
   font-weight: bold;
   font-size: 1.5rem;
-  background: #1a1a1a;
+  background: #c1533a;
   text-align: start;
+  width: 100%;
+  padding: .25rem 0 .25rem 0;
+  text-align: center;
+  border: 1px solid #3AA8C1;
   border: none;
   border-radius: .2rem;
-  color: #3AA8C1;
+  color: white;
 }
 
 #loginPage button:hover {
   color: #c1533a;
+  background: white;
+  border: none;
 }
 
 #loginPage input {
   border: none;
   border-bottom: 1px solid #3AA8C1;
   font-size: 1.3rem;
-  width: 15rem;
   margin-bottom: 1rem;
+  background: white;
 }
 
 #loginPage input:focus {

@@ -42,14 +42,14 @@
         {% comment %} <select id="speachSelect"></select> {% endcomment %}
 
         {% comment %} <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" > {% endcomment %}
-            {% csrf_token %}
-            <input id="newWord" name="word" >
-            <input type="text" id="inputValue" placeholder="Type Here" name="spelling_error" >
-            <div v-on:click="speechFunc" id="speachContainer">
-                <p>Hear Word</p><p><i class="fas fa-volume-up"></i></p>
-            </div>
+        {% csrf_token %}
+        <input id="newWord" name="word" >
+        <input type="text" id="inputValue" placeholder="Type Here" name="spelling_error" >
+        <div v-on:click="speechFunc" id="speachContainer">
+            <p>Hear Word</p><p><i class="fas fa-volume-up"></i></p>
+        </div>
 
-            <button v-on:click="checkWord" id="checkWord" type="submit">Check Spelling</button>
+        <button v-on:click="checkWord" id="checkWord" type="submit">Check Spelling</button>
 
             {% comment %} <input type='submit' id="submitPost" value="Submit" v-on:click="axiosPost"> {% endcomment %}
         {% comment %} </form> {% endcomment %}
