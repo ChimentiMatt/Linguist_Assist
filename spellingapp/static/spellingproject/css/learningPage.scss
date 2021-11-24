@@ -73,13 +73,11 @@
 }
 
 #defAndOld{
-
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
     align-items: center;
     height: 12rem;
-
 
     p{
         // text-align: start;
@@ -107,26 +105,64 @@
     width: 100vw;
     height: 95vh;
 
-    // display: none;
+    #preGameBtnContainer{
+        margin-top: 2rem;
+        display: flex;
+
+        #easyContainer{
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+
+            #easyBtn:hover{
+                font-weight: bold;
+            }
+
+            #borderTopEasy{
+                border-top: 1px solid black;
+                width: 0;
+                margin-left: 1rem;
+            }
+        }
+        #hardContainer{
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+
+            #hardBtn:hover{
+                font-weight: bold;
+            }
+
+            #borderTopHard{
+                border-top: 1px solid black;
+                width: 0;
+                margin-left: 1rem;
+            }
+        }
+        .preGameBtns{
+            font-size: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #startBtn{
+            font-size: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+
     h1{
         opacity: 0;
         font-size: 5rem;
     }
 
-    button{
-        opacity: 0;
-        margin-top: 1rem;
-        border: none;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        font-size: 2.5rem;
-        background: none;
-        opacity: .5;
-    }
 
     button:hover{
         // color: red;
-        opacity: .5;
+        
         // opacity: 1;
     }
 }

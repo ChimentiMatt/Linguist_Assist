@@ -138,23 +138,71 @@
   height: 95vh;
 }
 
+#preGameScreen #preGameBtnContainer {
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#preGameScreen #preGameBtnContainer #easyContainer {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+}
+
+#preGameScreen #preGameBtnContainer #easyContainer #easyBtn:hover {
+  font-weight: bold;
+}
+
+#preGameScreen #preGameBtnContainer #easyContainer #borderTopEasy {
+  border-top: 1px solid black;
+  width: 0;
+  margin-left: 1rem;
+}
+
+#preGameScreen #preGameBtnContainer #hardContainer {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+}
+
+#preGameScreen #preGameBtnContainer #hardContainer #hardBtn:hover {
+  font-weight: bold;
+}
+
+#preGameScreen #preGameBtnContainer #hardContainer #borderTopHard {
+  border-top: 1px solid black;
+  width: 0;
+  margin-left: 1rem;
+}
+
+#preGameScreen #preGameBtnContainer .preGameBtns {
+  font-size: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#preGameScreen #preGameBtnContainer #startBtn {
+  font-size: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 #preGameScreen h1 {
   opacity: 0;
   font-size: 5rem;
-}
-
-#preGameScreen button {
-  opacity: 0;
-  margin-top: 1rem;
-  border: none;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  font-size: 2.5rem;
-  background: none;
-  opacity: .5;
-}
-
-#preGameScreen button:hover {
-  opacity: .5;
 }
 /*# sourceMappingURL=learningPage.css.map */

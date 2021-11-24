@@ -8,11 +8,17 @@
 
     <div id="preGameScreen">
         <h1 id="preGameH1">Select your difficulty</h1>
-        <div>
-            <button id="easyBtn" class="preGameBtns" v-on:click="easyFunc">EASY</button>
-            <button id="hardBtn" class="preGameBtns" v-on:click="hardFunc">HARD</button>
-     
-            <button v-on:click="speachFunc">Start</button>
+        <div id="preGameBtnContainer">
+            <div id="easyContainer">
+                <p id="easyBtn" class="preGameBtns" v-on:click="easyFunc">EASY</p>
+                <p id="borderTopEasy"></p>
+            </div>
+         
+            <div id="hardContainer">
+                <p id="hardBtn" class="preGameBtns" v-on:click="hardFunc">HARD</p>
+                <p id="borderTopHard"></p>
+             </div>
+            <p v-on:click="speachFunc" id="startBtn">Start</p>
         </div>
     </div>
     <div id="progressBar">

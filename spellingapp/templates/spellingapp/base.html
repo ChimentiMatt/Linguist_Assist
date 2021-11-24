@@ -130,7 +130,9 @@
                   this.hardTrigger = false
                   // document.getElementById('preGameScreen').style.display = 'none'
                   // gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
-
+                  gsap.to('#borderTopEasy', {width: '5rem'})
+                  document.getElementById('easyBtn').style.fontWeight = 'bold'
+                  gsap.to('#borderTopHard', {width: '0'})
                   this.randomWord()
   
                 },
@@ -140,6 +142,9 @@
                   this.hardTrigger = true
                   // document.getElementById('preGameScreen').style.display = 'none'
                   // gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
+                  gsap.to('#borderTopHard', {width: '5.5rem'})
+                  document.getElementById('hardBtn').style.fontWeight = 'bold'
+                  gsap.to('#borderTopEasy', {width: '0'})
                   this.randomWord()
                 },
 
@@ -351,19 +356,27 @@
                   //Pre Game Screen
                   gsap.to('#preGameH1', {opacity: 1, duration: 2})
 
-                  let easyBtn = document.getElementById('easyBtn')
-                  easyBtn.addEventListener('mouseenter', () => {
-                    gsap.to('#easyBtn', {opacity: 1, scale: 1.2})
+                  // let easyBtn = document.getElementById('easyBtn')
+                  // easyBtn.addEventListener('mouseenter', () => {
+                  //   gsap.to('#borderTop', {width: '5rem'})
+                  // })
+                  // easyBtn.addEventListener('mouseleave', () => {
+                  //    gsap.to('#borderTop', {width: '0rem'})
+                  // })
+                  // let hardBtn = document.getElementById('hardBtn')
+                  // hardBtn.addEventListener('mouseenter', () => {
+                  //   gsap.to('#hardBtn', {opacity: 1, scale: 1.2})
+                  // })
+                  // hardBtn.addEventListener('mouseleave', () => {
+                  //   gsap.to('#hardBtn', {opacity: .5, scale: 1})
+                  // })
+
+                  let startBtn = document.getElementById('startBtn')
+                  startBtn.addEventListener('mouseenter', () => {
+                    gsap.to('#startBtn', {fontWeight: 'bold'})
                   })
-                  easyBtn.addEventListener('mouseleave', () => {
-                    gsap.to('#easyBtn', {opacity: .5, scale: 1})
-                  })
-                  let hardBtn = document.getElementById('hardBtn')
-                  hardBtn.addEventListener('mouseenter', () => {
-                    gsap.to('#hardBtn', {opacity: 1, scale: 1.2})
-                  })
-                  hardBtn.addEventListener('mouseleave', () => {
-                    gsap.to('#hardBtn', {opacity: .5, scale: 1})
+                  startBtn.addEventListener('mouseleave', () => {
+                    gsap.to('#startBtn', {fontWeight: 'normal'})
                   })
                 }
                          
