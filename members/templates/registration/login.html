@@ -3,12 +3,14 @@
 
 {% block landing %}
 
-<h1>Login...</h1>
-<div class="form-group">
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-secondary">Login</button>
+<div id="loginPage">
+    <div class="form-group">
+        <h1>Login...</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Login</button>
+        </form>
+    </div>
 </div>
-
 {% endblock landing %}

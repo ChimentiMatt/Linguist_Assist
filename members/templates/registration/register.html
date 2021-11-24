@@ -1,16 +1,20 @@
+
 {% extends 'spellingapp/base.html' %}
+{% comment %} https://www.youtube.com/watch?v=mpfHDSmqHds&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=9 {% endcomment %}
 {% load static %}
 
 {% block register %}
-<p>Registration</p>
-{% comment %} 15:17 {% endcomment %}
-{% comment %} https://www.youtube.com/watch?v=mpfHDSmqHds&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=9 {% endcomment %}
-
-<div >
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-secondary">Register</button>
+<div id="registerPage">
+    <div>
+        <p>Registration</p>
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-secondary">Register</button>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock register %} 
 

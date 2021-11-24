@@ -1,0 +1,121 @@
+//Register Page
+#registerPage{
+    background: $primary-background;
+    height: 95vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.5rem;
+
+    p:nth-child(1){
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: $primary-color;
+        // padding-bottom: .2rem;
+        // border-bottom: 1px solid white;
+    }
+
+    p:nth-child(3){
+        margin-bottom: .5rem;
+    }
+
+    p:nth-child(5){
+        label{
+            font-size: 2rem;
+        }
+        margin-top: 1rem;
+    }
+
+    input{
+        // background: none;
+        border: none;
+        border-bottom: 1px solid $primary-color;
+        // color: white;
+        font-size: 1.3rem;
+        width: 15rem;
+        margin-bottom: 1rem;
+    }
+
+    input:focus{
+        outline: none;
+    }
+
+    .helptext{
+        display: none;
+    }
+    li{
+        margin-left: 2rem;
+        font-size: 1rem;
+    }
+
+    button{
+        margin-top: .5rem;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.5rem;
+        background: $primary-background;
+        text-align: start;
+        border: none;
+        border-radius: .2rem;
+        color: $primary-color;
+    }
+
+    button:hover{
+        color: complement($primary-color);
+    }
+}
+
+
+
+#loginPage{
+    background: $primary-background;
+    height: 95vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.5rem;
+
+
+    h1{
+        width: 100%;
+        text-align: start;
+        margin-bottom: 1rem;
+    }
+    
+    button{
+        margin-top: .5rem;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.5rem;
+        background: $primary-background;
+        text-align: start;
+        border: none;
+        border-radius: .2rem;
+        color: $primary-color;
+    }
+    
+    button:hover{
+        color: complement($primary-color);
+    }
+
+
+    input{
+        // background: none;
+        border: none;
+        border-bottom: 1px solid $primary-color;
+        // color: white;
+        font-size: 1.3rem;
+        width: 15rem;
+        margin-bottom: 1rem;
+    }
+ 
+
+    input:focus{
+        outline: none;
+    }
+}

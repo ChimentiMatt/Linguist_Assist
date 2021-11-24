@@ -2,7 +2,11 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    background: #1a1a1a;
+    background: $primary-background;
     color: white;
     height: 95vh;
+
+    h1{
+        font-size: 5rem;
+    }
 }
