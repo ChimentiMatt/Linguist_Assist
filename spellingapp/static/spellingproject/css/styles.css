@@ -47,7 +47,7 @@
 }
 
 #progressBarConatiner {
-  background: skyblue;
+  background: #3AA8C1;
   background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
   -webkit-box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
           box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
@@ -69,7 +69,7 @@
 #progressBar {
   border-radius: 0rem 1rem 1rem 0rem;
   background: slategrey;
-  background-image: -webkit-linear-gradient(top, #66b3cc, #5da3ba);
+  background-image: -webkit-linear-gradient(top, #86cbdb, #3AA8C1);
   height: 2rem;
   width: 0rem;
 }
@@ -102,11 +102,12 @@
   position: absolute;
   right: 1rem;
   margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
 #htmlDef {
   text-align: center;
-  width: 60vw;
+  width: 30rem;
   font-size: 1.5rem;
 }
 
@@ -115,8 +116,9 @@
   font-size: 2.5em;
   text-align: center;
   border: none;
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.5);
+  border: 1.5px solid rgba(0, 0, 0, 0.5);
   padding-bottom: .5rem;
+  padding-top: .5rem;
 }
 
 #inputValue:focus {
@@ -173,9 +175,13 @@
   padding: .5rem 1rem .5rem 1rem;
   border-radius: 5px;
   font-size: 1.5rem;
-  background: skyblue;
+  background: #3AA8C1;
   border: none;
   color: white;
+}
+
+#checkWord:hover {
+  background: #5fbacf;
 }
 
 #defAndOld {
@@ -193,9 +199,13 @@
 }
 
 #defAndOld h1 {
-  border-bottom: 3px solid black;
+  border-bottom: 1px solid black;
   margin-bottom: .5rem;
   font-size: 1.5rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 30rem;
 }
 
 #lastTypo {
@@ -242,7 +252,7 @@
           align-items: center;
   position: absolute;
   border: 1px solid black;
-  background: skyblue;
+  background: #3AA8C1;
   width: 100vw;
   height: 95vh;
 }
