@@ -17,9 +17,10 @@
         
             <form id="addAndRemoveForm" action="{% url 'spellingapp:add_key_val' %}" method="POST">
                 {% csrf_token %}
-                <input type="text" name="word">
-                <input type="text" name="spelling_error">
-                <input type="submit" value="add">
+                <input type="text" name="word" placeholder="Correct Spelling">
+                <input id="spellingErrorInput" type="text" name="spelling_error" placeholder="Incorrect Spelling">
+                <br>
+                <button id="addAndRemoveBtn" type="submit">add</button>
             </form> 
 
             {% for item in spelling_list  %}
