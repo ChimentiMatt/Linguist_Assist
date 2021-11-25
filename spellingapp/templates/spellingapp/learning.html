@@ -7,7 +7,7 @@
     {% comment %} <p id="testLanding">Test for GSAP</p> {% endcomment %}
 
     <div id="preGameScreen">
-        <h1 id="preGameH1">Select Your Difficulty</h1>
+        <h1 id="preGameH1">Select A Spelling List</h1>
         <div id="preGameBtnContainer">
 
             <div id="easyContainer">
@@ -21,11 +21,11 @@
             </div>
 
             <div id="missedContainer">
-                <button id="missedBtn" class="preGameBtns" v-on:click="missedFunc">Missed Words</button>
+                <button id="missedBtn" class="preGameBtns" v-on:click="missedFunc">MISSED WORDS</button>
                 <p id="borderTopMissed"></p>
             </div>
         </div>
-        <p v-on:click="speechFunc" id="startBtn"><i class="fas fa-play"></i></p>
+        <p v-on:click="speechFunc" id="startBtn">play <i class="fas fa-play"></i></p>
     </div>
     <select id="speachSelect"></select>
     {% comment %} <p>Progress Bar</p> {% endcomment %}
@@ -36,7 +36,10 @@
     <div id="gameFace">
         <div id='defAndOld'>
             <h1>Definition</h1>
-            <p id='htmlDef'></p>
+            <p v-on:click="hearDef" id='htmlDef'></p>
+            <div v-on:click="hearDef">
+                <i class="fas fa-volume-up"></i>
+            </div>
         </div>
 
         {% comment %} <button v-on:click="speechFunc" id="hearBtn">Hear Word</button>
@@ -49,7 +52,7 @@
         {% comment %} <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" > {% endcomment %}
         {% csrf_token %}
         <input id="newWord" name="word" >
-        <input type="text" id="inputValue" placeholder="Type Here" name="spelling_error" >
+        <input type="text" id="inputValue" placeholder="Type Here" name="spelling_error" spellcheck="false">
         <div v-on:click="speechFunc" id="speachContainer">
             <p>Hear Word</p><p><i class="fas fa-volume-up"></i></p>
         </div>

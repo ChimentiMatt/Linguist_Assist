@@ -158,7 +158,7 @@
 
                   gsap.to('#borderTopEasy', {width: '5rem'})
                   gsap.to('#borderTopHard', {width: '0'})
-                  sap.to('#borderTopMissed', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '0'})
                   this.randomWord()
       
                 },
@@ -173,7 +173,7 @@
                   document.getElementById('hardBtn').style.color = '#c1533a'
                   document.getElementById('missedBtn').style.color = '#3AA8C1'
 
-                  gsap.to('#borderTopHard', {width: '5.5rem'})
+                  gsap.to('#borderTopHard', {width: '5.4rem'})
                   gsap.to('#borderTopEasy', {width: '0'})
                   gsap.to('#borderTopMissed', {width: '0'})
                   this.randomWord()
@@ -196,7 +196,7 @@
 
                   gsap.to('#borderTopHard', {width: '0'})
                   gsap.to('#borderTopEasy', {width: '0'})
-                  gsap.to('#borderTopMissed', {width: '12.5rem'})
+                  gsap.to('#borderTopMissed', {width: '15rem'})
                   this.randomWord()
                 },
 
@@ -254,11 +254,14 @@
 
                     let messagesLength = this.missedWords.length
                     console.log(messagesLength, 'ml')
+
                     let randomItem = this.missedWords[Math.floor(Math.random()*messagesLength)]
                     console.log(randomItem.word, 'ri')
+                    
                     this.message = randomItem.word
                     console.log(this.message, 'missed message')
                     this.getObject()
+
                   }
                 },
                 getObject() { 
@@ -284,8 +287,7 @@
                   
                   let newWord = document.getElementById('newWord').value
                   let inputValue = document.getElementById('inputValue').value
-
-
+    
                   if (newWord.toLowerCase() == inputValue.toLowerCase()){
                     this.progressCounter += 1
                     this.randomWord()
@@ -297,26 +299,22 @@
                     this.progressBarFunc()
                     this.newWordInHTML()
                   }
-                  else if(inputValue == ''){
+                    else if(inputValue == ''){
 
-                  }
-                  else{
-                    this.progressCounter -= 1
-                    this.progressBarFunc()
-                    // document.getElementById('submitPost').style.display = 'block'
-                    // console.log('apples')
-                    // this.randomWord()
-                    // this.newWordInHTML()
-                    // populate states for axios push
-                    let newWord = document.getElementById('newWord').value
-                    let inputValue = document.getElementById('inputValue').value
-                    this.correctWord = newWord
-                    this.wrongWord = inputValue
-                    // push to axios
-                     document.getElementById('inputValue').value = ''
-                    this.axiosPost()
+                    }
+                    else{
+                      this.progressCounter -= 1
+                      this.progressBarFunc()
+                      // populate states for axios push
+                      let newWord = document.getElementById('newWord').value
+                      let inputValue = document.getElementById('inputValue').value
+                      this.correctWord = newWord
+                      this.wrongWord = inputValue
+                      // push to axios
+                      document.getElementById('inputValue').value = ''
+                      this.axiosPost()
 
-                  }
+                    }
                 },
 
                 progressBarFunc() {
@@ -361,7 +359,31 @@
                     this.newGame = true
                   }
                 },
-              
+              hearDef() {
+           
+                var synth = window.speechSynthesis;
+                var voices = synth.getVoices();
+                var voiceSelect = document.getElementById('speachSelect')
+
+                if (!this.selectpopulated){
+                  for(var i = 0; i < voices.length; i++) {
+                    var option = document.createElement('option');
+                    option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+                    option.value = i;
+                    voiceSelect.appendChild(option);
+                    this.selectpopulated = true
+                  }            
+                }   
+                var inputTxt = document.getElementById('htmlDef');
+                console.log(inputTxt.innerHTML,' ITTT')
+                var utterThis = new SpeechSynthesisUtterance(inputTxt.innerHTML);
+                utterThis.voice = voices[voiceSelect.value];
+                // utterThis.voice = '(en-GB)'
+                // console.log(utterThis.voice, 'ut')
+                synth.speak(utterThis);
+                inputTxt.blur();
+
+              },
 
               fetchData: function() {
                 const myOption = {

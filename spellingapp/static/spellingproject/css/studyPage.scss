@@ -1,7 +1,7 @@
 #studyPage{
     display: flex;
     justify-content: center;
-    // align-items: center;
+    align-items: center;
     height: 100vh;
     background: $primary-background;
     color: white;
@@ -10,21 +10,29 @@
     #studyPageInner{
         background-size: auto 100%;
         height: 95vh;
-        width: 38rem;
+        width: 30rem;
         // background: rgb(75, 75, 75);
         object-fit: fill;
-        margin-left: 10rem;
+        // margin-left: 10rem;
 
         #wordErrorLabel{
             display: flex;
             font-size: 1.5rem;
             font-weight: bold;
             color: $primary-color;
+            width: 30rem;
+            border-bottom: 1px solid white;
             div{
-                width: 45%;
+                width: 50%;
                 margin-bottom: 1rem;
-                p:nth-child(1){
-                    padding-left: 2rem;
+     
+                #wordLabel{
+                    // padding-left: .5rem;
+                }
+                #errorLabel{
+                    // text-align: end;
+                    // padding-right: .3rem;
+                    margin-left: 2.4rem;
                 }
             }
         }
@@ -55,7 +63,7 @@
             margin-bottom: .5rem;
 
             #spellingListLeft{ 
-                width: 50%;
+                width: 70%;
                 display: flex;
 
                 a{
