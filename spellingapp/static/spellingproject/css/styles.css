@@ -52,6 +52,8 @@
       -ms-flex-direction: column;
           flex-direction: column;
   height: 95vh;
+  background: #1a1a1a;
+  color: white;
 }
 
 #progressBarConatiner {
@@ -68,7 +70,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-top: 5rem;
+  margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   border-radius: 1rem 1rem 1rem 1rem;
   overflow: hidden;
@@ -109,8 +111,6 @@
 #speachSelect {
   position: absolute;
   right: 1rem;
-  margin-top: 1rem;
-  font-size: 1.5rem;
 }
 
 #htmlDef {
@@ -124,9 +124,10 @@
   font-size: 2.5em;
   text-align: center;
   border: none;
-  border: 1.5px solid rgba(0, 0, 0, 0.5);
   padding-bottom: .5rem;
   padding-top: .5rem;
+  background: none;
+  color: #3AA8C1;
 }
 
 #inputValue:focus {
@@ -168,7 +169,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 #speachContainer p {
@@ -180,16 +181,18 @@
 
 #checkWord {
   margin-top: 1rem;
-  padding: .5rem 1rem .5rem 1rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   border-radius: 5px;
   font-size: 1.5rem;
-  background: #3AA8C1;
+  background: #c1533a;
   border: none;
   color: white;
+  font-weight: bold;
 }
 
 #checkWord:hover {
-  background: #5fbacf;
+  background: white;
+  color: #c1533a;
 }
 
 #defAndOld {
@@ -207,7 +210,8 @@
 }
 
 #defAndOld h1 {
-  border-bottom: 1px solid black;
+  color: #3AA8C1;
+  border-bottom: 1px solid #3AA8C1;
   margin-bottom: .5rem;
   font-size: 1.5rem;
   -webkit-box-align: start;
@@ -217,7 +221,9 @@
 }
 
 #lastTypo {
+  position: absolute;
   margin-top: 5rem;
+  right: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -235,6 +241,9 @@
 
 #lastTypo h3 {
   margin-bottom: .25rem;
+  color: #3AA8C1;
+  border-bottom: 1px solid #3AA8C1;
+  padding-bottom: .2rem;
 }
 
 #lastTypo p {
@@ -259,14 +268,13 @@
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  border: 1px solid black;
-  background: #3AA8C1;
+  background: #1a1a1a;
   width: 100vw;
   height: 95vh;
 }
 
 #preGameScreen #preGameH1 {
-  color: black;
+  color: #3AA8C1;
 }
 
 #preGameScreen #preGameBtnContainer {
@@ -289,11 +297,18 @@
 }
 
 #preGameScreen #preGameBtnContainer #easyContainer #easyBtn {
-  color: black;
+  color: #3AA8C1;
+  background: none;
+  border: none;
+  font-weight: bold;
+}
+
+#preGameScreen #preGameBtnContainer #easyContainer #easyBtn:hover {
+  color: #c1533a;
 }
 
 #preGameScreen #preGameBtnContainer #easyContainer #borderTopEasy {
-  border-top: 3px solid black;
+  border-top: 3px solid #c1533a;
   width: 0;
   margin-left: 1rem;
 }
@@ -311,11 +326,18 @@
 }
 
 #preGameScreen #preGameBtnContainer #hardContainer #hardBtn {
-  color: black;
+  color: #3AA8C1;
+  background: none;
+  border: none;
+  font-weight: bold;
+}
+
+#preGameScreen #preGameBtnContainer #hardContainer #hardBtn:hover {
+  color: #c1533a;
 }
 
 #preGameScreen #preGameBtnContainer #hardContainer #borderTopHard {
-  border-top: 3px solid black;
+  border-top: 3px solid #c1533a;
   width: 0;
   margin-left: 1rem;
 }
@@ -332,11 +354,11 @@
   font-weight: bold;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: black;
+  color: #c1533a;
 }
 
 #preGameScreen #startBtn:hover {
-  color: black;
+  color: #cf745f;
 }
 
 #preGameScreen h1 {
@@ -364,6 +386,7 @@
   width: 38rem;
   -o-object-fit: fill;
      object-fit: fill;
+  margin-left: 10rem;
 }
 
 #studyPage #studyPageInner #wordErrorLabel {
@@ -434,7 +457,7 @@
 }
 
 #registerPage p:nth-child(1) {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
   color: #3AA8C1;
@@ -449,8 +472,8 @@
 }
 
 #registerPage p:nth-child(3) input {
-  margin-left: .33rem;
-  width: 30.05rem;
+  margin-left: .39rem;
+  width: 30.02rem;
 }
 
 #registerPage p:nth-child(5) {

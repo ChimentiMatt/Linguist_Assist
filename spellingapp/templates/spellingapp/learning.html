@@ -11,16 +11,16 @@
         <div id="preGameBtnContainer">
 
             <div id="easyContainer">
-                <p id="easyBtn" class="preGameBtns" v-on:click="easyFunc">EASY</p>
+                <button id="easyBtn" class="preGameBtns" v-on:click="easyFunc">EASY</button>
                 <p id="borderTopEasy"></p>
             </div>
          
             <div id="hardContainer">
-                <p id="hardBtn" class="preGameBtns" v-on:click="hardFunc">HARD</p>
+                <button id="hardBtn" class="preGameBtns" v-on:click="hardFunc">HARD</button>
                 <p id="borderTopHard"></p>
              </div>
         </div>
-        <p v-on:click="speechFunc" id="startBtn">Start</p>
+        <p v-on:click="speechFunc" id="startBtn"><i class="fas fa-play"></i></p>
     </div>
     <select id="speachSelect"></select>
     {% comment %} <p>Progress Bar</p> {% endcomment %}
@@ -56,11 +56,11 @@
     </div>
 
 
-        <div id="lastTypo">
-            <h3>Previous Typo</h3>
-            <p>Correct: [[lastCorrect]]</p>
-            <p>Incorrect: [[lastError]]</p>
-        </div>
+    <div id="lastTypo">
+        <h3>Previous Typo</h3>
+        <p>Correct: [[lastCorrect]]</p>
+        <p>Incorrect: [[lastError]]</p>
+    </div> 
 
 
         {% comment %} <p v-on:click="startNewWord">START BUTTON and test new Word</p> {% endcomment %}

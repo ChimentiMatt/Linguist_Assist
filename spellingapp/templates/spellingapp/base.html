@@ -154,10 +154,11 @@
                   gsap.to('#progressBar', {width: 0, duration: 0})
                   this.easyTrigger = true
                   this.hardTrigger = false
-                  // document.getElementById('preGameScreen').style.display = 'none'
-                  // gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
                   gsap.to('#borderTopEasy', {width: '5rem'})
-                  // document.getElementById('easyBtn').style.fontWeight = 'bold'
+
+                  document.getElementById('easyBtn').style.color = '#c1533a'
+                  document.getElementById('hardBtn').style.color = '#3AA8C1'
+
                   gsap.to('#borderTopHard', {width: '0'})
                   this.randomWord()
       
@@ -168,8 +169,8 @@
                   gsap.to('#progressBar', {width: 0, duration: 0})
                   this.easyTrigger = false
                   this.hardTrigger = true
-                  // document.getElementById('preGameScreen').style.display = 'none'
-                  // gsap.to('#preGameScreen', {duration: 1, opacity: 0, display: 'none'})
+                  document.getElementById('easyBtn').style.color = '#3AA8C1'
+                  document.getElementById('hardBtn').style.color = '#c1533a'
                   gsap.to('#borderTopHard', {width: '5.5rem'})
                   // document.getElementById('hardBtn').style.fontWeight = 'bold'
                   gsap.to('#borderTopEasy', {width: '0'})
@@ -397,11 +398,6 @@
 
                 //Pre Game Screen
                 gsap.to('#preGameH1', {opacity: 1, duration: 1})
-
-
-
-
-
                 }
                          
               }
