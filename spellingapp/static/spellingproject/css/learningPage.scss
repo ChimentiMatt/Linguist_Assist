@@ -183,6 +183,7 @@
 
     #preGameH1{
         color: $primary-color;
+        font-size: 5rem;
     }
 
     #preGameBtnContainer{
@@ -280,10 +281,9 @@
         color: lighten($complementary-color, 10%);
     }
 
-    h1{
-        opacity: 0;
-        font-size: 5rem;
-    }
+    // h1{
+    //     font-size: 5rem;
+    // }
 
 
     button:hover{

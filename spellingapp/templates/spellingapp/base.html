@@ -17,19 +17,18 @@
 
     </div>
       {% if user.is_authenticated %}
-        <a href="{% url 'spellingapp:study_view' %}">Home</a>
+        <a id="learningLink" href="{% url 'spellingapp:learning_view' %}">Learning</a>
+        <a id="spellingListLink" href="{% url 'spellingapp:study_view' %}">Spelling List</a>
       {% else %}
-        <a href="{% url 'spellingapp:home' %}">Home</a>
-
+        <a id="homeLink" href="{% url 'spellingapp:home' %}">Home</a>
       {% endif %}
 
 
       {% if user.is_authenticated %}
-        <a href="{% url 'spellingapp:learning_view' %}">Learning</a>
-        <a href="{% url 'logout' %}">Logout</a>
+        <a id="logoutLink" href="{% url 'logout' %}">Logout</a>
       {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'register' %}">Register</a>
+        <a id="loginLink" href="{% url 'login' %}">Login</a>
+        <a id="registerLink" href="{% url 'register' %}">Register</a>
       {% endif %}
 
 
@@ -375,7 +374,7 @@
                   }            
                 }   
                 var inputTxt = document.getElementById('htmlDef');
-                console.log(inputTxt.innerHTML,' ITTT')
+    
                 var utterThis = new SpeechSynthesisUtterance(inputTxt.innerHTML);
                 utterThis.voice = voices[voiceSelect.value];
                 // utterThis.voice = '(en-GB)'
@@ -384,6 +383,7 @@
                 inputTxt.blur();
 
               },
+
 
               fetchData: function() {
                 const myOption = {
@@ -405,14 +405,50 @@
                 })
               },
             },
+            
             mounted() {
+            // '#c1533a'
+        // '#3AA8C1'
+        
+
+
+             // Home Page not loggin in
+              if (window.location.pathname  == '/'){
+                document.getElementById('homeLink').style.color = '#c1533a'
+                document.getElementById('loginLink').style.color = '#3AA8C1'
+                document.getElementById('registerLink').style.color = '#3AA8C1'            
+                gsap.to('#linguist', {x: '16.5rem', opacity: 1, duration: 1.5})
+                gsap.to('#assist', {delay: 1, y: '10rem', opacity: 1, duration: 1.5})
+                gsap.to('#homeLogLink, #homeRegLink', {delay: 2.2, opacity: 1})
+              }
+              else if (window.location.pathname  == '/members/login/'){
+                document.getElementById('loginLink').style.color = '#c1533a'
+                document.getElementById('homeLink').style.color = '#3AA8C1'
+                document.getElementById('registerLink').style.color = '#3AA8C1'     
+                gsap.to('#login', {x: '14.8rem', opacity: 1, duration: 1}) 
+              }
+              else if (window.location.pathname  == '/members/register/'){
+                document.getElementById('registerLink').style.color = '#c1533a'    
+                document.getElementById('loginLink').style.color = '#3AA8C1'
+                document.getElementById('homeLink').style.color = '#3AA8C1'
+                gsap.to('#registration', {y: '10rem', opacity: 1, duration: 1}) 
+              }
+
+              else if (window.location.pathname  == '/learning/'){
+                document.getElementById('learningLink').style.color = '#c1533a'    
+                document.getElementById('spellingListLink').style.color = '#3AA8C1'
+                document.getElementById('logoutLink').style.color = '#3AA8C1'
+              }
+              else if (window.location.pathname  == '/study/'){
+                document.getElementById('spellingListLink').style.color = '#c1533a'
+                document.getElementById('learningLink').style.color = '#3AA8C1'    
+                document.getElementById('logoutLink').style.color = '#3AA8C1'
+              }
+
 
               this.fetchData()
-
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
               // this.randomWord()
-
-
               this.newWordInHTML()
 
               //initalize speach options
@@ -433,19 +469,7 @@
               // console.log(utterThis.voice, 'this one mattttt')
               synth.speak(utterThis);
               inputTxt.blur();
-
-              // Home Page not loggin in
-              if (window.location.pathname  == '/'){
-                  gsap.to('#landingTitle', {color: 'red'})  
-              }
-
-              // Learning Page 
-              if (window.location.href.includes('learning')){
-                // this.getObject()
-
-                //Pre Game Screen
-                gsap.to('#preGameH1', {opacity: 1, duration: 1})
-                }
+            
                          
               }
             }

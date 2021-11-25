@@ -10,6 +10,9 @@
     font-size: 1.5rem;
 
     p:nth-child(1){
+        position: relative;
+        opacity: 0;
+        top: -10rem;
         font-size: 3rem;
         font-weight: bold;
         margin-bottom: 1rem;
@@ -107,6 +110,9 @@
 
 
     h1{
+        position: relative;
+        left: -15rem;
+        opacity: 0;
         width: 100%;
         text-align: start;
         margin-bottom: 1rem;

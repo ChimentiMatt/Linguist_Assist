@@ -4,7 +4,14 @@
 {% block landing %}
 
 <div id="landingPage">
-    <h1 id="landingTitle">Linguist<span> Assist</spam></h1>
+    <div >
+        <h1 id="linguist">Linguist </h1>
+        <h1 id="assist"><span> Assist</span></h1>
+    </div>
+    <div>
+        <a id="homeLogLink" href="{% url 'login' %}">Login</a>
+        <a id="homeRegLink" href="{% url 'register' %}">Register</a>
+    </div>
 </div>
 
 {% endblock landing %} 
