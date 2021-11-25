@@ -143,7 +143,7 @@
 #lastTypo{
     position: absolute;
     margin-top: 5rem;
-    right: 5rem;
+    right: 6.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -234,6 +234,32 @@
                 margin-left: 1rem;
             }
         }
+
+        #missedContainer{
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+
+            #missedBtn{
+                color: $primary-color;
+                background: none;
+                border: none;
+                font-weight: bold;
+            }
+            #missedBtn:hover{
+                color: $complementary-color;
+            }           
+
+            #borderTopMissed{
+                border-top: 3px solid complement($primary-color);
+                width: 0;
+                margin-left: 1rem;
+            }
+        }
+
+
+
         .preGameBtns{
             font-size: 2rem;
             padding-left: 1rem;

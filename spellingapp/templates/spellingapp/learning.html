@@ -18,7 +18,12 @@
             <div id="hardContainer">
                 <button id="hardBtn" class="preGameBtns" v-on:click="hardFunc">HARD</button>
                 <p id="borderTopHard"></p>
-             </div>
+            </div>
+
+            <div id="missedContainer">
+                <button id="missedBtn" class="preGameBtns" v-on:click="missedFunc">Missed Words</button>
+                <p id="borderTopMissed"></p>
+            </div>
         </div>
         <p v-on:click="speechFunc" id="startBtn"><i class="fas fa-play"></i></p>
     </div>

@@ -72,6 +72,7 @@
                   return  {
                         api_word: '',
                         api_def: '',
+
                         easy: [
                           'anchor',
                           'deer',
@@ -96,16 +97,9 @@
                           'daiquiri',
                           'mischievous',
                           'perseverance',
-
-
-
-
-
-
-
-
-
                         ],
+                        missedWords: [],
+
                         message: 'phone',
                         newWord: '',
                         csrfmiddlewaretoken: '',
@@ -121,6 +115,8 @@
                         newGame: true,
                         easyTrigger: true,
                         hardTrigger: false,
+                        missedTrigger: false,
+
                         objectPopulated: false,
                         selectpopulated: false,
 
@@ -150,30 +146,57 @@
                 },
 
                 easyFunc() {
-                  this.objectPopulated = true
                   gsap.to('#progressBar', {width: 0, duration: 0})
+                  this.objectPopulated = true
                   this.easyTrigger = true
                   this.hardTrigger = false
-                  gsap.to('#borderTopEasy', {width: '5rem'})
+                  this.missedTrigger = false
 
                   document.getElementById('easyBtn').style.color = '#c1533a'
                   document.getElementById('hardBtn').style.color = '#3AA8C1'
+                  document.getElementById('missedBtn').style.color = '#3AA8C1'
 
+                  gsap.to('#borderTopEasy', {width: '5rem'})
                   gsap.to('#borderTopHard', {width: '0'})
+                  sap.to('#borderTopMissed', {width: '0'})
                   this.randomWord()
       
                 },
 
                 hardFunc() {
-                  this.objectPopulated = true
                   gsap.to('#progressBar', {width: 0, duration: 0})
+                  this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = true
+                  this.missedTrigger = false
                   document.getElementById('easyBtn').style.color = '#3AA8C1'
                   document.getElementById('hardBtn').style.color = '#c1533a'
+                  document.getElementById('missedBtn').style.color = '#3AA8C1'
+
                   gsap.to('#borderTopHard', {width: '5.5rem'})
-                  // document.getElementById('hardBtn').style.fontWeight = 'bold'
                   gsap.to('#borderTopEasy', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '0'})
+                  this.randomWord()
+                },
+
+                missedFunc() {
+                  gsap.to('#progressBar', {width: 0, duration: 0})
+                  this.objectPopulated = true
+                  this.missedTrigger = true
+                  this.easyTrigger = false
+                  this.hardTrigger = false
+                  this.fetchData()
+                  // console.log(this.getList[1].spelling_error, 'Get List')
+                  // console.log(this.getList[1], 'Get List')
+
+                  document.getElementById('easyBtn').style.color = '#3AA8C1'
+                  document.getElementById('hardBtn').style.color = '#3AA8C1'
+                  document.getElementById('missedBtn').style.color = '#c1533a'
+                  this.missedWords = this.getList
+
+                  gsap.to('#borderTopHard', {width: '0'})
+                  gsap.to('#borderTopEasy', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '12.5rem'})
                   this.randomWord()
                 },
 
@@ -218,12 +241,23 @@
                     let messagesLength = this.easy.length
                     let randomItem = this.easy[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+                    console.log(this.message, 'easy message')
                     this.getObject()
                   }
                   else if (this.hardTrigger){
                     let messagesLength = this.hard.length
                     let randomItem = this.hard[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+                    this.getObject()
+                  }
+                  else if (this.missedTrigger){
+
+                    let messagesLength = this.missedWords.length
+                    console.log(messagesLength, 'ml')
+                    let randomItem = this.missedWords[Math.floor(Math.random()*messagesLength)]
+                    console.log(randomItem.word, 'ri')
+                    this.message = randomItem.word
+                    console.log(this.message, 'missed message')
                     this.getObject()
                   }
                 },
@@ -239,7 +273,6 @@
                         
                     })
                     .then(this.newWordInHTML())
-                    
                 },
 
                 newWordInHTML(){
@@ -325,13 +358,8 @@
                   else if (this.progressCounter == 10){
                     gsap.to('#progressBar', {width: '30rem', duration: 1})
                     this.progressCounter = 0
-
                     this.newGame = true
-                
                   }
-
-
-
                 },
               
 
@@ -344,7 +372,7 @@
                 .then((res) => {
                   // console.log(res.items, 'Fetch Request Worked')
                   this.getList = res.items
-                  console.log(this.getList, 'getlist')
+                  // console.log(this.getList, 'getlist')
                 })
                 .then(() => {
                   // get last item from list and save it
@@ -352,7 +380,6 @@
                   this.lastWords = this.getList[arrLen]
                   this.lastCorrect = this.lastWords.word
                   this.lastError = this.lastWords.spelling_error
-         
                 })
               },
             },
@@ -360,8 +387,6 @@
 
               this.fetchData()
 
-     
-         
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
               // this.randomWord()
 
@@ -383,7 +408,7 @@
               var inputTxt = document.getElementById('newWord');
               var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
               utterThis.voice = voices[voiceSelect.value];
-              console.log(utterThis.voice, 'this one mattttt')
+              // console.log(utterThis.voice, 'this one mattttt')
               synth.speak(utterThis);
               inputTxt.blur();
 

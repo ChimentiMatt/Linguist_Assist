@@ -223,7 +223,7 @@
 #lastTypo {
   position: absolute;
   margin-top: 5rem;
-  right: 5rem;
+  right: 6.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -243,7 +243,7 @@
   margin-bottom: .25rem;
   color: #3AA8C1;
   border-bottom: 1px solid #3AA8C1;
-  padding-bottom: .2rem;
+  padding-bottom: .1rem;
 }
 
 #lastTypo p {
@@ -337,6 +337,35 @@
 }
 
 #preGameScreen #preGameBtnContainer #hardContainer #borderTopHard {
+  border-top: 3px solid #c1533a;
+  width: 0;
+  margin-left: 1rem;
+}
+
+#preGameScreen #preGameBtnContainer #missedContainer {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+}
+
+#preGameScreen #preGameBtnContainer #missedContainer #missedBtn {
+  color: #3AA8C1;
+  background: none;
+  border: none;
+  font-weight: bold;
+}
+
+#preGameScreen #preGameBtnContainer #missedContainer #missedBtn:hover {
+  color: #c1533a;
+}
+
+#preGameScreen #preGameBtnContainer #missedContainer #borderTopMissed {
   border-top: 3px solid #c1533a;
   width: 0;
   margin-left: 1rem;
