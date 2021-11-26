@@ -10,6 +10,14 @@
         <h1 id="preGameH1">Select A Game</h1>
         <div id="preGameBtnContainer">
 
+            <div id="gradeContainer">
+                <p v-on:click="gradeMenuFunc" id="gradeSelect">By Grade Level <i id="caretGrade" class="fas fa-caret-right"></i> </p>
+                <div id="gradeMenu">
+                    <p v-on:click="firstGradeFunc" id="firstGradeBtn">First Grade</p>
+                    <p>Second Grade</p>
+                </div>
+            </div>
+
             <div id="easyContainer">
                 <button id="easyBtn" class="preGameBtns" v-on:click="easyFunc">EASY</button>
                 <p id="borderTopEasy"></p>

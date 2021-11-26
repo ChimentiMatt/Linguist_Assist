@@ -339,6 +339,38 @@
   display: flex;
 }
 
+#preGameScreen #preGameBtnContainer #gradeContainer {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+}
+
+#preGameScreen #preGameBtnContainer #gradeContainer #gradeSelect {
+  border: 1px solid white;
+  color: #3AA8C1;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+#preGameScreen #preGameBtnContainer #gradeContainer #gradeMenu {
+  position: relative;
+  top: 1rem;
+  display: none;
+  height: 0;
+}
+
+#preGameScreen #preGameBtnContainer #gradeContainer #firstGradeBtn {
+  font-weight: bold;
+}
+
 #preGameScreen #preGameBtnContainer #easyContainer {
   margin-top: 1rem;
   display: -webkit-box;

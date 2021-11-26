@@ -186,9 +186,43 @@
         font-size: 5rem;
     }
 
+
+    
+
+
+
     #preGameBtnContainer{
         margin-top: 2rem;
         display: flex;
+
+        #gradeContainer{
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+
+            #caretGrade{
+            }
+
+            #gradeSelect{
+                border: 1px solid white;
+                color: $primary-color;
+                background: none;
+                border: none;
+                font-weight: bold;
+                font-size: 2rem;
+            }
+            #gradeMenu{
+                position: relative;
+                top: 1rem;
+                display: none;
+                height: 0;
+            }
+            #firstGradeBtn{
+                font-weight: bold;
+        
+            }
+        }
 
         #easyContainer{
             margin-top: 1rem;
