@@ -17,7 +17,7 @@
 
     </div>
       {% if user.is_authenticated %}
-        <a id="learningLink" href="{% url 'spellingapp:learning_view' %}">Learning</a>
+        <a id="learningLink" href="{% url 'spellingapp:learning_view' %}">Play</a>
         <a id="spellingListLink" href="{% url 'spellingapp:study_view' %}">Spelling List</a>
       {% else %}
         <a id="homeLink" href="{% url 'spellingapp:home' %}">Home</a>
@@ -451,7 +451,7 @@
                   }
                   else if (this.progressCounter == 1){
                     gsap.to('#progressBar', {width: '3rem', duration: 1})
-                    // this.dynamicPostGameMessage()
+                    this.dynamicPostGameMessage()
                   }
                   else if (this.progressCounter == 2){
                     gsap.to('#progressBar', {width: '6rem', duration: 1})
@@ -480,8 +480,9 @@
                   else if (this.progressCounter == 10){
                     gsap.to('#progressBar', {width: '30rem', duration: 1})
                     gsap.to('#postGameScreen', {opacity: 1, display: 'flex'})
-                    this.progressCounter = 0
-                    this.newGame = true
+                    // this.progressCounter = 0
+                    // this.newGame = true
+                    this.dynamicPostGameMessage()
                   }
                 },
               
@@ -491,11 +492,12 @@
                 if (this.stateWrongWords.length == 0){
                   document.getElementById('addedToList').style.display = 'none'
                   document.getElementById('noItemsMessage').style.display = 'block'
-
+                  document.getElementById('flexRowForLoop').style.display = 'none'
                 }
                 else{
                   document.getElementById('addedToList').style.display = 'block'
                   document.getElementById('noItemsMessage').style.display = 'none'
+
                 }
               },
 

@@ -37,13 +37,19 @@
     </div>
 
     <div id="postGameScreen">
-        <div>
-            <p>Great Job!</p>
+        <div id="postGameBtns">
+            <a href="{% url 'spellingapp:learning_view' %}">Play</a>
+           <a href="{% url 'spellingapp:study_view' %}">Study</a>
+        </div>
+        <div id="postGameContentDiv">
+            <h1>Great Job!</h1>
             <p id="addedToList">The following words were added to your spelling list</p>
-            <div id="forLoopPostGame" v-for="item in stateWrongWords">
-                <p>[[item]]</p>
+            <div id="flexRowForLoop">
+                <div id="forLoopPostGame" v-for="item in stateWrongWords">
+                    <p>[[item]]</p>
+                </div>
             </div>
-            <p id="noItemsMessage">Nice Job! You got all the words correct!</p>
+            <p id="noItemsMessage">You got all the words correct!</p>
         </div>
     </div>
 

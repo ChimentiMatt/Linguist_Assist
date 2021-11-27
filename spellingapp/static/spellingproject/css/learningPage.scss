@@ -337,22 +337,65 @@
 // Post Game section -----------------------------------------------------------------------------------------------------------
 #postGameScreen{
     opacity: 0;
-    display: none;
     position: absolute;
+    display: flex;
+    flex-direction: column;
     z-index: 100;
-    height: 91vh;
+    height: 95vh;
     width: 100vw;
-    background: white;
+    background: $complementary-color;
     color: black;
     text-align: center;
+    display: none;
+
+    #postGameContentDiv{
+        display: flex;
+        // justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 7rem;
+        font-weight: bold;
+        font-size: 2rem;
+        color: $primary-background;
+
+        // height: 20rem;
+        overflow: hidden;
+
+
+        #flexRowForLoop{
+            display: flex;
+            // flex-direction: row;
+            width: 60vw;
+        }
+
+        h1{
+            margin-bottom: 1rem;
+
+        }
+        #addedToList{
+            margin-bottom: 1rem;
+        }
+
+        #forLoopPostGame{
+            // border: 1px solid black;
+            // width: 30vw;
+            p{
+                font-size: 1rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                line-height: 1.2;
+            }
+        }
+    }
     
     div{
         display: flex;
         flex-direction: column;
-        text-align: center;  
+        text-align: start;  
         height: 91vh;
-        width: 100vw;
+        text-align: center
     }
+
 
     #noItemsMessage{
         display: none;
@@ -360,5 +403,22 @@
 
     #forLoopPostGame{
         height: 1rem;
+    }
+    
+    #postGameBtns{
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        top: 1.5rem;
+        right: 1.5rem;
+
+        width: 15rem;
+        a{
+            margin-left: .5rem;
+            margin-right: .5rem;
+            text-decoration: none;
+            color: $primary-background;
+            font-size: 2rem;
+        }
     }
 }
