@@ -147,9 +147,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
+    text-align: start;
+    font-weight: bold;
 
-
+    #lastCorrect{
+        color: $complementary-color;
+    }
     h3{
         margin-bottom: .25rem;
         color: $primary-color;
@@ -158,6 +162,8 @@
     }
     
     p{
+        color: $primary-color;
+
         margin-top: .25rem;
         margin-bottom: .25rem;
     }
@@ -174,7 +180,8 @@
     position: relative;
     z-index: 2;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
+    padding-top: 10rem;
     align-items: center;
     position: absolute;
     background: $primary-background;
@@ -300,6 +307,8 @@
     }
 
     #startBtn{
+        display: none;
+        opacity: 0;
         margin-top: 2.5rem;
         font-size: 2rem;
         font-weight: bold;
@@ -345,5 +354,9 @@
 
     #noItemsMessage{
         display: none;
+    }
+
+    #forLoopPostGame{
+        height: 1rem;
     }
 }

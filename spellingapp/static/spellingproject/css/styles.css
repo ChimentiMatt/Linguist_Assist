@@ -288,9 +288,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  text-align: start;
+  font-weight: bold;
+}
+
+#lastTypo #lastCorrect {
+  color: #c1533a;
 }
 
 #lastTypo h3 {
@@ -301,6 +304,7 @@
 }
 
 #lastTypo p {
+  color: #3AA8C1;
   margin-top: .25rem;
   margin-bottom: .25rem;
 }
@@ -315,9 +319,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  padding-top: 10rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -467,6 +469,8 @@
 }
 
 #preGameScreen #startBtn {
+  display: none;
+  opacity: 0;
   margin-top: 2.5rem;
   font-size: 2rem;
   font-weight: bold;
@@ -506,6 +510,10 @@
 
 #postGameScreen #noItemsMessage {
   display: none;
+}
+
+#postGameScreen #forLoopPostGame {
+  height: 1rem;
 }
 
 #studyPage {

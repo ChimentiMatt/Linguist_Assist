@@ -40,7 +40,7 @@
         <div>
             <p>Great Job!</p>
             <p id="addedToList">The following words were added to your spelling list</p>
-            <div v-for="item in stateWrongWords">
+            <div id="forLoopPostGame" v-for="item in stateWrongWords">
                 <p>[[item]]</p>
             </div>
             <p id="noItemsMessage">Nice Job! You got all the words correct!</p>
@@ -86,7 +86,7 @@
 
     <div id="lastTypo">
         <h3>Previous Typo</h3>
-        <p>Correct: [[lastCorrect]]</p>
+        <p> <span id="lastCorrect">Correct: [[lastCorrect]]</p></span>
         <p>Incorrect: [[lastError]]</p>
     </div> 
 
