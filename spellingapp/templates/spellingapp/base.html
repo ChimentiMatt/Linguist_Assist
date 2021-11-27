@@ -102,7 +102,6 @@
                           'lieutenant',
                           'unabashed',
                           'drunkenness',
-                          'dumbbell',
                           'conscientious',
                           'daiquiri',
                           'mischievous',
@@ -139,6 +138,8 @@
                         objectPopulated: false,
                         selectpopulated: false,
 
+                        stateWrongWords: []
+
                   }
             },
             methods: {
@@ -168,8 +169,14 @@
                   this.easyTrigger = false
                   this.hardTrigger = false
                   this.missedTrigger = false
+                  gsap.to('#easyBtn, #hardBtn, #missedBtn', {color: "#3AA8C1"})
+                  gsap.to('#borderTopEasy', {width: '0'})
+                  gsap.to('#borderTopHard', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '0'})
+
                   gsap.to('#caretGrade', {rotate: '90deg'})
                   gsap.to('#gradeMenu', {display: 'block', duration: 0})
+                  gsap.to('#gradeSelect', {color: '#c1533a'})
                   
                 },
 
@@ -184,12 +191,13 @@
                   document.getElementById('easyBtn').style.color = '#c1533a'
 
 
-                  gsap.to('#borderTopEasy', {width: '5rem'})
+                  gsap.to('#borderTopEasy', {width: '4.4rem'})
                   gsap.to('#borderTopHard', {width: '0'})
                   gsap.to('#borderTopMissed', {width: '0'})
 
                   gsap.to('#caretGrade', {rotate: '0'})
                   gsap.to('#gradeMenu', {display: 'none', duration: 0})
+                  gsap.to('#gradeSelect', {color: '#3AA8C1'})
                   this.randomWord()
       
                 },
@@ -205,13 +213,14 @@
                   gsap.to('#easyBtn, #missedBtn, #firstGradeBtn', {color: "#3AA8C1"})
                   document.getElementById('hardBtn').style.color = '#c1533a'
 
-                  gsap.to('#borderTopHard', {width: '5.4rem'})
+                  gsap.to('#borderTopHard', {width: '4.5rem'})
                   gsap.to('#borderTopEasy', {width: '0'})
                   gsap.to('#borderTopMissed', {width: '0'})
 
                   
                   gsap.to('#caretGrade', {rotate: '0'})
                   gsap.to('#gradeMenu', {display: 'none', duration: 0})
+                  gsap.to('#gradeSelect', {color: '#3AA8C1'})
                   this.randomWord()
                 },
 
@@ -233,11 +242,12 @@
 
                   gsap.to('#borderTopHard', {width: '0'})
                   gsap.to('#borderTopEasy', {width: '0'})
-                  gsap.to('#borderTopMissed', {width: '15rem'})
+                  gsap.to('#borderTopMissed', {width: '10.4rem'})
 
-                  
                   gsap.to('#caretGrade', {rotate: '0'})
                   gsap.to('#gradeMenu', {display: 'none', duration: 0})
+                  gsap.to('#gradeSelect', {color: '#3AA8C1'})
+
                   this.randomWord()
                 },
 
@@ -248,9 +258,6 @@
                   this.hardTrigger = false
                   this.missedTrigger = false
                   this.firstGradeTrigger = true
-                  document.getElementById('easyBtn').style.color = '#3AA8C1'
-                  document.getElementById('hardBtn').style.color = '#3AA8C1'
-                  document.getElementById('missedBtn').style.color = '#3AA8C1'
                   document.getElementById('firstGradeBtn').style.color = '#c1533a'
 
                   gsap.to('#borderTopHard', {width: '0'})
@@ -348,6 +355,7 @@
                   let newWord = document.getElementById('newWord').value
                   let inputValue = document.getElementById('inputValue').value
     
+                  // if words are the same and word will NOT be added to database
                   if (newWord.toLowerCase() == inputValue.toLowerCase()){
                     this.progressCounter += 1
                     this.randomWord()
@@ -359,9 +367,11 @@
                     this.progressBarFunc()
                     this.newWordInHTML()
                   }
+                    //stops the user entering no word at all
                     else if(inputValue == ''){
 
                     }
+                    // if the user enters a wrong spelling
                     else{
                       this.progressCounter -= 1
                       this.progressBarFunc()
@@ -370,9 +380,14 @@
                       let inputValue = document.getElementById('inputValue').value
                       this.correctWord = newWord
                       this.wrongWord = inputValue
+
                       // push to axios
                       document.getElementById('inputValue').value = ''
                       this.axiosPost()
+
+                      // add to state wrong list for showing once game is over
+                      this.stateWrongWords.push(this.correctWord)
+                      
 
                     }
                 },
@@ -388,6 +403,7 @@
                   }
                   else if (this.progressCounter == 1){
                     gsap.to('#progressBar', {width: '3rem', duration: 1})
+                    this.dynamicPostGameMessage()
                   }
                   else if (this.progressCounter == 2){
                     gsap.to('#progressBar', {width: '6rem', duration: 1})
@@ -415,12 +431,27 @@
                   }
                   else if (this.progressCounter == 10){
                     gsap.to('#progressBar', {width: '30rem', duration: 1})
+                    gsap.to('#postGameScreen', {opacity: 1, display: 'flex'})
                     this.progressCounter = 0
                     this.newGame = true
                   }
                 },
+              
+              dynamicPostGameMessage() {
+                gsap.to('#postGameScreen', {opacity: 1, display: 'flex'})
+                console.log(this.stateWrongWords.length , this.stateWrongWords.length == 0)
+                if (this.stateWrongWords.length == 0){
+                  document.getElementById('addedToList').style.display = 'none'
+                  document.getElementById('noItemsMessage').style.display = 'block'
+
+                }
+                else{
+                  document.getElementById('addedToList').style.display = 'block'
+                  document.getElementById('noItemsMessage').style.display = 'none'
+                }
+              },
+
               hearDef() {
-           
                 var synth = window.speechSynthesis;
                 var voices = synth.getVoices();
                 var voiceSelect = document.getElementById('speachSelect')
@@ -469,10 +500,8 @@
             
             mounted() {
             // '#c1533a'
-        // '#3AA8C1'
+            // '#3AA8C1'
         
-
-
              // Home Page not loggin in
               if (window.location.pathname  == '/'){
                 document.getElementById('homeLink').style.color = '#c1533a'

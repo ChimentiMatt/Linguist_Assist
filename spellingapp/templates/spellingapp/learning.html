@@ -14,27 +14,40 @@
                 <p v-on:click="gradeMenuFunc" id="gradeSelect">By Grade Level <i id="caretGrade" class="fas fa-caret-right"></i> </p>
                 <div id="gradeMenu">
                     <p v-on:click="firstGradeFunc" id="firstGradeBtn">First Grade</p>
-                    <p>Second Grade</p>
+                    <p id="secondGradeBtn">Second Grade</p>
                 </div>
             </div>
 
             <div id="easyContainer">
-                <button id="easyBtn" class="preGameBtns" v-on:click="easyFunc">EASY</button>
+                <button id="easyBtn" class="preGameBtns" v-on:click="easyFunc">Easy</button>
                 <p id="borderTopEasy"></p>
             </div>
          
             <div id="hardContainer">
-                <button id="hardBtn" class="preGameBtns" v-on:click="hardFunc">HARD</button>
+                <button id="hardBtn" class="preGameBtns" v-on:click="hardFunc">Hard</button>
                 <p id="borderTopHard"></p>
             </div>
 
             <div id="missedContainer">
-                <button id="missedBtn" class="preGameBtns" v-on:click="missedFunc">MISSED WORDS</button>
+                <button id="missedBtn" class="preGameBtns" v-on:click="missedFunc">Your Words</button>
                 <p id="borderTopMissed"></p>
             </div>
         </div>
         <p v-on:click="speechFunc" id="startBtn">play <i class="fas fa-play"></i></p>
     </div>
+
+    <div id="postGameScreen">
+        <div>
+            <p>Great Job!</p>
+            <p id="addedToList">The following words were added to your spelling list</p>
+            <div v-for="item in stateWrongWords">
+            
+                <p>[[item]]</p>
+            </div>
+            <p id="noItemsMessage">Nice Job! You got all the words correct!</p>
+        </div>
+    </div>
+
     <select id="speachSelect"></select>
     {% comment %} <p>Progress Bar</p> {% endcomment %}
     <div id="progressBarConatiner">
