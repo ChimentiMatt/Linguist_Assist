@@ -147,7 +147,7 @@
 
                 easyFunc() {
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
-
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})
                   this.objectPopulated = true
                   this.easyTrigger = true
                   this.hardTrigger = false
@@ -182,6 +182,7 @@
 
                 hardFunc() {
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})
                   this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = true
@@ -214,7 +215,6 @@
                 },
 
                 missedFunc() {
-                  gsap.to('#startBtn', {display: 'block', opacity: 1})
                   this.objectPopulated = true
                   this.missedTrigger = true
                   this.easyTrigger = false
@@ -230,20 +230,30 @@
                   this.ninthGradeTrigger = false
             
                   this.fetchData()
-                  gsap.to('#easyBtn, #hardBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
 
-                  document.getElementById('missedBtn').style.color = '#c1533a'
-                  this.missedWords = this.getList
+                  // check if there are any missed words for the user
+                  if (this.lastWords == undefined ){
+                    gsap.to('#noWordsInList', {display: 'block', opacity: 1})
 
-                  gsap.to('#borderTopHard', {width: '0'})
-                  gsap.to('#borderTopEasy', {width: '0'})
-                  gsap.to('#borderTopMissed', {width: '10.4rem'})
+                  }
+                  else{ 
+                    gsap.to('#startBtn', {display: 'block', opacity: 1})
 
-                  gsap.to('#caretGrade', {rotate: '0'})
-                  gsap.to('#gradeMenu', {display: 'none', duration: 0})
-                  gsap.to('#gradeSelect', {color: '#3AA8C1'})
+                    gsap.to('#easyBtn, #hardBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
 
-                  this.randomWord()
+                    document.getElementById('missedBtn').style.color = '#c1533a'
+                    this.missedWords = this.getList
+
+                    gsap.to('#borderTopHard', {width: '0'})
+                    gsap.to('#borderTopEasy', {width: '0'})
+                    gsap.to('#borderTopMissed', {width: '10.4rem'})
+
+                    gsap.to('#caretGrade', {rotate: '0'})
+                    gsap.to('#gradeMenu', {display: 'none', duration: 0})
+                    gsap.to('#gradeSelect', {color: '#3AA8C1'})
+
+                    this.randomWord()
+                  }
                 },
                 gradeMenuFunc() {
                   this.easyTrigger = false
@@ -263,6 +273,7 @@
                 },
                 firstGradeFunc() {
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})
                   this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = false
@@ -286,6 +297,7 @@
                 },
                 secondGradeFunc() {
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})
                   this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = false
@@ -309,6 +321,7 @@
                 },
                 thirdGradeFunc() {
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})
                   this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = false
@@ -333,6 +346,7 @@
                 },
                 fourthGradeFunc(){
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})
                   this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = false
@@ -356,6 +370,7 @@
                 },
                 fifthGradeFunc(){
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})      
                   this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = false
@@ -380,6 +395,7 @@
                 },
                 sixthGradeFunc(){
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})
                   this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = false
@@ -403,6 +419,7 @@
                 },
                 seventhGradeFunc(){
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})
                   this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = false
@@ -427,6 +444,7 @@
                 },
                 eighthGradeFunc(){
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})
                   this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = false
@@ -451,6 +469,7 @@
                 },
                 ninthGradeFunc(){
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  gsap.to('#noWordsInList', {display: 'none', opacity: 0})
                   this.objectPopulated = true
                   this.easyTrigger = false
                   this.hardTrigger = false

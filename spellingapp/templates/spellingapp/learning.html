@@ -47,6 +47,7 @@
             <input id="inputRounds" type="number" value="10">
         </div>
         <p v-on:click="speechFunc" id="startBtn">play <span id="playIcon"><i class="fas fa-play"></i></span></p>
+        <p id="noWordsInList">You can't choose 'Your Words' as you do not have an words in your <a href="{% url 'spellingapp:study_view' %}">Spelling List</a></p>
     </div>
 
     <div id="postGameScreen">

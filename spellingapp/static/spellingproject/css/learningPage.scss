@@ -362,15 +362,25 @@
         }
     }
 
-    // h1{
-    //     font-size: 5rem;
-    // }
+    #noWordsInList{
+        position: absolute;
+        display: none;
+        opacity: 0;
+        color: $complementary-color;
+        font-size: 2rem;
+        bottom: 15rem;
+        a{
+            text-decoration: none;
+            color: $primary-color;
+            border-bottom: 2px solid $primary-color;
+            cursor: pointer;
+        }
+        a:hover{
+            color: $complementary-color;
+            border-bottom: 2px solid $complementary-color;
+        }
+        }
 
-
-    // button:hover{
-    //     // color: red;
-    //     // opacity: 1;s
-    // }
 }
 
 // Post Game section -----------------------------------------------------------------------------------------------------------
