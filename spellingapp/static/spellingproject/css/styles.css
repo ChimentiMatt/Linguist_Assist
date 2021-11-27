@@ -485,19 +485,25 @@
   padding-right: 1rem;
 }
 
+#preGameScreen #pointsNeededContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2rem;
+}
+
 #preGameScreen #pointsNTW {
   font-weight: bold;
-  margin-top: 2rem;
   color: #3AA8C1;
 }
 
 #preGameScreen #inputRounds {
-  margin-top: .5rem;
-  text-align: center;
+  text-align: end;
   border: none;
   background: none;
   font-weight: bold;
   color: #3AA8C1;
+  width: 2.5rem;
 }
 
 #preGameScreen #inputRounds:hover {

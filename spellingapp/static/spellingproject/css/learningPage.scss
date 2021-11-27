@@ -320,19 +320,23 @@
             padding-right: 1rem;
         }
     }
-
+    #pointsNeededContainer{
+        display: flex;
+        margin-top: 2rem;
+    }
     #pointsNTW{
         font-weight: bold;
-        margin-top: 2rem;
         color: $primary-color;
+        // border-bottom: 2px solid $primary-color;
     }
     #inputRounds{
-        margin-top: .5rem;
-        text-align: center;
+        // margin-top: .5rem;
+        text-align: end;
         border: none;
         background: none;
         font-weight: bold;
         color: $primary-color;
+        width: 2.5rem;
     }
     #inputRounds:hover{
         color: $complementary-color
