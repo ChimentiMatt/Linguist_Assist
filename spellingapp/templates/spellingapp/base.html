@@ -419,6 +419,10 @@
                       this.progressCounter -= 1
 
                       this.progressBarFunc()
+
+                      // show missed word information
+                      gsap.to('#lastTypo', {display: 'flex', opacity: 1})
+
                       // populate states for axios push
                       let newWord = document.getElementById('newWord').value
                       let inputValue = document.getElementById('inputValue').value
@@ -447,7 +451,7 @@
                   }
                   else if (this.progressCounter == 1){
                     gsap.to('#progressBar', {width: '3rem', duration: 1})
-                    this.dynamicPostGameMessage()
+                    // this.dynamicPostGameMessage()
                   }
                   else if (this.progressCounter == 2){
                     gsap.to('#progressBar', {width: '6rem', duration: 1})
@@ -578,6 +582,7 @@
                 document.getElementById('learningLink').style.color = '#3AA8C1'    
                 document.getElementById('logoutLink').style.color = '#3AA8C1'
               }
+
 
 
               this.fetchData()

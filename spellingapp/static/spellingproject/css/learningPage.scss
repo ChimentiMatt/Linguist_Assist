@@ -142,15 +142,17 @@
 
 #lastTypo{
     position: absolute;
+    display: flex;
     margin-top: 5rem;
     right: 6.5rem;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     // align-items: center;
     text-align: start;
     font-weight: bold;
-
+    display: none;
+    opacity: 0;
+    
     #lastCorrect{
         color: $complementary-color;
     }
