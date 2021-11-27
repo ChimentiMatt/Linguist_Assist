@@ -110,6 +110,12 @@
   color: white;
 }
 
+#gameNameLabel {
+  color: #3AA8C1;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 #progressBarConatiner {
   background: #3AA8C1;
   background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
@@ -124,7 +130,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-top: 2.5rem;
+  margin-top: .5rem;
   margin-bottom: 2.5rem;
   border-radius: 1rem 1rem 1rem 1rem;
   overflow: hidden;

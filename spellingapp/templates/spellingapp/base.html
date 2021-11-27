@@ -508,72 +508,84 @@
 
                 randomWord() {
                   if (this.easyTrigger){
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Easy"
                     let messagesLength = this.easy.length
                     let randomItem = this.easy[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()
                   }
                   else if (this.hardTrigger){
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Hard"
                     let messagesLength = this.hard.length
                     let randomItem = this.hard[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()
                   }
                   else if (this.missedTrigger){
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Your Words"
                     let messagesLength = this.missedWords.length
                     let randomItem = this.missedWords[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem.word
                     this.getObject()
                   }
                   else if (this.firstGradeTrigger){
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: First Grade"
                     let messagesLength = this.firstGrade.length
                     let randomItem = this.firstGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()
                   }
                   else if (this.secondGradeTrigger){
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Second Grade"
                     let messagesLength = this.secondGrade.length   
                     let randomItem = this.secondGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()
                   }
                   else if (this.thirdGradeTrigger){ 
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Third Grade"
                     let messagesLength = this.thirdGrade.length   
                     let randomItem = this.thirdGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }
                   else if (this.fourthGradeTrigger){ 
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Fourth Grade"
                     let messagesLength = this.fourthGrade.length   
                     let randomItem = this.fourthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }      
                   else if (this.fifthGradeTrigger){ 
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Fifth Grade"
                     let messagesLength = this.fifthGrade.length   
                     let randomItem = this.fifthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }               
                   else if (this.sixthGradeTrigger){ 
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Sixth Grade"
                     let messagesLength = this.sixthGrade.length   
                     let randomItem = this.sixthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }     
                   else if (this.seventhGradeTrigger){ 
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Seventh Grade"
                     let messagesLength = this.seventhGrade.length   
                     let randomItem = this.seventhGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }        
                   else if (this.eighthGradeTrigger){ 
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Eighth Grade"
                     let messagesLength = this.eighthGrade.length   
                     let randomItem = this.eighthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }  
                    else if (this.ninthGradeTrigger){ 
+                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Ninth Grade"
                     let messagesLength = this.ninthGrade.length   
                     let randomItem = this.ninthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
@@ -777,8 +789,6 @@
                 document.getElementById('learningLink').style.color = '#3AA8C1'    
                 document.getElementById('logoutLink').style.color = '#3AA8C1'
               }
-
-
 
               this.fetchData()
 				      this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
