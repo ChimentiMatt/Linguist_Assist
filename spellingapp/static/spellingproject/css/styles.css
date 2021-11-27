@@ -372,7 +372,7 @@
   height: 0;
 }
 
-#preGameScreen #preGameBtnContainer #gradeContainer #firstGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #secondGradeBtn {
+#preGameScreen #preGameBtnContainer #gradeContainer #firstGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #secondGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #thirdGradeBtn {
   font-weight: bold;
   color: #3AA8C1;
 }
@@ -576,15 +576,21 @@
           flex-direction: row;
   top: 1.5rem;
   right: 1.5rem;
-  width: 15rem;
+  height: 2rem;
+  width: 10rem;
 }
 
 #postGameScreen #postGameBtns a {
-  margin-left: .5rem;
-  margin-right: .5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   text-decoration: none;
   color: #1a1a1a;
   font-size: 2rem;
+  font-weight: bold;
+}
+
+#postGameScreen #postGameBtns a:hover {
+  color: #3AA8C1;
 }
 
 #studyPage {

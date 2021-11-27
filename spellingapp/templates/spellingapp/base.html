@@ -142,8 +142,8 @@
                         hardTrigger: false,
                         missedTrigger: false,
                         firstGradeTrigger: false,
-                        // secondGradeTrigger: false,
-
+                        secondGradeTrigger: false,
+                        thirdGradeTrigger: true,
                         objectPopulated: false,
                         selectpopulated: false,
 
@@ -184,7 +184,9 @@
                   this.missedTrigger = false
                   this.firstGradeTrigger = false
                   this.secondGradeTrigger = false
-                  gsap.to('#hardBtn, #missedBtn, #firstGradeBtn, #secondGradeBtn', {color: "#3AA8C1"})
+                  this.thirdGradeTrigger = false
+
+                  gsap.to('#hardBtn, #missedBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn', {color: "#3AA8C1"})
                   document.getElementById('easyBtn').style.color = '#c1533a'
 
 
@@ -208,8 +210,9 @@
                   this.missedTrigger = false
                   this.firstGradeTrigger = false
                   this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
 
-                  gsap.to('#easyBtn, #missedBtn, #firstGradeBtn, #secondGradeBtn', {color: "#3AA8C1"})
+                  gsap.to('#easyBtn, #missedBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn', {color: "#3AA8C1"})
                   document.getElementById('hardBtn').style.color = '#c1533a'
 
                   gsap.to('#borderTopHard', {width: '4.5rem'})
@@ -232,12 +235,9 @@
                   this.hardTrigger = false
                   this.firstGradeTrigger = false
                   this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
                   this.fetchData()
-                  // console.log(this.getList[1].spelling_error, 'Get List')
-                  // console.log(this.getList[1], 'Get List')
-
-  
-                  gsap.to('#easyBtn, #hardBtn, #firstGradeBtn, #secondGradeBtn', {color: "#3AA8C1"})
+                  gsap.to('#easyBtn, #hardBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn', {color: "#3AA8C1"})
                   document.getElementById('missedBtn').style.color = '#c1533a'
                   this.missedWords = this.getList
 
@@ -255,6 +255,7 @@
                   this.easyTrigger = false
                   this.hardTrigger = false
                   this.missedTrigger = false
+                  this.thirdGradeTrigger = false
                   gsap.to('#startBtn', {display: 'none', opacity: 0})
                   gsap.to('#easyBtn, #hardBtn, #missedBtn', {color: "#3AA8C1"})
                   gsap.to('#borderTopEasy', {width: '0'})
@@ -274,8 +275,9 @@
                   this.missedTrigger = false
                   this.firstGradeTrigger = true
                   this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
                   document.getElementById('firstGradeBtn').style.color = '#c1533a'
-                  gsap.to('#secondGradeBtn', {color: '#3AA8C1',  duration: 0})
+                  gsap.to('#secondGradeBtn, #thirdGradeBtn', {color: '#3AA8C1',  duration: 0})
                   gsap.to('#borderTopHard', {width: '0'})
                   gsap.to('#borderTopEasy', {width: '0'})
                   gsap.to('#borderTopMissed', {width: '0'})
@@ -289,8 +291,26 @@
                   this.missedTrigger = false
                   this.firstGradeTrigger = false
                   this.secondGradeTrigger = true
+                  this.thirdGradeTrigger = false
                   document.getElementById('secondGradeBtn').style.color = '#c1533a'
-                  gsap.to('#firstGradeBtn', {color: '#3AA8C1', duration: 0})
+                  gsap.to('#firstGradeBtn, #thirdGradeBtn', {color: '#3AA8C1', duration: 0})
+                  gsap.to('#borderTopHard', {width: '0'})
+                  gsap.to('#borderTopEasy', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '0'})
+                  this.randomWord()
+                },
+                thirdGradeFunc() {
+                  gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  this.objectPopulated = true
+                  this.easyTrigger = false
+                  this.hardTrigger = false
+                  this.missedTrigger = false
+                  this.firstGradeTrigger = false
+                  this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = true
+
+                  document.getElementById('thirdGradeBtn').style.color = '#c1533a'
+                  gsap.to('#firstGradeBtn, #secondGradeBtn', {color: '#3AA8C1', duration: 0})
                   gsap.to('#borderTopHard', {width: '0'})
                   gsap.to('#borderTopEasy', {width: '0'})
                   gsap.to('#borderTopMissed', {width: '0'})
@@ -358,6 +378,12 @@
                     let randomItem = this.secondGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()
+                  }
+                  else if (this.thirdGradeTrigger){ 
+                    let messagesLength = this.thirdGrade.length   
+                    let randomItem = this.thirdGrade[Math.floor(Math.random()*messagesLength)]
+                    this.message = randomItem
+                    this.getObject()    
                   }
                   
                   else if (this.missedTrigger){

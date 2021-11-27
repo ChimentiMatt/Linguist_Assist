@@ -224,7 +224,7 @@
                 display: none;
                 height: 0;
             }
-            #firstGradeBtn, #secondGradeBtn{
+            #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn{
                 font-weight: bold;
                 color: $primary-color;
             }
@@ -411,14 +411,19 @@
         flex-direction: row;
         top: 1.5rem;
         right: 1.5rem;
+        height: 2rem;
 
-        width: 15rem;
+        width: 10rem;
         a{
-            margin-left: .5rem;
-            margin-right: .5rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
             text-decoration: none;
             color: $primary-background;
             font-size: 2rem;
+            font-weight: bold;
+        }
+        a:hover{
+            color: $primary-color;
         }
     }
 }

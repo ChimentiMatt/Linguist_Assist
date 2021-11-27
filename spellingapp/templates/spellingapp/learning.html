@@ -15,6 +15,7 @@
                 <div id="gradeMenu">
                     <p v-on:click="firstGradeFunc" id="firstGradeBtn">First Grade</p>
                     <p v-on:click="secondGradeFunc" id="secondGradeBtn">Second Grade</p>
+                    <p v-on:click="thirdGradeFunc" id="thirdGradeBtn">Third Grade</p>
                 </div>
             </div>
 
@@ -38,8 +39,8 @@
 
     <div id="postGameScreen">
         <div id="postGameBtns">
-            <a href="{% url 'spellingapp:learning_view' %}">Play</a>
-           <a href="{% url 'spellingapp:study_view' %}">Study</a>
+            <a href="{% url 'spellingapp:learning_view' %}"><i class="fas fa-play"></i></a>
+           <a href="{% url 'spellingapp:study_view' %}"><i class="fas fa-book"></i></a>
         </div>
         <div id="postGameContentDiv">
             <h1>Great Job!</h1>
