@@ -96,6 +96,10 @@
                         ninthGrade: ['Carthusian', 'authority', 'Vancouver', 'bankrupt', 'Etruscan', 'Algiers', 'Aechen', 'pillage', 'arrayed', 'parishioner', 'irreverent', 'condominium', 'exhalation', 'livery', 'inheritance', 'lutheran', 'chauffeurs', 'jesuit', 'arret', 'barricade', 'proscenium', 'torpid', 'carabinieri', 'knickerbockers', 'countenance', 'frisson', 'apparition', 'niagara', 'discord', 'necromancer', 'plumage', 'arcane', 'disconsolate', 'courtiers', 'unsullied', 'disgorged', 'politesse', 'litany', 'tamarisk', 'maharaja', 'bitumen', 'franchise', 'carrion', 'rummages', 'proffered', 'strife', 'cloisters', 'substantial'],    
 
                         progressCounter : 0,
+                        numOfRounds: 0,
+                        barPercentage: 0,
+                        barPerStr: '',
+                        inputRounds: 0,
 
                         easyTrigger: true,
                         hardTrigger: false,
@@ -195,7 +199,7 @@
                   this.eighthGradeTrigger = false
                   this.ninthGradeTrigger = false
 
-                  gsap.to('#easyBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
+                  gsap.to('#easyBtn, #missedBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
                   document.getElementById('hardBtn').style.color = '#c1533a'
 
                   gsap.to('#borderTopHard', {width: '4.5rem'})
@@ -471,6 +475,7 @@
                 },
 
                 speechFunc() {
+                  this.inputRounds = document.getElementById('inputRounds').value
                   // checks for if list is made and difficulty is selected
                   if (!this.objectPopulated){
                   }
@@ -508,84 +513,84 @@
 
                 randomWord() {
                   if (this.easyTrigger){
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Easy"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Easy - Points Needed ${this.inputRounds}`
                     let messagesLength = this.easy.length
                     let randomItem = this.easy[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()
                   }
                   else if (this.hardTrigger){
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Hard"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Hard - Points Needed ${this.inputRounds}` 
                     let messagesLength = this.hard.length
                     let randomItem = this.hard[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()
                   }
                   else if (this.missedTrigger){
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Your Words"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Your Words - Points Needed ${this.inputRounds}`
                     let messagesLength = this.missedWords.length
                     let randomItem = this.missedWords[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem.word
                     this.getObject()
                   }
                   else if (this.firstGradeTrigger){
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: First Grade"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: First Grade - Points Needed ${this.inputRounds}`
                     let messagesLength = this.firstGrade.length
                     let randomItem = this.firstGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()
                   }
                   else if (this.secondGradeTrigger){
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Second Grade"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Second Grade - Points Needed ${this.inputRounds}`
                     let messagesLength = this.secondGrade.length   
                     let randomItem = this.secondGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()
                   }
                   else if (this.thirdGradeTrigger){ 
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Third Grade"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Third Grade - Points Needed ${this.inputRounds}`
                     let messagesLength = this.thirdGrade.length   
                     let randomItem = this.thirdGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }
                   else if (this.fourthGradeTrigger){ 
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Fourth Grade"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Fourth Grade - Points Needed ${this.inputRounds}`
                     let messagesLength = this.fourthGrade.length   
                     let randomItem = this.fourthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }      
                   else if (this.fifthGradeTrigger){ 
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Fifth Grade"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Fifth Grade - Points Needed ${this.inputRounds}` 
                     let messagesLength = this.fifthGrade.length   
                     let randomItem = this.fifthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }               
                   else if (this.sixthGradeTrigger){ 
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Sixth Grade"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Sixth Grade - Points Needed ${this.inputRounds}`
                     let messagesLength = this.sixthGrade.length   
                     let randomItem = this.sixthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }     
                   else if (this.seventhGradeTrigger){ 
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Seventh Grade"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Seventh Grade - Points Needed ${this.inputRounds}`
                     let messagesLength = this.seventhGrade.length   
                     let randomItem = this.seventhGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }        
                   else if (this.eighthGradeTrigger){ 
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Eighth Grade"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Eighth Grade - Points Needed ${this.inputRounds}`
                     let messagesLength = this.eighthGrade.length   
                     let randomItem = this.eighthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
                     this.getObject()    
                   }  
                    else if (this.ninthGradeTrigger){ 
-                    document.getElementById('gameNameLabel').innerHTML = "Spelling List: Ninth Grade"
+                    document.getElementById('gameNameLabel').innerHTML = `Spelling List: Ninth Grade - Points Needed ${this.inputRounds}`
                     let messagesLength = this.ninthGrade.length   
                     let randomItem = this.ninthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
@@ -612,13 +617,20 @@
                 },
 
                 checkWord() {
-                  
                   let newWord = document.getElementById('newWord').value
                   let inputValue = document.getElementById('inputValue').value
-    
+
+                  this.barPercentage = 100 / this.inputRounds
+
+
+
+
                   // if words are the same and word will NOT be added to database
                   if (newWord.toLowerCase() == inputValue.toLowerCase()){
                     this.progressCounter += 1
+                    this.barPercentage *= this.progressCounter
+                    this.barPerStr = this.barPercentage.toString()
+
                     this.randomWord()
                     document.getElementById('inputValue').value = ''
                     document.getElementById('htmlDef').innerHTML = ''
@@ -637,6 +649,13 @@
                     gsap.to('#progressBarConatiner', {delay: .4, duration: .2, rotate: '0deg'})
 
                     this.progressCounter -= 1
+                    if (this.progressCounter <0){
+                      this.progressCounter = 0
+                    }
+
+                    this.barPercentage *= this.progressCounter
+                    this.barPerStr = this.barPercentage.toString()
+
                     this.progressBarFunc()
 
                     // show missed word information
@@ -658,44 +677,11 @@
                 },
 
                 progressBarFunc() {
-                  
-                  if (this.progressCounter < 0){
-                    this.progressCounter = 0
-                  }
-                  if ( this.progressCounter == 0){
-                    gsap.to('#progressBar', {width: 0})
-                  }
-                  else if (this.progressCounter == 1){
-                    gsap.to('#progressBar', {width: '3rem', duration: 1})
-           
-                  }
-                  else if (this.progressCounter == 2){
-                    gsap.to('#progressBar', {width: '6rem', duration: 1})
-                  }
-                  else if (this.progressCounter == 3){
-                    gsap.to('#progressBar', {width: '9rem', duration: 1})
-                  }
-                  else if (this.progressCounter == 4){
-                    gsap.to('#progressBar', {width: '12rem', duration: 1})
-                  }
-                  else if (this.progressCounter == 5){
-                    gsap.to('#progressBar', {width: '15rem', duration: 1})
-                  }
-                  else if (this.progressCounter == 6){
-                    gsap.to('#progressBar', {width: '18rem', duration: 1})
-                  }
-                  else if (this.progressCounter == 7){
-                    gsap.to('#progressBar', {width: '21rem', duration: 1})
-                  }
-                  else if (this.progressCounter == 8){
-                    gsap.to('#progressBar', {width: '24rem', duration: 1})
-                  }
-                  else if (this.progressCounter == 9){
-                    gsap.to('#progressBar', {width: '27rem', duration: 1})
-                  }
-                  else if (this.progressCounter == 10){
-                    gsap.to('#progressBar', {width: '30rem', duration: 1})
-                    gsap.to('#postGameScreen', {opacity: 1, display: 'flex'})
+                  // alert(this.barPerStr)
+                  gsap.to('#progressBar', {width: this.barPerStr +'%'})
+                  // alert(this.barPercentage)
+                  if (this.barPercentage > 99.5){
+                    // alert('you made it')
                     this.dynamicPostGameMessage()
                   }
                 },
