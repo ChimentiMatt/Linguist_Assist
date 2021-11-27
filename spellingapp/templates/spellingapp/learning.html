@@ -14,7 +14,7 @@
                 <p v-on:click="gradeMenuFunc" id="gradeSelect">By Grade Level <i id="caretGrade" class="fas fa-caret-right"></i> </p>
                 <div id="gradeMenu">
                     <p v-on:click="firstGradeFunc" id="firstGradeBtn">First Grade</p>
-                    <p id="secondGradeBtn">Second Grade</p>
+                    <p v-on:click="secondGradeFunc" id="secondGradeBtn">Second Grade</p>
                 </div>
             </div>
 
@@ -41,7 +41,6 @@
             <p>Great Job!</p>
             <p id="addedToList">The following words were added to your spelling list</p>
             <div v-for="item in stateWrongWords">
-            
                 <p>[[item]]</p>
             </div>
             <p id="noItemsMessage">Nice Job! You got all the words correct!</p>
