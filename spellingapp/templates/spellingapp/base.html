@@ -69,52 +69,22 @@
             
             data() {
                   return  {
+                        csrfmiddlewaretoken: '',
+
                         api_word: '',
                         api_def: '',
+                        newWord: '',
+                        correctWord: '',
+                        wrongWord: '',
+                        lastCorrect: '',
+                        lastError: '',
 
-                        easy: [
-                          'anchor',
-                          'deer',
-                          'dog',
-                          'cat',
-                          'python',
-                          'code',
-                          'animal',
-                          'fast',
-                          'audio',
-                          'carriage',
-                          'tooth',
-                          'head',
-                          'mouse',
-                          'keyboard',
-                          'sad',
-                          'mad',
-                          'yell',
-                          'sing',
-                          'laugh'
-                          
-                        ],
-                        hard: [
-                          'colonel',
-                          'disinterested',
-                          'nonplussed',
-                          'enormity',
-                          'lieutenant',
-                          'unabashed',
-                          'drunkenness',
-                          'conscientious',
-                          'daiquiri',
-                          'mischievous',
-                          'perseverance',
-                          'restaurateur',
-                          'cocoon',
-                          'abrogate',
-                          'abjure',
-                          'fiduciary',
-                          'gauche',
-                          'nihilism'
-                        ],
+                        getList: [],
                         missedWords: [],
+                        lastWords: [],
+
+                        easy: ['anchor','deer','dog','cat','python','code','animal','fast','audio','carriage','tooth','head','mouse','keyboard','sad','mad','sing','laugh'],
+                        hard: ['colonel','disinterested','nonplussed','enormity','lieutenant','unabashed','drunkenness','conscientious','daiquiri','mischievous','perseverance','cocoon','abrogate','abjure','fiduciary','gauche','nihilism'],
                         firstGrade: ['add', 'after', 'again', 'any', 'apart', 'apple', 'arm', 'baby', 'bake', 'bang', 'banana', 'bark', 'beat', 'been', 'being', 'belt', 'bent', 'best', 'bill', 'bike', 'bird', 'birth', 'bone', 'born', 'black', 'blew', 'block', 'father', 'fell', 'few', 'field', 'fill', 'fine', 'first', 'flag', 'flat', 'flew', 'flower', 'fog', 'fool', 'foot', 'fort', 'free', 'fresh', 'from', 'game', 'gang', 'gave', 'gift', 'girl', 'give', 'glad', 'going', 'golf', 'more', 'morning', 'mother', 'much', 'mule', 'must', 'nail', 'name', 'neat', 'neck', 'nest', 'never', 'next', 'new', 'nine', 'noon', 'nose', 'note', 'now', 'odd', 'of', 'old', 'once', 'open', 'orange', 'other', 'over', 'snow', 'snug', 'six', 'soda', 'sofa', 'sold', 'some', 'soon', 'spit', 'star', 'start', 'stay', 'step', 'stew', 'still', 'stir', 'stone', 'stool', 'stop', 'stove', 'straw', 'string', 'such', 'summer', 'sun', 'swing', 'table', '1', 'blue', 'book', 'brag', 'bring', 'brook', 'brother', 'brown', 'bush', 'came', 'cane', 'card', 'cart', 'case', 'chain', 'chair', 'chalk', 'chat', 'chin', 'chop', 'clam', 'clan', 'clap', 'class', 'claw', 'clay', 'clean', 'clover', 'cloud', 'crayon', 'club', 'gone', 'grape', 'grass', 'gray', 'green', 'grew', 'grit', 'gull', 'had', 'hand', 'hang', 'happy', 'hard', 'harm', 'has', 'have', 'heat', 'heavy', 'help', 'here', 'hide', 'hill', 'hint', 'home', 'hope', 'horn', 'how', 'hush', 'ill', 'inside', 'pain', 'pants', 'part', 'pave', 'pear', 'pen', 'pencil', 'pets', 'pick', 'pink', 'plan', 'plant', 'play', 'poor', 'pretty', 'print', 'punch', 'purple', 'put', 'rain', 'rang', 'rank', 'read', 'ride', 'river', 'road', 'rock', 'rode', 'room', 'rope', 'tail', 'take', 'tale', 'tank', 'team', 'tell', 'ten', 'tent', 'test', 'thank', 'their', 'them', 'then', 'these', 'they', 'thick', 'thing', 'think', 'third', 'this', 'time', 'today', 'took', 'train', 'trip', 'truck', 'trust', 'try', 'twelve', 'thank', '2', 'coat', 'come', 'cook', 'cool', 'corn', 'could', 'cram', 'crew', 'crib', 'crow', 'crowd', 'crown', 'cube', 'dark', 'deal', 'desk', 'dew', 'dime', 'dine', 'dirt', 'doll', 'door', 'draw', 'dress', 'drink', 'drop', 'dull', 'each', 'east', 'easy', 'into', 'jaw', 'joke', 'juice', 'jump', 'just', 'keep', 'king', 'kite', 'know', 'last', 'lake', 'late', 'like', 'lime', 'line', 'live', 'look', 'love', 'luck', 'made', 'maid', 'make', 'many', 'map', 'mask', 'may', 'meal', 'meat', 'meet', 'round', 'rub', 'rubber', 'sail', 'sale', 'same', 'sank', 'save', 'see', 'seed', 'seen', 'seep', 'sell', 'send', 'seven', 'shall', 'shape', 'sink', 'shake', 'shirt', 'ship', 'shoes', 'shop', 'show', 'shut', 'sick', 'side', 'size', 'sled', 'sleep', 'them', 'then', 'there', 'think', 'those', 'tree', 'under', 'upon', 'use', 'used', 'very', 'vest', 'vote', 'wait', 'walk', 'want', 'was', 'water', 'well','were', 'west', 'when', 'which', 'white', 'who', 'will', 'wing', 'winter', 'with', 'woman', '3', 'eight', 'eleven', 'end', 'every', 'fang', 'farther', 'fast', 'men', 'mice', 'milk', 'mine', 'mint', 'mix', 'moon', 'slip', 'slow', 'sister', 'smell', 'snail', 'snap', 'snore'],
                         secondGrade: ['across', 'after', 'ago', 'alarm', 'always', 'a lot', 'angry', 'animal', 'around', 'aunt', 'away', 'bait', 'ball', 'balloon', 'band', 'bang', 'barn', 'bath', 'bead', 'beam', 'bean', 'because', 'bedroom', 'been', 'before', 'believe', 'bend', 'best', 'better', 'between', 'blast', 'blaze', 'blend', 'blimp', 'blink', 'blow', 'boat', 'boot', 'both', 'brag', 'brand', 'bread', 'brick', 'bride', 'bright', 'bring', 'broom', 'brother', 'bunch', 'busy', 'buy', 'call', 'camp', 'cannot', 'carry', 'cash', 'caught', 'center', 'charge', 'chess', 'chest', 'chicken', 'child', 'children', 'choke', 'chore', 'clapped', 'clash', 'clean', 'clear', 'click', 'clock', 'cold', 'Cookie', 'could', 'count', 'crank', 'crawl', 'crook', 'cross', 'crow', 'dash', 'dear', 'deep', 'deer', 'desk', 'die', 'dirt', 'dish', 'dock', 'doctor', 'does', 'dream', 'dress', 'drip', 'drive', 'drop', 'drove', 'drum', 'duck', 'dump', 'dust', 'dye', 'every', 'everyone', '', 'best', 'better', 'between', 'blast', 'blaze', 'blend', 'blimp', 'blink', 'blow', 'boat', 'boot', 'both', 'brag', 'brand', 'bread', 'brick', 'bride', 'bright', 'bring', 'broom', 'brother', 'bunch', 'busy', 'buy', 'call', 'camp', 'cannot', 'carry', 'cash', 'caught', 'flash', 'flaw', 'fleet', 'flesh', 'flight', 'flop', 'flung', 'food', 'found', 'friend', 'frog', 'front', 'glass', 'globe', 'gloss', 'goat', 'goes', 'goose', 'grade', 'grand', 'grandfather', 'grandmother', 'grape', 'grass', 'green', 'grin', 'grind', 'grow', 'happy', 'heard', 'pool', 'prime', 'prow', 'pull', 'push', 'rabbit', 'raise', 'rake', 'reach', 'read', 'rest', 'rich', 'right', 'robin', 'rock', 'row', 'rude', 'rust', 'sack', 'said', 'sail', 'sailboat', 'sand', 'said', 'says', 'scale', 'screw', 'sea', 'seal', 'seam', 'teach', 'tell', 'their', 'these', 'those', 'thrift', 'throb', 'tiger', 'tight', 'tip', 'toad', 'toast', 'tooth', 'town', 'trade', 'trail', 'tramp', 'tray', 'treat', 'tribe', 'trick', 'trim', 'trip', 'truth', 'ton', 'tow', 'tug', 'tune', 'twelve', 'twist', 'center', 'charge', 'chess', 'chest', 'chicken', 'child', 'children', 'choke', 'chore', 'clapped', 'clash', 'clean', 'clear', 'click', 'clock', 'cold', 'Cookie', 'could', 'count', 'crank', 'crawl', 'crook', 'cross', 'crow', 'dash', 'dear', 'deep', 'deer', 'desk', 'die', 'hook', 'horse', 'house', 'hush', 'jail', 'jam', 'jump', 'kick', 'kind', 'kiss', 'kitten', 'lean', 'leave', 'light', 'limp', 'lion', 'list', 'live', 'loaf', 'lock', 'long', 'lost', 'loud', 'lump', 'lunch', 'lunchroom', 'made', 'many', 'maybe', 'meal', 'second', 'seem', 'send', 'sent', 'silly', 'seen', 'shame', 'shape', 'share', 'shark', 'sharp', 'sheep', 'shock', 'shook', 'shore', 'short', 'shut', 'sight', 'silly', 'sing', 'sister', 'slam', 'slant', 'sleek', 'sleep', 'sleet', 'slice', 'slick', 'slid', 'slide', 'uncle', 'under', 'upon', 'use', 'vase', 'very', 'wait', 'warm', 'winter', 'was', 'wash', 'water', 'weak', 'week', 'went', 'were', 'whale', 'what', 'wheel', 'where', 'which', 'while', 'who', 'why', 'wide', 'wind', 'wish', 'wool', 'work', 'would', 'dirt', 'dish', 'dock', 'doctor', 'does', "don't", 'downtown', 'mean', 'mess', 'met', 'might', 'minus', 'mitt', 'mitten', 'slip', 'slot', 'smart', 'snack', 'sneer', 'soap', 'song', 'yard', 'yellow', 'yesterday', 'yet', 'your', 'zebra'],
                         thirdGrade: ['about', 'actor', 'agree', 'airplane', 'airport', 'alike', 'almost', 'alone', 'along', 'aloud', 'already', 'army', 'ate', 'awake', 'awhile', 'bare', 'baseball', 'beat', 'become', 'bedtime', 'beef', 'beet', 'began', 'begin', 'bench', 'bent', 'berry', 'dinner', "doesn't", 'done', "don't", 'dozen', 'draw', 'drink', 'dwell', 'early', 'earn', 'eggnog', 'eight', 'elbow', 'elsewhere', 'employ', 'enjoy', 'face', 'fall', 'far', 'fault', 'fill', 'fired', 'fireman', 'fit', 'flavor', 'flow', 'fray', 'kidnap', 'kind', 'ladybug', 'large', 'later', 'laugh', 'light', 'long', 'loss', 'lung', 'mailbox', 'mare', 'mark', 'milking', 'mopped', 'mouse', 'mouth', 'move', 'much', 'munch', 'myself', 'noontime', 'never', 'none', 'number', 'oatmeal', 'only', 'small', 'soft', 'someone', 'somewhere', 'sought', 'sow', 'spelling', 'spend', 'spent', 'squirt', 'start', 'stepped', 'stopped', 'strain', 'stray', 'stream', 'street', 'strike', 'studies', 'study', 'sugar', 'sunny', 'sure', 'surely', 'sweet', 'talk', 'taught', 'better', 'birthday', 'bless', 'boil', 'bought', 'boy', 'brand', 'brass', 'bring', 'bringing', 'brush', 'build', 'built', 'burn', 'bury', 'bushes', 'bushy', 'butter', 'cannot', "can't", 'carry', 'cast', 'cave', 'cent', 'cherries', 'cherry', 'chess', 'chest', 'chili', 'choose', 'frost', 'full', 'fulfill', 'gate', 'gift', 'glove', 'glue', 'goldfish', 'goose', 'got', 'grabbed', 'grain', 'greet', 'grow', 'guild', 'guilt', 'hair', 'haircut', 'half', 'halfway', 'hang', 'hare', 'hobbies', 'hobby', 'hold', 'holiday', 'hot', 'huge', 'hunt', 'hurry', 'own', 'pail', 'pale', 'pancake', 'past', 'pear', 'pest', 'pick', 'pinch', 'pint', 'pitch', 'please', 'point', 'popcorn', 'pound', 'pray', 'pretty', 'price', 'prize', 'pure', 'pushes', 'queen', 'queer', 'quick', 'quicksand', 'quiet', 'quilt', 'quit', 'rainstorm', 'rent', 'tear', 'tearful', 'ten', 'thirst', 'throne', 'throw', 'thrown', 'tipped', 'today', 'together', 'toothpaste', 'toy', 'try', 'turn', 'twig', 'underdog', 'visiting', 'voice', 'volleyball', 'walk', 'warm', 'whatever', 'when', 'whose', 'wire', "won'", 'wood', 'word', 'worm', 'worth', 'churn', 'clean', 'cobweb', 'coil', 'could', 'cracker', 'crazy', 'cure', 'curl', 'cut', 'daytime', 'hurt', 'if', "isn't", 'its', "it's", 'itself', 'jellyfish', 'join', 'jolly', 'joy', 'keep', 'role', 'round', 'scarecrow', 'scarf', 'search', 'seven', 'shall', 'should', 'show', 'six', 'slight', 'work', 'worker', 'worry', 'wrench', 'write', 'wrong', 'yourself', 'young', 'zipped'],
@@ -122,28 +92,25 @@
                         fifthGrade: ['able', 'achieve', 'acoustics', 'action', 'activity', 'advertisement', 'aftermath', 'afternoon', 'afterthought', 'anoint', 'apartment', 'apparel', 'appear', 'appliance', 'appoint', 'approve', 'attack', 'attend', 'awkward', 'baker', 'banker', 'beginner', 'believe', 'bomb', 'border', 'boundary', 'breakfast', 'delight', 'detrimental', 'devotion', 'dirty', 'disappear', 'discover', 'disguise', 'dishonest', 'distance', 'disuse', 'dominant', 'eager', 'education', 'eighth', 'empty', 'encourage', 'entertain', 'equal', 'exactly', 'excel', 'exert', 'exhale', 'exist', 'extravagant', 'facility', 'famous', 'faucet', 'lawyer', 'leather', 'level', 'linen', 'locket', 'lumber', 'magic', 'manageable', 'management', 'mayor', 'meanwhile', 'medallion', 'medicinal', 'melon', 'memorable', 'mention', 'metal', 'meter', 'mightily', 'minister', 'mitten', 'money', 'motor', 'mountain', 'music', 'nature', 'neither', 'reduce', 'reduction', 'reign', 'reply', 'retrieve', 'reward', 'route', 'sable', 'scene', 'scent', 'section', 'shoulder', 'significance', 'similar', 'simplicity', 'sleight', 'socket', 'soup', 'speedy', 'square', 'squirrel', 'staff', 'stolen', 'stranger', 'stroll', 'subject', 'suit', '1', 'breathe', 'brightly', 'burglar', 'cabbage', 'cable', 'calculator', 'calendar', 'capital', 'caption', 'carpenter', 'ceiling', 'cemetery', 'channel', 'circle', 'climb', 'clothe', 'colony', 'comfort', 'comical', 'coming', 'competition', 'concern', 'condition', 'confirm', 'conscious', 'constant', 'construct', 'creator', 'creature', 'crouton', 'feather', 'feature', 'fertile', 'fiction', 'forever', 'fragile', 'friction', 'frugal', 'fruit', 'fuel', 'galley', 'grateful', 'group', 'guard', 'guardian', 'guest', 'guide', 'guitar', 'handle', 'health', 'heart', 'heavily', 'helmet', 'holy', 'hoping', 'household', 'idea', 'increase', 'industry', 'invention', 'nickel', 'option', 'overrule', 'pardon', 'partner', 'passenger', 'perfect', 'perhaps', 'personal', 'pickle', 'picture', 'plantation', 'plastic', 'pleasure', 'pocket', 'police', 'pollution', 'popular', 'precious', 'preferred', 'prejudice', 'prepay', 'preschool', 'proceed', 'produce', 'professor', 'pronounce', 'propel', 'property', 'protect', 'supply', 'supporter', 'sweater', 'teachable', 'televise', 'temper', 'territory', 'texture', 'theater', 'though', 'thread', 'tidal', 'total', 'toward', 'treachery', 'treatment', 'triple', 'useful', 'vacant', 'vain', 'valiant', 'veil', 'vein', 'victory', 'virtue', 'visual', 'volcano', 'wealth', 'weather', 'weird', '2', 'currency', 'curtain', 'customer', 'cycle', 'damage', 'decay', 'decide', 'define', 'jealous', 'junction', 'junior', 'kindness', 'kitten', 'laborer', 'lamb', 'language', 'provide', 'quartet', 'railway', 'reason', 'receive', 'recess', 'recitation', 'record', 'wilderness', 'windy', 'wren', 'wring', 'wrist', 'writer'],
                         sixthGrade: ['abolish', 'absence', 'accident', 'adequate', 'admissible', 'adopt', 'advantage', 'adventure', 'adverb', 'advisor', 'ailment', 'alchemy', 'algebra', 'aluminum', 'ancient', 'appreciate', 'approval', 'arise', 'ascend', 'associate', 'athlete', 'attorney', 'audible', 'autumn', 'awful', 'bachelor', 'banjo', 'crept', 'crutch', 'crystal', 'crystallize', 'daylight', 'debris', 'decade', 'defeat', 'defender', 'delicate', 'delivery', 'deny', 'deposit', 'descent', 'desecration', 'desert', 'desire', 'dessert', 'destination', 'detach', 'detail', 'directory', 'disapprove', 'discuss', 'dismiss', 'display', 'division', 'imbalance', 'imitate', 'immigrant', 'immovable', 'immune', 'impatient', 'import', 'impossible', 'impress', 'infinite', 'innocent', 'inquire', 'instead', 'introduce', 'irresistible', 'janitor', 'jeopardy', 'judgment', 'knack', 'knead', 'knives', 'lacquer', 'larynx', 'limestone', 'manila', 'manufacturer', 'medicine', 'punish', 'pursue', 'quartet', 'quiver', 'raccoon', 'release', 'rely', 'requirement', 'research', 'resist', 'resource', 'salmon', 'saucer', 'saucy', 'sculptor', 'senator', 'sentence', 'serious', 'service', 'silhouette', 'skillet', 'sleuth', 'solo', 'solve', 'somersault', 'soprano', 'source', '1', 'barbecue', 'baritone', 'basin', 'bauble', 'belittle', 'blanket', 'blonde', 'blouse', 'bonnet', 'button', 'buyer', 'cabinet', 'cafeteria', 'calligraphy', 'camouflage', 'carburetor', 'cement', 'centigram', 'character', 'civilian', 'clinch', 'coarse', 'coffee', 'colander', 'cologne', 'common', 'conscience', 'contemporary', 'contrary', 'copier', 'dormitory', 'duet', 'earnest', 'echo', 'edible', 'efficient', 'election', 'enormous', 'enterprise', 'escapade', 'establish', 'except', 'exchange', 'exhibit', 'expert', 'extra', 'factual', 'fasten', 'feasible', 'financial', 'flourish', 'foolish', 'fortress', 'fundamental', 'furious', 'ghetto', 'giant', 'government', 'halo', 'honorary', 'mercury', 'monotonous', 'naive', 'narrative', 'necessary', 'notify', 'obedience', 'oblige', 'operation', 'orchid', 'outfit', 'owner', 'packet', 'paradoxical', 'pastime', 'pavilion', 'perforated', 'periodical', 'perish', 'petition', 'poem', 'political', 'positive', 'possible', 'poultry', 'predict', 'prefer', 'preference', 'private', 'profit', 'steady', 'subdue', 'submarine', 'surgery', 'survey', 'swift', 'switch', 'taunt', 'technical', 'testimonial', 'their', 'there', "they're", 'touch', 'trousers', 'tuxedo', 'unaware', 'unnecessary', 'vary', 'vehicle', 'venom', 'verbal', 'verify', 'violence', 'voluntary', 'weevil', 'wholesale', 'wit', 'women', 'zero', '2', 'covet', 'creditor', 'illustration', 'imaginary', 'prominent'],
                         seventhGrade: ['abrupt', 'accede', 'accelerate', 'accidentally', 'accompanied', 'accost', 'accumulate', 'accuse', 'acquittal', 'adjourn', 'afterward', 'amphibian', 'anachronism', 'analysis', 'ancestry', 'angle', 'ankle', 'anywhere', 'arrival', 'artificial', 'aspect', 'attire', 'attractive', 'aversion', 'ballot', 'banana', 'banquet', 'elicit', 'eliminate', 'elliptical', 'embarrass', 'eminent', 'employee', 'emulate', 'enable', 'encode', 'encyclopedia', 'engineer', 'enslave', 'equipping', 'evanescent', 'evidently', 'exclude', 'exhale', 'eon', 'expediency', 'expedite', 'expenditure', 'extension', 'extract', 'extraordinary', 'exude', 'familiar', 'fastidious', 'jurist', 'kangaroo', 'kerosene', 'khaki', 'kindergarten', 'knowledge', 'labeling', 'laboratory', 'laborious', 'library', 'literature', 'logical', 'lovely', 'lying', 'lyric', 'maintenance', 'mammal', 'maneuver', 'manuscript', 'massive', 'materialism', 'menthol', 'mercurial', 'metallic', 'microbe', 'microcosm', 'mileage', 'prairie', 'predecessor', 'presage', 'pretzel', 'prostrate', 'protocol', 'puddle', 'putter', 'quandary', 'quantity', 'rabid', 'ransack', 'rapport', 'raucous', 'receipt', 'recline', 'recluse', 'recognize', 'recreation', 'recurring', 'rodeo', 'rotund', 'safety', 'salvation', 'saturate', 'savor', 'scholastic', '1', 'battery', 'belie', 'belief', 'bondage', 'boycott', 'brochure', 'budgeting', 'buffalo', 'calendar', 'campaign', 'capitalization', 'cartage', 'cashier', 'ceiling', 'celebration', 'chair', 'chauffeur', 'cheddar', 'civil', 'civilize', 'civilization', 'classification', 'clientele', 'commitment', 'community', 'conceive', 'counterfeit', 'critic', 'criticize', 'cuddle', 'fiend', 'flamboyant', 'flexible', 'foreign', 'forfeit', 'foundation', 'fulfill', 'futurity', 'gaseous', 'gauge', 'genuine', 'graduate', 'grocery', 'grovel', 'guild', 'handkerchief', 'hearty', 'heavily', 'height', 'hosiery', 'hygiene', 'illegal', 'illiterate', 'imbecile', 'imitation', 'inaugural', 'incautious', 'index', 'induce', 'indulge', 'miniature', 'ministry', 'misfortune', 'mispronounce', 'mistreat', 'misunderstood', 'mobilize', 'monologue', 'moreover', 'mosquito', 'murmur', 'myth', 'necessarily', 'nickel', 'niece', 'nineteenth', 'ninety', 'ninth', 'nondescript', 'nonfiction', 'nucleus', 'obey', 'obligate', 'obnoxious', 'obscure', 'obstacle', 'occasion', 'occasionally', 'occur', 'odor', 'scissors', 'scrabble', 'secretarial', 'security', 'serviceable', 'shriek', 'shuffle', 'shutter', 'siege', 'skeptical', 'stereo', 'sticky', 'strenuous', 'strident', 'submission', 'surfeit', 'surmount', 'syllable', 'syrup', 'system', 'tailor', 'tangible', 'tariff', 'tendency', 'therefore', 'thoroughbred', 'throughout', 'tornado', 'triangle', 'turmoil', 'culprit', 'cylinder', 'deceive', 'dehydration', 'delegate', 'delinquent', 'demean', 'despoil', 'develop', 'development', 'diagnosis', 'didactic', 'difficulty', 'disposal', 'disposition', 'droll', 'duplicate', 'durable', 'infection', 'inferior', 'inflate', 'informal', 'injury', 'inscription', 'insecure', 'insinuate', 'institution', 'instrument', 'intelligible', 'interior', 'invalid', 'involved', 'irrefutable', 'jeopardize', 'jewelry', 'journey', 'offense', 'oneself', 'opossum', 'opponent', 'optimism', 'organization', 'organize', 'pageant', 'pamphlet', 'parse', 'particular', 'persist', 'persuade', 'perspire', 'pleat', 'plethora', 'policeman', 'potato', 'unique', 'usurp', 'vacuum', 'vagrant', 'varnish', 'vinegar', 'visible', 'visitor', 'void', 'waiver', 'warranty', 'weather', 'wholly', 'willful', 'yacht', 'yield', 'zenith'],
-                        eighthGrade: ['abbreviate', 'absorbent', 'accept', 'access', 'accessible', 'accessory', 'acoustics', 'accumulate', 'acknowledgment', 'adjust', 'aerial', 'affects', 'alien', 'allotment', 'allotted', 'already', 'altercation', 'amass', 'amendment', 'amorous', 'ancestor', 'anecdote', 'angular', 'anonymous', 'antidote', 'antique', 'antiseptic', 'contiguous', 'corporal', 'council', 'counsel', 'country', 'creator', 'critique', 'customary', 'customer', 'daybreak', 'deceive', 'defendant', 'deficient', 'deficit', 'depreciation', 'desirable', 'desolate', 'detain', 'devour', 'diagnosis', 'diffidence', 'diminish', 'disappeared', 'disapproval', 'disbursement', 'discernible', 'discrepancy', 'gnawing', 'gorgeous', 'grotesque', 'gymnasium', 'handicapped', 'handling', 'handsome', 'haphazard', 'harness', 'hazardous', 'headquarters', 'homogenize', 'horrific', 'humidor', 'idiosyncrasy', 'impatience', 'impinge', 'incandescent', 'inconsolable', 'indelible', 'inept', 'influence', 'innocence', 'innumerable', 'insistent', 'insoluble', 'integrity', 'officious', 'opposite', 'optimism', 'oregano', 'overrate', 'pageant', 'parliament', 'passable', 'paucity', 'penalty', 'perseverance', 'personality', 'picnicking', 'plaintiff', 'poignancy', 'poignant', 'potential', 'preceding', 'precipice', 'preoccupy', 'prospectus', 'quest', 'questionnaire', 'quixotic', 'radioactive', 'rapacious', 'rayon', '1', 'architect', 'arrangement', 'asphalt', 'assignment', 'asterisk', 'attorneys', 'audible', 'aviator', 'bachelor', 'bankruptcy', 'barbaric', 'bask', 'battery', 'behavior', 'benefited', 'berserk', 'besieged', 'bicycle', 'blanch', 'brilliance', 'budget', 'bulletin', 'business', 'cachet', 'callus', 'cancellation', 'canvas', 'canvass', 'capricious', 'carburetor', 'disinterested', 'disoblige', 'dissociate', 'distress', 'diurnal', 'divine', 'domestic', 'domesticate', 'dominance', 'easier', 'ecstasy', 'effect', 'eject', 'eligible', 'eliminate', 'encouragement', 'encyclopedia', 'epic', 'equilibrium', 'erroneous', 'especially', 'exceptional', 'excessive', 'existence', 'exotic', 'expression', 'extremity', 'extricate', 'facsimile', 'familiar', 'intensify', 'interrogative', 'invariable', 'irksome', 'irresistible', 'irrevocable', 'issuing', 'itemized', 'jewelry', 'judicious', 'juror', 'justifiable', 'landslide', 'legitimate', 'leisure', 'liaison', 'library', 'license', 'lieutenant', 'loophole', 'lunar', 'luncheon', 'magnify', 'malefactor', 'malicious', 'markup', 'mattress', 'mesmerize', 'meteor', 'metric', 'raze', 'recently', 'reconcile', 'relevant', 'relief', 'repulse', 'revive', 'rhyme', 'rhythm', 'roommate', 'roster', 'sanctuary', 'sandwich', 'scarcely', 'schedule', 'schism', 'scholar', 'schooner', 'sedition', 'semester', 'seminary', 'session', 'shrine', 'sieve', 'signal', 'sincerely', 'soccer', 'solitary', 'subvert', 'statutory', '2', 'cashier', 'catastrophe', 'centripetal', 'characteristic', 'chaste', 'cinnamon', 'classic', 'collateral', 'colleague', 'college', 'comedy', 'commerce', 'commercial', 'committee', 'communicate', 'commuter', 'compel', 'compensation', 'competent', 'consider', 'fantastic', 'faulty', 'federal', 'feud', 'flexible', 'flout', 'fluorescent', 'folklore', 'forcible', 'fortunately', 'franchise', 'frivolous', 'frostbitten', 'further', 'galaxy', 'galling', 'genuine', 'gesture', 'geology', 'gigantic', 'mischievous', 'misgiving', 'modern', 'modicum', 'mystery', 'negligence', 'neon', 'neutral', 'newsstand', 'nineteenth', 'nonentity', 'noticeable', 'notoriety', 'nuisance', 'numerator', 'nylon', 'obesity', 'oblique', 'obstinate', 'obsolete', 'terrific', 'thieves', 'tragedy', 'transient', 'transmutation', 'turpitude', 'tyranny', 'unacceptable', 'unique', 'unmoved', 'usher', 'utopia', 'vengeance', 'vocal', 'voucher', 'withhold', 'wrestle', 'written'],
-                        ninthGrade: ['abbreviate', 'absorbent', 'accept', 'access', 'accessible', 'accessory', 'acoustics', 'accumulate', 'acknowledgment', 'adjust', 'aerial', 'affects', 'alien', 'allotment', 'allotted', 'already', 'altercation', 'amass', 'amendment', 'amorous', 'ancestor', 'anecdote', 'angular', 'anonymous', 'antidote', 'antique', 'antiseptic', 'contiguous', 'corporal', 'council', 'counsel', 'country', 'creator', 'critique', 'customary', 'customer', 'daybreak', 'deceive', 'defendant', 'deficient', 'deficit', 'depreciation', 'desirable', 'desolate', 'detain', 'devour', 'diagnosis', 'diffidence', 'diminish', 'disappeared', 'disapproval', 'disbursement', 'discernible', 'discrepancy', 'gnawing', 'gorgeous', 'grotesque', 'gymnasium', 'handicapped', 'handling', 'handsome', 'haphazard', 'harness', 'hazardous', 'headquarters', 'homogenize', 'horrific', 'humidor', 'idiosyncrasy', 'impatience', 'impinge', 'incandescent', 'inconsolable', 'indelible', 'inept', 'influence', 'innocence', 'innumerable', 'insistent', 'insoluble', 'integrity', 'officious', 'opposite', 'optimism', 'oregano', 'overrate', 'pageant', 'parliament', 'passable', 'paucity', 'penalty', 'perseverance', 'personality', 'picnicking', 'plaintiff', 'poignancy', 'poignant', 'potential', 'preceding', 'precipice', 'preoccupy', 'prospectus', 'quest', 'questionnaire', 'quixotic', 'radioactive', 'rapacious', 'rayon', '1', 'architect', 'arrangement', 'asphalt', 'assignment', 'asterisk', 'attorneys', 'audible', 'aviator', 'bachelor', 'bankruptcy', 'barbaric', 'bask', 'battery', 'behavior', 'benefited', 'berserk', 'besieged', 'bicycle', 'blanch', 'brilliance', 'budget', 'bulletin', 'business', 'cachet', 'callus', 'cancellation', 'canvas', 'canvass', 'capricious', 'carburetor', 'disinterested', 'disoblige', 'dissociate', 'distress', 'diurnal', 'divine', 'domestic', 'domesticate', 'dominance', 'easier', 'ecstasy', 'effect', 'eject', 'eligible', 'eliminate', 'encouragement', 'encyclopedia', 'epic', 'equilibrium', 'erroneous', 'especially', 'exceptional', 'excessive', 'existence', 'exotic', 'expression', 'extremity', 'extricate', 'facsimile', 'familiar', 'intensify', 'interrogative', 'invariable', 'irksome', 'irresistible', 'irrevocable', 'issuing', 'itemized', 'jewelry', 'judicious', 'juror', 'justifiable', 'landslide', 'legitimate', 'leisure', 'liaison', 'library', 'license', 'lieutenant', 'loophole', 'lunar', 'luncheon', 'magnify', 'malefactor', 'malicious', 'markup', 'mattress', 'mesmerize', 'meteor', 'metric', 'raze', 'recently', 'reconcile', 'relevant', 'relief', 'repulse', 'revive', 'rhyme', 'rhythm', 'roommate', 'roster', 'sanctuary', 'sandwich', 'scarcely', 'schedule', 'schism', 'scholar', 'schooner', 'sedition', 'semester', 'seminary', 'session', 'shrine', 'sieve', 'signal', 'sincerely', 'soccer', 'solitary', 'subvert', 'statutory', '2', 'cashier', 'catastrophe', 'centripetal', 'characteristic', 'chaste', 'cinnamon', 'classic', 'collateral', 'colleague', 'college', 'comedy', 'commerce', 'commercial', 'committee', 'communicate', 'commuter', 'compel', 'compensation', 'competent', 'consider', 'fantastic', 'faulty', 'federal', 'feud', 'flexible', 'flout', 'fluorescent', 'folklore', 'forcible', 'fortunately', 'franchise', 'frivolous', 'frostbitten', 'further', 'galaxy', 'galling', 'genuine', 'gesture', 'geology', 'gigantic', 'mischievous', 'misgiving', 'modern', 'modicum', 'mystery', 'negligence', 'neon', 'neutral', 'newsstand', 'nineteenth', 'nonentity', 'noticeable', 'notoriety', 'nuisance', 'numerator', 'nylon', 'obesity', 'oblique', 'obstinate', 'obsolete', 'terrific', 'thieves', 'tragedy', 'transient', 'transmutation', 'turpitude', 'tyranny', 'unacceptable', 'unique', 'unmoved', 'usher', 'utopia', 'vengeance', 'vocal', 'voucher', 'withhold', 'wrestle', 'written'],
-    
-                        message: 'phone',
-                        newWord: '',
-                        csrfmiddlewaretoken: '',
-                        getList: [],
-
-                        correctWord: '',
-                        wrongWord: '',
-                        lastWords: [],
-                        lastCorrect: '',
-                        lastError: '',
+                        eighthGrade: ['abbreviate', 'absorbent', 'accept', 'access', 'accessible', 'accessory', 'acoustics', 'accumulate', 'acknowledgment', 'adjust', 'aerial', 'affects', 'alien', 'allotment', 'allotted', 'already', 'altercation', 'amass', 'amendment', 'amorous', 'ancestor', 'anecdote', 'angular', 'anonymous', 'antidote', 'antique', 'antiseptic', 'contiguous', 'corporal', 'council', 'counsel', 'country', 'creator', 'critique', 'customary', 'customer', 'daybreak', 'deceive', 'defendant', 'deficient', 'deficit', 'depreciation', 'desirable', 'desolate', 'detain', 'devour', 'diagnosis', 'diffidence', 'diminish', 'disappeared', 'disapproval', 'disbursement', 'discernible', 'discrepancy', 'gnawing', 'gorgeous', 'grotesque', 'gymnasium', 'handicapped', 'handling', 'handsome', 'haphazard', 'harness', 'hazardous', 'headquarters', 'homogenize', 'horrific', 'humidor', 'idiosyncrasy', 'impatience', 'impinge', 'incandescent', 'inconsolable', 'indelible', 'inept', 'influence', 'innocence', 'innumerable', 'insistent', 'insoluble', 'integrity', 'officious', 'opposite', 'optimism', 'oregano', 'overrate', 'pageant', 'parliament', 'passable', 'paucity', 'penalty', 'perseverance', 'personality', 'picnicking', 'plaintiff', 'poignancy', 'poignant', 'potential', 'preceding', 'precipice', 'preoccupy', 'prospectus', 'quest', 'questionnaire', 'quixotic', 'radioactive', 'rapacious', 'rayon', 'architect', 'arrangement', 'asphalt', 'assignment', 'asterisk', 'attorneys', 'audible', 'aviator', 'bachelor', 'bankruptcy', 'barbaric', 'bask', 'battery', 'behavior', 'benefited', 'berserk', 'besieged', 'bicycle', 'blanch', 'brilliance', 'budget', 'bulletin', 'business', 'cachet', 'callus', 'cancellation', 'canvas', 'canvass', 'capricious', 'carburetor', 'disinterested', 'disoblige', 'dissociate', 'distress', 'diurnal', 'divine', 'domestic', 'domesticate', 'dominance', 'easier', 'ecstasy', 'effect', 'eject', 'eligible', 'eliminate', 'encouragement', 'encyclopedia', 'epic', 'equilibrium', 'erroneous', 'especially', 'exceptional', 'excessive', 'existence', 'exotic', 'expression', 'extremity', 'extricate', 'facsimile', 'familiar', 'intensify', 'interrogative', 'invariable', 'irksome', 'irresistible', 'irrevocable', 'issuing', 'itemized', 'jewelry', 'judicious', 'juror', 'justifiable', 'landslide', 'legitimate', 'leisure', 'liaison', 'library', 'license', 'lieutenant', 'loophole', 'lunar', 'luncheon', 'magnify', 'malefactor', 'malicious', 'markup', 'mattress', 'mesmerize', 'meteor', 'metric', 'raze', 'recently', 'reconcile', 'relevant', 'relief', 'repulse', 'revive', 'rhyme', 'rhythm', 'roommate', 'roster', 'sanctuary', 'sandwich', 'scarcely', 'schedule', 'schism', 'scholar', 'schooner', 'sedition', 'semester', 'seminary', 'session', 'shrine', 'sieve', 'signal', 'sincerely', 'soccer', 'solitary', 'subvert', 'statutory', '2', 'cashier', 'catastrophe', 'centripetal', 'characteristic', 'chaste', 'cinnamon', 'classic', 'collateral', 'colleague', 'college', 'comedy', 'commerce', 'commercial', 'committee', 'communicate', 'commuter', 'compel', 'compensation', 'competent', 'consider', 'fantastic', 'faulty', 'federal', 'feud', 'flexible', 'flout', 'fluorescent', 'folklore', 'forcible', 'fortunately', 'franchise', 'frivolous', 'frostbitten', 'further', 'galaxy', 'galling', 'genuine', 'gesture', 'geology', 'gigantic', 'mischievous', 'misgiving', 'modern', 'modicum', 'mystery', 'negligence', 'neon', 'neutral', 'newsstand', 'nineteenth', 'nonentity', 'noticeable', 'notoriety', 'nuisance', 'numerator', 'nylon', 'obesity', 'oblique', 'obstinate', 'obsolete', 'terrific', 'thieves', 'tragedy', 'transient', 'transmutation', 'turpitude', 'tyranny', 'unacceptable', 'unique', 'unmoved', 'usher', 'utopia', 'vengeance', 'vocal', 'voucher', 'withhold', 'wrestle', 'written'],
+                        ninthGrade: ['Carthusian', 'authority', 'Vancouver', 'bankrupt', 'Etruscan', 'Algiers', 'Aechen', 'pillage', 'arrayed', 'parishioner', 'irreverent', 'condominium', 'exhalation', 'livery', 'inheritance', 'lutheran', 'chauffeurs', 'jesuit', 'arret', 'barricade', 'proscenium', 'torpid', 'carabinieri', 'knickerbockers', 'countenance', 'frisson', 'apparition', 'niagara', 'discord', 'necromancer', 'plumage', 'arcane', 'disconsolate', 'courtiers', 'unsullied', 'disgorged', 'politesse', 'litany', 'tamarisk', 'maharaja', 'bitumen', 'franchise', 'carrion', 'rummages', 'proffered', 'strife', 'cloisters', 'substantial'],    
 
                         progressCounter : 0,
-                        newGame: true,
+
                         easyTrigger: true,
                         hardTrigger: false,
                         missedTrigger: false,
                         firstGradeTrigger: false,
                         secondGradeTrigger: false,
-                        thirdGradeTrigger: true,
+                        thirdGradeTrigger: false,
+                        fourthGradeTrigger: false,
+                        fifthGradeTrigger: false,
+                        sixthGradeTrigger: false,
+                        seventhGradeTrigger: false,
+                        eighthGradeTrigger: false,
+                        ninthGradeTrigger: false,
+
+                        newGame: true,
                         objectPopulated: false,
                         selectpopulated: false,
 
@@ -175,7 +142,6 @@
                 },
 
                 easyFunc() {
-                  gsap.to('#progressBar', {width: 0, duration: 0})
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
 
                   this.objectPopulated = true
@@ -185,8 +151,17 @@
                   this.firstGradeTrigger = false
                   this.secondGradeTrigger = false
                   this.thirdGradeTrigger = false
-
-                  gsap.to('#hardBtn, #missedBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn', {color: "#3AA8C1"})
+                  this.firstGradeTrigger = false
+                  this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = false
+                  
+                  gsap.to('#hardBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
                   document.getElementById('easyBtn').style.color = '#c1533a'
 
 
@@ -202,7 +177,6 @@
                 },
 
                 hardFunc() {
-                  gsap.to('#progressBar', {width: 0, duration: 0})
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
                   this.objectPopulated = true
                   this.easyTrigger = false
@@ -211,8 +185,17 @@
                   this.firstGradeTrigger = false
                   this.secondGradeTrigger = false
                   this.thirdGradeTrigger = false
+                  this.firstGradeTrigger = false
+                  this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = false
 
-                  gsap.to('#easyBtn, #missedBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn', {color: "#3AA8C1"})
+                  gsap.to('#easyBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
                   document.getElementById('hardBtn').style.color = '#c1533a'
 
                   gsap.to('#borderTopHard', {width: '4.5rem'})
@@ -227,7 +210,6 @@
                 },
 
                 missedFunc() {
-                  gsap.to('#progressBar', {width: 0, duration: 0})
                   gsap.to('#startBtn', {display: 'block', opacity: 1})
                   this.objectPopulated = true
                   this.missedTrigger = true
@@ -236,8 +218,16 @@
                   this.firstGradeTrigger = false
                   this.secondGradeTrigger = false
                   this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = false
+            
                   this.fetchData()
-                  gsap.to('#easyBtn, #hardBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn', {color: "#3AA8C1"})
+                  gsap.to('#easyBtn, #hardBtn, #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
+
                   document.getElementById('missedBtn').style.color = '#c1533a'
                   this.missedWords = this.getList
 
@@ -276,8 +266,15 @@
                   this.firstGradeTrigger = true
                   this.secondGradeTrigger = false
                   this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = false
                   document.getElementById('firstGradeBtn').style.color = '#c1533a'
-                  gsap.to('#secondGradeBtn, #thirdGradeBtn', {color: '#3AA8C1',  duration: 0})
+                  gsap.to('#secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
+
                   gsap.to('#borderTopHard', {width: '0'})
                   gsap.to('#borderTopEasy', {width: '0'})
                   gsap.to('#borderTopMissed', {width: '0'})
@@ -292,8 +289,15 @@
                   this.firstGradeTrigger = false
                   this.secondGradeTrigger = true
                   this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = false
                   document.getElementById('secondGradeBtn').style.color = '#c1533a'
-                  gsap.to('#firstGradeBtn, #thirdGradeBtn', {color: '#3AA8C1', duration: 0})
+                  gsap.to('#firstGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
+
                   gsap.to('#borderTopHard', {width: '0'})
                   gsap.to('#borderTopEasy', {width: '0'})
                   gsap.to('#borderTopMissed', {width: '0'})
@@ -308,9 +312,158 @@
                   this.firstGradeTrigger = false
                   this.secondGradeTrigger = false
                   this.thirdGradeTrigger = true
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = false
 
                   document.getElementById('thirdGradeBtn').style.color = '#c1533a'
-                  gsap.to('#firstGradeBtn, #secondGradeBtn', {color: '#3AA8C1', duration: 0})
+                  gsap.to('#firstGradeBtn, #secondGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
+
+                  gsap.to('#borderTopHard', {width: '0'})
+                  gsap.to('#borderTopEasy', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '0'})
+                  this.randomWord()
+                },
+                fourthGradeFunc(){
+                  gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  this.objectPopulated = true
+                  this.easyTrigger = false
+                  this.hardTrigger = false
+                  this.missedTrigger = false
+                  this.firstGradeTrigger = false
+                  this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = true
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = false
+
+                  document.getElementById('fourthGradeBtn').style.color = '#c1533a'
+                  gsap.to('#firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
+                  gsap.to('#borderTopHard', {width: '0'})
+                  gsap.to('#borderTopEasy', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '0'})
+                  this.randomWord()
+                },
+                fifthGradeFunc(){
+                  gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  this.objectPopulated = true
+                  this.easyTrigger = false
+                  this.hardTrigger = false
+                  this.missedTrigger = false
+                  this.firstGradeTrigger = false
+                  this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = true
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = false
+
+                  document.getElementById('fifthGradeBtn').style.color = '#c1533a'
+                  gsap.to('#firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
+
+                  gsap.to('#borderTopHard', {width: '0'})
+                  gsap.to('#borderTopEasy', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '0'})
+                  this.randomWord()
+                },
+                sixthGradeFunc(){
+                  gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  this.objectPopulated = true
+                  this.easyTrigger = false
+                  this.hardTrigger = false
+                  this.missedTrigger = false
+                  this.firstGradeTrigger = false
+                  this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = true
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = false
+
+                  document.getElementById('sixthGradeBtn').style.color = '#c1533a'
+                  gsap.to('#firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
+                  gsap.to('#borderTopHard', {width: '0'})
+                  gsap.to('#borderTopEasy', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '0'})
+                  this.randomWord()
+                },
+                seventhGradeFunc(){
+                  gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  this.objectPopulated = true
+                  this.easyTrigger = false
+                  this.hardTrigger = false
+                  this.missedTrigger = false
+                  this.firstGradeTrigger = false
+                  this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = true
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = false
+
+                  document.getElementById('seventhGradeBtn').style.color = '#c1533a'
+                  gsap.to('#firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #eighthGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
+
+                  gsap.to('#borderTopHard', {width: '0'})
+                  gsap.to('#borderTopEasy', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '0'})
+                  this.randomWord()
+                },
+                eighthGradeFunc(){
+                  gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  this.objectPopulated = true
+                  this.easyTrigger = false
+                  this.hardTrigger = false
+                  this.missedTrigger = false
+                  this.firstGradeTrigger = false
+                  this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = true
+                  this.ninthGradeTrigger = false
+
+                  document.getElementById('eighthGradeBtn').style.color = '#c1533a'
+                  gsap.to('#firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #ninthGradeBtn', {color: '#3AA8C1', duration: 0})
+
+                  gsap.to('#borderTopHard', {width: '0'})
+                  gsap.to('#borderTopEasy', {width: '0'})
+                  gsap.to('#borderTopMissed', {width: '0'})
+                  this.randomWord()
+                },
+                ninthGradeFunc(){
+                  gsap.to('#startBtn', {display: 'block', opacity: 1})
+                  this.objectPopulated = true
+                  this.easyTrigger = false
+                  this.hardTrigger = false
+                  this.missedTrigger = false
+                  this.firstGradeTrigger = false
+                  this.secondGradeTrigger = false
+                  this.thirdGradeTrigger = false
+                  this.fourthGradeTrigger = false
+                  this.fifthGradeTrigger = false
+                  this.sixthGradeTrigger = false
+                  this.seventhGradeTrigger = false
+                  this.eighthGradeTrigger = false
+                  this.ninthGradeTrigger = true
+
+                  document.getElementById('ninthGradeBtn').style.color = '#c1533a'
+                  gsap.to('#firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn', {color: '#3AA8C1', duration: 0})
+
                   gsap.to('#borderTopHard', {width: '0'})
                   gsap.to('#borderTopEasy', {width: '0'})
                   gsap.to('#borderTopMissed', {width: '0'})
@@ -367,6 +520,12 @@
                     this.message = randomItem
                     this.getObject()
                   }
+                  else if (this.missedTrigger){
+                    let messagesLength = this.missedWords.length
+                    let randomItem = this.missedWords[Math.floor(Math.random()*messagesLength)]
+                    this.message = randomItem.word
+                    this.getObject()
+                  }
                   else if (this.firstGradeTrigger){
                     let messagesLength = this.firstGrade.length
                     let randomItem = this.firstGrade[Math.floor(Math.random()*messagesLength)]
@@ -385,15 +544,42 @@
                     this.message = randomItem
                     this.getObject()    
                   }
-                  
-                  else if (this.missedTrigger){
-
-                    let messagesLength = this.missedWords.length
-                    let randomItem = this.missedWords[Math.floor(Math.random()*messagesLength)]
-                    this.message = randomItem.word
-                    this.getObject()
-
-                  }
+                  else if (this.fourthGradeTrigger){ 
+                    let messagesLength = this.fourthGrade.length   
+                    let randomItem = this.fourthGrade[Math.floor(Math.random()*messagesLength)]
+                    this.message = randomItem
+                    this.getObject()    
+                  }      
+                  else if (this.fifthGradeTrigger){ 
+                    let messagesLength = this.fifthGrade.length   
+                    let randomItem = this.fifthGrade[Math.floor(Math.random()*messagesLength)]
+                    this.message = randomItem
+                    this.getObject()    
+                  }               
+                  else if (this.sixthGradeTrigger){ 
+                    let messagesLength = this.sixthGrade.length   
+                    let randomItem = this.sixthGrade[Math.floor(Math.random()*messagesLength)]
+                    this.message = randomItem
+                    this.getObject()    
+                  }     
+                  else if (this.seventhGradeTrigger){ 
+                    let messagesLength = this.seventhGrade.length   
+                    let randomItem = this.seventhGrade[Math.floor(Math.random()*messagesLength)]
+                    this.message = randomItem
+                    this.getObject()    
+                  }        
+                  else if (this.eighthGradeTrigger){ 
+                    let messagesLength = this.eighthGrade.length   
+                    let randomItem = this.eighthGrade[Math.floor(Math.random()*messagesLength)]
+                    this.message = randomItem
+                    this.getObject()    
+                  }  
+                   else if (this.ninthGradeTrigger){ 
+                    let messagesLength = this.ninthGrade.length   
+                    let randomItem = this.ninthGrade[Math.floor(Math.random()*messagesLength)]
+                    this.message = randomItem
+                    this.getObject()    
+                  }                          
                 },
                 getObject() { 
                     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.message}`)

@@ -372,7 +372,7 @@
   height: 0;
 }
 
-#preGameScreen #preGameBtnContainer #gradeContainer #firstGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #secondGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #thirdGradeBtn {
+#preGameScreen #preGameBtnContainer #gradeContainer #firstGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #secondGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #thirdGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #fourthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #fifthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #sixthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #seventhGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #eighthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #ninthGradeBtn {
   font-weight: bold;
   color: #3AA8C1;
 }
