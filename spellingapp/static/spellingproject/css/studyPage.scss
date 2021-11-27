@@ -55,6 +55,11 @@
                 border-radius: .2rem;
                 color: white;
             }
+            button:hover{
+                background: white;
+                color: $complementary-color;
+                cursor: pointer;
+            }
         }
 
         #spellingListContainer{

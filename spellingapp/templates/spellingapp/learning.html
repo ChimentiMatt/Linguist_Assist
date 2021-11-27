@@ -42,7 +42,7 @@
                 <p id="borderTopMissed"></p>
             </div>
         </div>
-        <p v-on:click="speechFunc" id="startBtn">play <i class="fas fa-play"></i></p>
+        <p v-on:click="speechFunc" id="startBtn">play <span id="playIcon"><i class="fas fa-play"></i></span></p>
     </div>
 
     <div id="postGameScreen">
@@ -87,7 +87,7 @@
         {% comment %} <form action="{% url 'spellingapp:learning_add_key_val' %}" method="POST" > {% endcomment %}
         {% csrf_token %}
         <input id="newWord" name="word" >
-        <input type="text" id="inputValue" placeholder="Type Here" name="spelling_error" spellcheck="false">
+        <input v-on:keyup.enter="checkWord" type="text" id="inputValue" placeholder="Type Here" name="spelling_error" spellcheck="false">
         <div v-on:click="speechFunc" id="speachContainer">
             <p>Hear Word</p><p><i class="fas fa-volume-up"></i></p>
         </div>

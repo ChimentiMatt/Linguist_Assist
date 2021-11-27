@@ -116,6 +116,7 @@
 #checkWord:hover{
     background: white;
     color: $complementary-color;
+    cursor: pointer;
 }
 
 #defAndOld{
@@ -228,6 +229,10 @@
                 font-weight: bold;
                 color: $primary-color;
             }
+            #firstGradeBtn:hover, #secondGradeBtn:hover, #thirdGradeBtn:hover, #fourthGradeBtn:hover, #fifthGradeBtn:hover, #sixthGradeBtn:hover, #seventhGradeBtn:hover, #eighthGradeBtn:hover, #ninthGradeBtn:hover{
+                cursor: pointer;
+                color: $complementary-color;
+            }
         }
 
         #easyContainer{
@@ -245,6 +250,7 @@
 
             #easyBtn:hover{
                 color: $complementary-color;
+                cursor: pointer;
             }              
 
             #borderTopEasy{
@@ -267,6 +273,7 @@
             }
             #hardBtn:hover{
                 color: $complementary-color;
+                cursor: pointer;
             }           
 
             #borderTopHard{
@@ -287,9 +294,11 @@
                 background: none;
                 border: none;
                 font-weight: bold;
+                
             }
             #missedBtn:hover{
                 color: $complementary-color;
+                cursor: pointer;
             }           
 
             #borderTopMissed{
@@ -320,7 +329,11 @@
     }
     
     #startBtn:hover{
-        color: lighten($complementary-color, 10%);
+
+        cursor: pointer;
+        #playIcon{
+            color: $primary-color;
+        }
     }
 
     // h1{

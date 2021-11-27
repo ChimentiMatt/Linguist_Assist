@@ -131,7 +131,7 @@
                         'X-CSRFToken': this.csrfmiddlewaretoken
                       }
                     }).then(response => {
-                      console.log(response.data)
+                      // console.log(response.data)
                     })
                     .then(() => {
                       this.fetchData()
@@ -511,7 +511,6 @@
                     let messagesLength = this.easy.length
                     let randomItem = this.easy[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
-                    console.log(this.message, 'easy message')
                     this.getObject()
                   }
                   else if (this.hardTrigger){
@@ -587,7 +586,7 @@
                     .then((res)=> {
                         // save word
                         this.api_word = res[0]['word']
-                        // console.log(this.api_word);
+
                         // save def
                         this.api_def = res[0]['meanings'][0]['definitions'][0]['definition']
                         
@@ -609,52 +608,45 @@
                   if (newWord.toLowerCase() == inputValue.toLowerCase()){
                     this.progressCounter += 1
                     this.randomWord()
-                    // this.newWordInHTML()
                     document.getElementById('inputValue').value = ''
-                    // document.getElementById('submitPost').style.display = 'none'
                     document.getElementById('htmlDef').innerHTML = ''
 
                     this.progressBarFunc()
                     this.newWordInHTML()
                   }
-                    //stops the user entering no word at all
-                    else if(inputValue == ''){
+                  //stops the user entering no word at all
+                  else if(inputValue == ''){
 
-                    }
-                    // if the user enters a wrong spelling
-                    else{
-                      gsap.to('#progressBarConatiner', {duration: .2, rotate: '2deg'})
-                      gsap.to('#progressBarConatiner', {delay: .2, duration: .2, rotate: '-2deg'})
-                      gsap.to('#progressBarConatiner', {delay: .4, duration: .2, rotate: '0deg'})
-                      // gsap.to('#lastCorrect', {scale: 1.5, duration: 0})
-                      // gsap.to('#lastCorrect', {delay: 1, scale: 1, duration: 1, color: '#c1533a'})
-                      this.progressCounter -= 1
+                  }
+                  // if the user enters a wrong spelling
+                  else{
+                    gsap.to('#progressBarConatiner', {duration: .2, rotate: '2deg'})
+                    gsap.to('#progressBarConatiner', {delay: .2, duration: .2, rotate: '-2deg'})
+                    gsap.to('#progressBarConatiner', {delay: .4, duration: .2, rotate: '0deg'})
 
-                      this.progressBarFunc()
+                    this.progressCounter -= 1
+                    this.progressBarFunc()
 
-                      // show missed word information
-                      gsap.to('#lastTypo', {display: 'flex', opacity: 1})
+                    // show missed word information
+                    gsap.to('#lastTypo', {display: 'flex', opacity: 1})
 
-                      // populate states for axios push
-                      let newWord = document.getElementById('newWord').value
-                      let inputValue = document.getElementById('inputValue').value
-                      this.correctWord = newWord
-                      this.wrongWord = inputValue
+                    // populate states for axios push
+                    let newWord = document.getElementById('newWord').value
+                    let inputValue = document.getElementById('inputValue').value
+                    this.correctWord = newWord
+                    this.wrongWord = inputValue
 
-                      // push to axios
-                      document.getElementById('inputValue').value = ''
-                      this.axiosPost()
+                    // push to axios
+                    document.getElementById('inputValue').value = ''
+                    this.axiosPost()
 
-                      // add to state wrong list for showing once game is over
-                      this.stateWrongWords.push(this.correctWord)
-                      
-
-                    }
+                    // add to state wrong list for showing once game is over
+                    this.stateWrongWords.push(this.correctWord)
+                  }
                 },
 
                 progressBarFunc() {
                   
-                  console.log(this.progressCounter, 'prog counter')
                   if (this.progressCounter < 0){
                     this.progressCounter = 0
                   }
@@ -663,7 +655,7 @@
                   }
                   else if (this.progressCounter == 1){
                     gsap.to('#progressBar', {width: '3rem', duration: 1})
-                    this.dynamicPostGameMessage()
+           
                   }
                   else if (this.progressCounter == 2){
                     gsap.to('#progressBar', {width: '6rem', duration: 1})
@@ -692,15 +684,12 @@
                   else if (this.progressCounter == 10){
                     gsap.to('#progressBar', {width: '30rem', duration: 1})
                     gsap.to('#postGameScreen', {opacity: 1, display: 'flex'})
-                    // this.progressCounter = 0
-                    // this.newGame = true
                     this.dynamicPostGameMessage()
                   }
                 },
               
               dynamicPostGameMessage() {
                 gsap.to('#postGameScreen', {opacity: 1, display: 'flex'})
-                console.log(this.stateWrongWords.length , this.stateWrongWords.length == 0)
                 if (this.stateWrongWords.length == 0){
                   document.getElementById('addedToList').style.display = 'none'
                   document.getElementById('noItemsMessage').style.display = 'block'
@@ -731,13 +720,9 @@
     
                 var utterThis = new SpeechSynthesisUtterance(inputTxt.innerHTML);
                 utterThis.voice = voices[voiceSelect.value];
-                // utterThis.voice = '(en-GB)'
-                // console.log(utterThis.voice, 'ut')
                 synth.speak(utterThis);
                 inputTxt.blur();
-
               },
-
 
               fetchData: function() {
                 const myOption = {
@@ -746,9 +731,7 @@
                 fetch('/fetch_get', myOption)
                 .then((res) => res.json())
                 .then((res) => {
-                  // console.log(res.items, 'Fetch Request Worked')
                   this.getList = res.items
-                  // console.log(this.getList, 'getlist')
                 })
                 .then(() => {
                   // get last item from list and save it
@@ -761,10 +744,7 @@
             },
             
             mounted() {
-            // '#c1533a'
-            // '#3AA8C1'
-        
-             // Home Page not loggin in
+              // Home Page not loggin in
               if (window.location.pathname  == '/'){
                 document.getElementById('homeLink').style.color = '#c1533a'
                 document.getElementById('loginLink').style.color = '#3AA8C1'
@@ -790,6 +770,7 @@
                 document.getElementById('learningLink').style.color = '#c1533a'    
                 document.getElementById('spellingListLink').style.color = '#3AA8C1'
                 document.getElementById('logoutLink').style.color = '#3AA8C1'
+
               }
               else if (window.location.pathname  == '/study/'){
                 document.getElementById('spellingListLink').style.color = '#c1533a'
@@ -804,7 +785,7 @@
               // this.randomWord()
               this.newWordInHTML()
 
-              //initalize speach options
+              //initalize speach options or else select wont have options for speaker voice
               var synth = window.speechSynthesis;
               var voices = synth.getVoices();
               var voiceSelect = document.getElementById('speachSelect')
@@ -816,15 +797,15 @@
                 voiceSelect.appendChild(option);
       
               }     
-              var inputTxt = document.getElementById('newWord');
-              var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
-              utterThis.voice = voices[voiceSelect.value];
-              // console.log(utterThis.voice, 'this one mattttt')
-              synth.speak(utterThis);
-              inputTxt.blur();
-            
-                         
-              }
+              // var inputTxt = document.getElementById('newWord');
+              // var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
+              // utterThis.voice = voices[voiceSelect.value];
+              // // console.log(utterThis.voice, 'this one mattttt')
+              // synth.speak(utterThis);
+              // inputTxt.blur();
+              // }
+            }
+              
             }
             
           Vue.createApp(App).mount('#app')

@@ -247,6 +247,7 @@
 #checkWord:hover {
   background: white;
   color: #c1533a;
+  cursor: pointer;
 }
 
 #defAndOld {
@@ -377,6 +378,11 @@
   color: #3AA8C1;
 }
 
+#preGameScreen #preGameBtnContainer #gradeContainer #firstGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #secondGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #thirdGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #fourthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #fifthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #sixthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #seventhGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #eighthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #ninthGradeBtn:hover {
+  cursor: pointer;
+  color: #c1533a;
+}
+
 #preGameScreen #preGameBtnContainer #easyContainer {
   margin-top: 1rem;
   display: -webkit-box;
@@ -398,6 +404,7 @@
 
 #preGameScreen #preGameBtnContainer #easyContainer #easyBtn:hover {
   color: #c1533a;
+  cursor: pointer;
 }
 
 #preGameScreen #preGameBtnContainer #easyContainer #borderTopEasy {
@@ -427,6 +434,7 @@
 
 #preGameScreen #preGameBtnContainer #hardContainer #hardBtn:hover {
   color: #c1533a;
+  cursor: pointer;
 }
 
 #preGameScreen #preGameBtnContainer #hardContainer #borderTopHard {
@@ -456,6 +464,7 @@
 
 #preGameScreen #preGameBtnContainer #missedContainer #missedBtn:hover {
   color: #c1533a;
+  cursor: pointer;
 }
 
 #preGameScreen #preGameBtnContainer #missedContainer #borderTopMissed {
@@ -482,7 +491,11 @@
 }
 
 #preGameScreen #startBtn:hover {
-  color: #cf745f;
+  cursor: pointer;
+}
+
+#preGameScreen #startBtn:hover #playIcon {
+  color: #3AA8C1;
 }
 
 #postGameScreen {
@@ -658,6 +671,12 @@
   color: white;
 }
 
+#studyPage #studyPageInner #addAndRemoveForm button:hover {
+  background: white;
+  color: #c1533a;
+  cursor: pointer;
+}
+
 #studyPage #studyPageInner #spellingListContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -784,6 +803,7 @@
   color: #c1533a;
   background: white;
   border: none;
+  cursor: pointer;
 }
 
 #registerPage #id_password2 {
@@ -843,6 +863,7 @@
   color: #c1533a;
   background: white;
   border: none;
+  cursor: pointer;
 }
 
 #loginPage input {
