@@ -35,6 +35,30 @@
                 </div>
             {% endfor %}
             <br>
+            
+            <div class="pagination">
+                <div class="step-links">
+                    {% if spelling_list.has_previous %}
+                        <div>
+                            <a id="first" href="?page=1">&laquo; first</a>
+                            <a id="previous" href="?page={{ spelling_list.previous_page_number }}">previous</a>
+                        </div>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ spelling_list.number }} of {{ spelling_list.paginator.num_pages }}.
+                    </span>
+                    <div id="nextLastContainer">
+                        {% if spelling_list.has_next %}
+                            <a href="?page={{ spelling_list.next_page_number }}">next</a>
+                            <a href="?page={{ spelling_list.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+
+
             {% comment %} <div v-for="item in getList">
                 [[item.word]]
                 [[item.spelling_error]]

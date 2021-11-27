@@ -87,61 +87,39 @@
             }
         }
 
-        // div{
-        //     display: flex;
-        //     justify-content: center;
-        //     align-items: center;
-        //     flex-direction: column;
-        // }
-
-        // section{
-        //     display: flex;
-        //     align-items: flex-end;
-        //     height: 4rem;
-        //     width: 15rem;
-        //     font-weight: bold;
-
-        //     p:nth-child(2){
-        //         margin-left: 12.6rem;
-        //     }
-        // }
-
-        // #addAndRemoveForm{
-        //     display: flex;
-        //     // justify-content: center;
-        //     margin-top: 1rem;
+    .pagination{
+        .step-links{
+            color: $primary-color;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
             
-        //     input{
-        //         // margin-left: 1rem;
-        //         // margin-right: 1rem;
-        //     }
-        // }
-        // div:nth-child(1){
-   
-        // }
-
-        // div{
-        //     background: initial;
-        //     display: flex;
-        //     // background: blue;
-        //     // width: 32rem;
-        //     // height: 39rem;
-        //     height: 1.2rem;
-        //     // margin-left: 0rem;
-        //     margin-top: .28rem;
-        // }
-
-        // #removeWord{
-        //     margin-right: 1rem;
-        // }
-
-
-        // p{
-        //     // margin-top: .35rem;
-        // }
-
-        // p:nth-child(2){
-        //     // margin-left: 10rem;
-        // }
+            a{
+                color: $primary-color;
+                margin-left: .25rem;
+                margin-right: .25rem;
+                text-decoration: none;
+            }
+            a:hover{
+                color: $complementary-color;
+            }
+        .current{
+            color: $primary-color;
+            width: 7rem;
+            }
+            #nextLastContainer{
+                display: flex;
+                justify-content: flex-end;
+                // width: 24rem;
+            }
+        #first{
+            width: 5rem;
+            }
+        #previous{
+            margin-right: 5rem;
+            }
+        }
+        
+    }
     }
 }

@@ -114,6 +114,7 @@
   color: #3AA8C1;
   font-size: 1.5rem;
   font-weight: bold;
+  margin-top: 7.5rem;
 }
 
 #progressBarConatiner {
@@ -735,6 +736,53 @@
 
 #studyPage #studyPageInner #spellingListContainer #spellingListRight {
   width: 50%;
+}
+
+#studyPage #studyPageInner .pagination .step-links {
+  color: #3AA8C1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#studyPage #studyPageInner .pagination .step-links a {
+  color: #3AA8C1;
+  margin-left: .25rem;
+  margin-right: .25rem;
+  text-decoration: none;
+}
+
+#studyPage #studyPageInner .pagination .step-links a:hover {
+  color: #c1533a;
+}
+
+#studyPage #studyPageInner .pagination .step-links .current {
+  color: #3AA8C1;
+  width: 7rem;
+}
+
+#studyPage #studyPageInner .pagination .step-links #nextLastContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#studyPage #studyPageInner .pagination .step-links #first {
+  width: 5rem;
+}
+
+#studyPage #studyPageInner .pagination .step-links #previous {
+  margin-right: 5rem;
 }
 
 #registerPage {

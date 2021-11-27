@@ -1,6 +1,8 @@
+from django.core import paginator
 from django.db import models
 from django.shortcuts import get_object_or_404, redirect, render, reverse
-from django.views.generic import ListView, DetailView, DeleteView
+from django.core.paginator import Paginator
+# from django.views.generic import ListView, DetailView, DeleteView
 from django.http import HttpResponseRedirect, HttpResponse, request, JsonResponse
 from .models import KeyVal
 
@@ -11,7 +13,6 @@ def BaseView(request):
     return render(request, 'spellingapp/landing.html')
 
 def HomeView(request):
-    # request.user is the user who is logged in
     if KeyVal.objects == True:
         spelling_list = KeyVal.objects.filter(user=request.user)
     else:
@@ -25,16 +26,13 @@ def HomeView(request):
 
 
 def fetch_get(request):
-    # if request.method == "POST":
-    #     post_data = json.loads(request.body.decode("utf-8"))
-    #     print(post_data)
-
-    all_data = KeyVal.objects.all()
+    all_data = KeyVal.objects.filter(user=request.user)
     data_list = []
     for item in all_data:
         data_list.append({
             'word': item.word,
-            'spelling_error': item.spelling_error
+            'spelling_error': item.spelling_error,
+            # 'user': item.user
         })
 
     return JsonResponse({'items': data_list})
@@ -70,40 +68,30 @@ def add_key_val(request):
 
     return redirect('spellingapp:study_view')
     
-# def learning_add_key_val(request):
-#     word = request.POST.get('word')
-#     spelling_error = request.POST.get('spelling_error')
-#     print(word, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-#     print(spelling_error, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-
-#     KeyVal.objects.create(
-#         spelling_error=spelling_error,
-#         word=word,
-#         user=request.user
-#     )
-#     return HttpResponseRedirect('/learning')
 
 def learning_add_key_val(request):
     keyVal_data = json.loads(request.body)
     word = keyVal_data['word']
     spelling_error = keyVal_data['spelling_error']
     user=request.user
-
     newKeyVal = KeyVal(word=word, spelling_error=spelling_error, user=user)
     newKeyVal.save()
-
     return HttpResponse('ok')
 
     
 
 def study_view(request):
     spelling_list = KeyVal.objects.filter(user=request.user)
+    paginator = Paginator(spelling_list, 25)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     context = {
-        'spelling_list': spelling_list,
+        'spelling_list': page_obj,
     }
     # print(context, 'hi')
-    return render(request, 'spellingapp/study_page.html', context)
+    return render(request, 'spellingapp/study_page.html', context )
 
 
 
