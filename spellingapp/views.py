@@ -4,9 +4,12 @@ from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.core.paginator import Paginator
 # from django.views.generic import ListView, DetailView, DeleteView
 from django.http import HttpResponseRedirect, HttpResponse, request, JsonResponse
+
 from .models import KeyVal
 
 import json
+
+# Notes so I can push
 
 
 def BaseView(request):

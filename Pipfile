@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 libsass = "*"
 django-sass-processor = "*"
+django-on-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 
