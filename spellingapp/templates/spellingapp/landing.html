@@ -12,12 +12,17 @@
             <h1 id="linguistLogged">Linguist </h1>
             <h1 id="assistLogged"><span> Assist</span></h1>
         </div>
+        <div>
+            <a id="loggedLearningLink" href="{% url 'spellingapp:learning_view' %}">Play</a>
+            <a id="LoggedSpellingListLink" href="{% url 'spellingapp:study_view' %}">Spelling List</a>
+        
+        </div>
     {% else %}
         <div>
             <h1 id="linguist">Linguist </h1>
             <h1 id="assist"><span> Assist</span></h1>
         </div>
-        <div>
+        <div id="homeLinks">
             <a id="homeLogLink" href="{% url 'login' %}">Login</a>
             <a id="homeRegLink" href="{% url 'register' %}">Register</a>
         </div>

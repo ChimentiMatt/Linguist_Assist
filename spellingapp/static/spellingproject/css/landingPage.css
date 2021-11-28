@@ -23,11 +23,11 @@
   display: flex;
 }
 
-#landingPage div:nth-child(2) {
+#landingPage #homeLinks {
   margin-top: 2rem;
 }
 
-#landingPage div:nth-child(2) a {
+#landingPage #homeLinks a {
   text-decoration: none;
   margin-left: .5rem;
   margin-right: .5rem;
@@ -35,11 +35,11 @@
   opacity: 0;
 }
 
-#landingPage div:nth-child(2) #homeLogLink:hover {
+#landingPage #homeLinks #homeLogLink:hover {
   color: #3AA8C1;
 }
 
-#landingPage div:nth-child(2) #homeRegLink:hover {
+#landingPage #homeLinks #homeRegLink:hover {
   color: #c1533a;
 }
 
@@ -61,8 +61,39 @@
 }
 
 #loggedHome {
-  position: relative;
-  top: -5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#loggedLearningLink {
+  margin-top: 2rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+#loggedLearningLink:hover {
+  color: #3AA8C1;
+}
+
+#LoggedSpellingListLink {
+  margin-top: 2rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+#LoggedSpellingListLink:hover {
+  color: #c1533a;
+}
+
+#linguistLogged {
+  margin-right: 1rem;
 }
 
 #assistLogged {

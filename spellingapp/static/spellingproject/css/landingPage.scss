@@ -12,7 +12,7 @@
         display: flex;
     }
 
-    div:nth-child(2){
+    #homeLinks{
         margin-top: 2rem;
         a{
             text-decoration: none;
@@ -23,7 +23,6 @@
         }
         #homeLogLink:hover{
             color: $primary-color;
-
         }
         #homeRegLink:hover{
             color: $complementary-color;
@@ -55,16 +54,37 @@
 // Logged in and on empty url
 
 #loggedHome{
-    position: relative;
-    top: -5rem;
+    display: flex;
+}
+#loggedLearningLink{
+    margin-top: 2rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+#loggedLearningLink:hover{
+    color: $primary-color;
+}
+#LoggedSpellingListLink{
+    margin-top: 2rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+#LoggedSpellingListLink:hover{
+    color: $complementary-color
 }
 #linguistLogged{
-
+    margin-right: 1rem;
 }
+
 #assistLogged{
     color: $complementary-color;
 }
-
 
 @media screen and (max-width: 800px) {
     #landingPage{
