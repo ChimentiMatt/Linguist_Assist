@@ -909,8 +909,12 @@
     margin-top: .25rem;
     margin-bottom: .25rem;
   }
+  #preGameScreen {
+    padding-top: 2rem;
+  }
   #preGameScreen #preGameH1 {
-    font-size: 3rem;
+    font-size: 2rem;
+    color: #c1533a;
   }
   #preGameScreen #preGameBtnContainer {
     margin-top: 2rem;

@@ -681,8 +681,10 @@
 
 
     #preGameScreen{
+        padding-top: 2rem;
         #preGameH1{
-            font-size: 3rem;
+            font-size: 2rem;
+            color: $complementary-color;
         }
         #preGameBtnContainer{
             margin-top: 2rem;
