@@ -1,1 +1,2 @@
-web: gunicorn Spelling-Assistant-Django.wsgi
+web: gunicorn spellingproject.wsgi
+release: python manage.py migrate
