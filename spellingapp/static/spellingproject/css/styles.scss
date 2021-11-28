@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import "variables";
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 @import "landingPage";
 @import "headerPage";
@@ -11,6 +11,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Questrial', sans-serif;
+
 }
 
 

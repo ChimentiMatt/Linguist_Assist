@@ -10,12 +10,24 @@
       -ms-flex-direction: column;
           flex-direction: column;
   height: 95vh;
+  background: #1a1a1a;
+  color: white;
 }
 
-#progressBar {
-  background: skyblue;
+#gameNameLabel {
+  color: #3AA8C1;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 7.5rem;
+}
+
+#progressBarConatiner {
+  background: #3AA8C1;
+  background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
+  -webkit-box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
+          box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
   width: 30rem;
-  height: 1rem;
+  height: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,13 +35,17 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: .5rem;
+  margin-bottom: 2.5rem;
+  border-radius: 1rem 1rem 1rem 1rem;
+  overflow: hidden;
 }
 
-#oneOutOfTen, #twoOutOfTen, #threeOutOfTen, #fourOutOfTen, #fiveOutOfTen, #sixOutOfTen, #sevenOutOfTen, #eightOutOfTen, #nineOutOfTen, #tenOutOfTen {
+#progressBar {
+  border-radius: 0rem 1rem 1rem 0rem;
   background: slategrey;
-  height: 1rem;
+  background-image: -webkit-linear-gradient(top, #86cbdb, #3AA8C1);
+  height: 2rem;
   width: 0rem;
 }
 
@@ -60,13 +76,12 @@
 #speachSelect {
   position: absolute;
   right: 1rem;
-  margin-top: 1rem;
 }
 
 #htmlDef {
   text-align: center;
-  width: 60vw;
-  font-size: 2rem;
+  width: 30rem;
+  font-size: 1.5rem;
 }
 
 #inputValue {
@@ -74,8 +89,10 @@
   font-size: 2.5em;
   text-align: center;
   border: none;
-  border-bottom: 1.5px solid black;
   padding-bottom: .5rem;
+  padding-top: .5rem;
+  background: none;
+  color: #3AA8C1;
 }
 
 #inputValue:focus {
@@ -117,7 +134,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 #speachContainer p {
@@ -129,10 +146,19 @@
 
 #checkWord {
   margin-top: 1rem;
-  padding: .5rem 1rem .5rem 1rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   border-radius: 5px;
   font-size: 1.5rem;
-  background: steelblue;
+  background: #c1533a;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+#checkWord:hover {
+  background: white;
+  color: #c1533a;
+  cursor: pointer;
 }
 
 #defAndOld {
@@ -143,24 +169,30 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 1rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   height: 12rem;
-  opacity: .5;
 }
 
 #defAndOld h1 {
-  border-bottom: 3px solid black;
+  color: #3AA8C1;
+  border-bottom: 1px solid #3AA8C1;
   margin-bottom: .5rem;
+  font-size: 1.5rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 30rem;
 }
 
 #lastTypo {
-  margin-top: 5rem;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 5rem;
+  right: 6.5rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -168,16 +200,25 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  text-align: start;
+  font-weight: bold;
+  display: none;
+  opacity: 0;
+}
+
+#lastTypo #lastCorrect {
+  color: #c1533a;
 }
 
 #lastTypo h3 {
   margin-bottom: .25rem;
+  color: #3AA8C1;
+  border-bottom: 1px solid #3AA8C1;
+  padding-bottom: .1rem;
 }
 
 #lastTypo p {
+  color: #3AA8C1;
   margin-top: .25rem;
   margin-bottom: .25rem;
 }
@@ -192,21 +233,19 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  padding-top: 10rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  border: 1px solid black;
-  background: steelblue;
+  background: #1a1a1a;
   width: 100vw;
   height: 95vh;
 }
 
 #preGameScreen #preGameH1 {
-  color: black;
+  color: #3AA8C1;
+  font-size: 5rem;
 }
 
 #preGameScreen #preGameBtnContainer {
@@ -214,6 +253,45 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+#preGameScreen #preGameBtnContainer #gradeContainer {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+}
+
+#preGameScreen #preGameBtnContainer #gradeContainer #gradeSelect {
+  border: 1px solid white;
+  color: #3AA8C1;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+}
+
+#preGameScreen #preGameBtnContainer #gradeContainer #gradeMenu {
+  position: relative;
+  top: 1rem;
+  display: none;
+  height: 0;
+}
+
+#preGameScreen #preGameBtnContainer #gradeContainer #firstGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #secondGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #thirdGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #fourthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #fifthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #sixthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #seventhGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #eighthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #ninthGradeBtn {
+  font-weight: bold;
+  color: #3AA8C1;
+}
+
+#preGameScreen #preGameBtnContainer #gradeContainer #firstGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #secondGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #thirdGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #fourthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #fifthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #sixthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #seventhGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #eighthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #ninthGradeBtn:hover {
+  cursor: pointer;
+  color: #c1533a;
 }
 
 #preGameScreen #preGameBtnContainer #easyContainer {
@@ -229,11 +307,19 @@
 }
 
 #preGameScreen #preGameBtnContainer #easyContainer #easyBtn {
-  color: black;
+  color: #3AA8C1;
+  background: none;
+  border: none;
+  font-weight: bold;
+}
+
+#preGameScreen #preGameBtnContainer #easyContainer #easyBtn:hover {
+  color: #c1533a;
+  cursor: pointer;
 }
 
 #preGameScreen #preGameBtnContainer #easyContainer #borderTopEasy {
-  border-top: 3px solid black;
+  border-top: 3px solid #c1533a;
   width: 0;
   margin-left: 1rem;
 }
@@ -251,11 +337,49 @@
 }
 
 #preGameScreen #preGameBtnContainer #hardContainer #hardBtn {
-  color: black;
+  color: #3AA8C1;
+  background: none;
+  border: none;
+  font-weight: bold;
+}
+
+#preGameScreen #preGameBtnContainer #hardContainer #hardBtn:hover {
+  color: #c1533a;
+  cursor: pointer;
 }
 
 #preGameScreen #preGameBtnContainer #hardContainer #borderTopHard {
-  border-top: 3px solid black;
+  border-top: 3px solid #c1533a;
+  width: 0;
+  margin-left: 1rem;
+}
+
+#preGameScreen #preGameBtnContainer #missedContainer {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+}
+
+#preGameScreen #preGameBtnContainer #missedContainer #missedBtn {
+  color: #3AA8C1;
+  background: none;
+  border: none;
+  font-weight: bold;
+}
+
+#preGameScreen #preGameBtnContainer #missedContainer #missedBtn:hover {
+  color: #c1533a;
+  cursor: pointer;
+}
+
+#preGameScreen #preGameBtnContainer #missedContainer #borderTopMissed {
+  border-top: 3px solid #c1533a;
   width: 0;
   margin-left: 1rem;
 }
@@ -266,21 +390,568 @@
   padding-right: 1rem;
 }
 
+#preGameScreen #pointsNeededContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2rem;
+}
+
+#preGameScreen #pointsNTW {
+  font-weight: bold;
+  color: #3AA8C1;
+}
+
+#preGameScreen #inputRounds {
+  text-align: end;
+  border: none;
+  background: none;
+  font-weight: bold;
+  color: #3AA8C1;
+  width: 2.5rem;
+}
+
+#preGameScreen #inputRounds:hover {
+  color: #c1533a;
+}
+
 #preGameScreen #startBtn {
-  margin-top: 2.5rem;
+  display: none;
+  opacity: 0;
+  margin-top: 2rem;
   font-size: 2rem;
   font-weight: bold;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: black;
+  color: #c1533a;
 }
 
 #preGameScreen #startBtn:hover {
-  color: black;
+  cursor: pointer;
 }
 
-#preGameScreen h1 {
+#preGameScreen #startBtn:hover #playIcon {
+  color: #3AA8C1;
+}
+
+#preGameScreen #noWordsInList {
+  position: absolute;
+  display: none;
   opacity: 0;
-  font-size: 5rem;
+  color: #c1533a;
+  font-size: 2rem;
+  bottom: 15rem;
+}
+
+#preGameScreen #noWordsInList a {
+  text-decoration: none;
+  color: #3AA8C1;
+  border-bottom: 2px solid #3AA8C1;
+  cursor: pointer;
+}
+
+#preGameScreen #noWordsInList a:hover {
+  color: #c1533a;
+  border-bottom: 2px solid #c1533a;
+}
+
+#postGameScreen {
+  opacity: 0;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 100;
+  height: 95vh;
+  width: 100vw;
+  background: #c1533a;
+  color: black;
+  text-align: center;
+  display: none;
+}
+
+#postGameScreen #postGameContentDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 7rem;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #1a1a1a;
+  overflow: hidden;
+}
+
+#postGameScreen #postGameContentDiv #flexRowForLoop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60vw;
+}
+
+#postGameScreen #postGameContentDiv h1 {
+  margin-bottom: 1rem;
+}
+
+#postGameScreen #postGameContentDiv #addedToList {
+  margin-bottom: 1rem;
+}
+
+#postGameScreen #postGameContentDiv #forLoopPostGame p {
+  font-size: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  line-height: 1.2;
+}
+
+#postGameScreen div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: start;
+  height: 91vh;
+  text-align: center;
+}
+
+#postGameScreen #noItemsMessage {
+  display: none;
+}
+
+#postGameScreen #forLoopPostGame {
+  height: 1rem;
+}
+
+#postGameScreen #postGameBtns {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  top: 1.5rem;
+  right: 1.5rem;
+  height: 2rem;
+  width: 10rem;
+}
+
+#postGameScreen #postGameBtns a {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#postGameScreen #postGameBtns a:hover {
+  color: #3AA8C1;
+}
+
+@media screen and (max-width: 800px) {
+  #learningPage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 95vh;
+    background: #1a1a1a;
+    color: white;
+  }
+  #gameNameLabel {
+    color: #3AA8C1;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 7.5rem;
+  }
+  #progressBarConatiner {
+    background: #3AA8C1;
+    background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
+    -webkit-box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
+            box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
+    width: 90vw;
+    height: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-top: .5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 1rem 1rem 1rem 1rem;
+    overflow: hidden;
+  }
+  #progressBar {
+    border-radius: 0rem 1rem 1rem 0rem;
+    background: slategrey;
+    background-image: -webkit-linear-gradient(top, #86cbdb, #3AA8C1);
+    height: 2rem;
+    width: 0rem;
+  }
+  #gameFace {
+    width: 90vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #newWordValue {
+    display: none;
+  }
+  #newWord {
+    display: none;
+  }
+  #speachSelect {
+    position: absolute;
+    right: 5vw;
+    width: 90vw;
+  }
+  #htmlDef {
+    text-align: center;
+    width: 90vw;
+    font-size: 1rem;
+  }
+  #inputValue {
+    margin-top: 1rem;
+    font-size: 2em;
+    text-align: center;
+    border: none;
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+    background: none;
+    color: #3AA8C1;
+  }
+  #inputValue:focus {
+    outline: none;
+  }
+  #inputValue::-webkit-input-placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: .4;
+    /* Firefox */
+  }
+  #inputValue:-ms-input-placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: .4;
+    /* Firefox */
+  }
+  #inputValue::-ms-input-placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: .4;
+    /* Firefox */
+  }
+  #inputValue::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: .4;
+    /* Firefox */
+  }
+  #speachContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 20rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 2.5rem;
+  }
+  #speachContainer p {
+    font-size: 1.5rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    font-weight: bold;
+  }
+  #checkWord {
+    margin-top: 1rem;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    background: #c1533a;
+    border: none;
+    color: white;
+    font-weight: bold;
+  }
+  #checkWord:hover {
+    background: white;
+    color: #c1533a;
+    cursor: pointer;
+  }
+  #defAndOld {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 12rem;
+  }
+  #defAndOld h1 {
+    color: #3AA8C1;
+    border-bottom: 1px solid #3AA8C1;
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 90vw;
+  }
+  #lastTypo {
+    bottom: 2.5rem;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: initial;
+    right: initial;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: start;
+    font-weight: bold;
+    display: none;
+    opacity: 0;
+  }
+  #lastTypo #lastCorrect {
+    color: #c1533a;
+  }
+  #lastTypo h3 {
+    margin-bottom: .25rem;
+    color: #3AA8C1;
+    border-bottom: 1px solid #3AA8C1;
+    padding-bottom: .1rem;
+  }
+  #lastTypo p {
+    color: #3AA8C1;
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+  }
+  #preGameScreen #preGameH1 {
+    font-size: 3rem;
+  }
+  #preGameScreen #preGameBtnContainer {
+    margin-top: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #preGameScreen #preGameBtnContainer #gradeContainer {
+    margin-top: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0;
+  }
+  #preGameScreen #preGameBtnContainer #gradeContainer #gradeSelect {
+    border: 1px solid white;
+    color: #3AA8C1;
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 0;
+  }
+  #preGameScreen #preGameBtnContainer #gradeContainer #gradeMenu {
+    position: relative;
+    top: 1rem;
+    display: none;
+    height: 0;
+  }
+  #preGameScreen #preGameBtnContainer #gradeContainer #firstGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #secondGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #thirdGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #fourthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #fifthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #sixthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #seventhGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #eighthGradeBtn, #preGameScreen #preGameBtnContainer #gradeContainer #ninthGradeBtn {
+    font-weight: bold;
+    color: #3AA8C1;
+  }
+  #preGameScreen #preGameBtnContainer #gradeContainer #firstGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #secondGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #thirdGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #fourthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #fifthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #sixthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #seventhGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #eighthGradeBtn:hover, #preGameScreen #preGameBtnContainer #gradeContainer #ninthGradeBtn:hover {
+    cursor: pointer;
+    color: #c1533a;
+  }
+  #preGameScreen #preGameBtnContainer #easyContainer {
+    margin-top: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0;
+  }
+  #preGameScreen #preGameBtnContainer #easyContainer #easyBtn {
+    font-size: 1rem;
+    color: #3AA8C1;
+    background: none;
+    border: none;
+    font-weight: bold;
+  }
+  #preGameScreen #preGameBtnContainer #easyContainer #easyBtn:hover {
+    color: #c1533a;
+    cursor: pointer;
+  }
+  #preGameScreen #preGameBtnContainer #easyContainer #borderTopEasy {
+    border-top: 3px solid #c1533a;
+    width: 0;
+    margin-left: .5rem;
+  }
+  #preGameScreen #preGameBtnContainer #hardContainer {
+    margin-top: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0;
+  }
+  #preGameScreen #preGameBtnContainer #hardContainer #hardBtn {
+    color: #3AA8C1;
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  #preGameScreen #preGameBtnContainer #hardContainer #hardBtn:hover {
+    color: #c1533a;
+    cursor: pointer;
+  }
+  #preGameScreen #preGameBtnContainer #hardContainer #borderTopHard {
+    border-top: 3px solid #c1533a;
+    width: 0;
+    margin-left: .5rem;
+  }
+  #preGameScreen #preGameBtnContainer #missedContainer {
+    margin-top: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0;
+  }
+  #preGameScreen #preGameBtnContainer #missedContainer #missedBtn {
+    color: #3AA8C1;
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  #preGameScreen #preGameBtnContainer #missedContainer #missedBtn:hover {
+    color: #c1533a;
+    cursor: pointer;
+  }
+  #preGameScreen #preGameBtnContainer #missedContainer #borderTopMissed {
+    border-top: 3px solid #c1533a;
+    width: 0;
+    margin-left: .5rem;
+  }
+  #preGameScreen #preGameBtnContainer .preGameBtns {
+    font-size: 2rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+  #preGameScreen #pointsNeededContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 13rem;
+    opacity: .5;
+  }
+  #preGameScreen #pointsNTW {
+    font-weight: bold;
+    color: #3AA8C1;
+  }
+  #preGameScreen #inputRounds {
+    text-align: end;
+    border: none;
+    background: none;
+    font-weight: bold;
+    color: #3AA8C1;
+    width: 1.5rem;
+  }
+  #preGameScreen #inputRounds:hover {
+    color: #c1533a;
+  }
+  #preGameScreen #startBtn {
+    display: none;
+    opacity: 0;
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #c1533a;
+  }
+  #preGameScreen #startBtn:hover {
+    cursor: pointer;
+  }
+  #preGameScreen #startBtn:hover #playIcon {
+    color: #3AA8C1;
+  }
+  #preGameScreen #noWordsInList {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    color: #c1533a;
+    font-size: 1rem;
+    width: 90vw;
+    bottom: 10rem;
+  }
+  #preGameScreen #noWordsInList a {
+    text-decoration: none;
+    color: #3AA8C1;
+    border-bottom: 2px solid #3AA8C1;
+    cursor: pointer;
+  }
+  #preGameScreen #noWordsInList a:hover {
+    color: #c1533a;
+    border-bottom: 2px solid #c1533a;
+  }
 }
 /*# sourceMappingURL=learningPage.css.map */

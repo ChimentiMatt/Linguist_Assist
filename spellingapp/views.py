@@ -82,7 +82,7 @@ def learning_add_key_val(request):
 
 def study_view(request):
     spelling_list = KeyVal.objects.filter(user=request.user)
-    paginator = Paginator(spelling_list, 25)
+    paginator = Paginator(spelling_list, 20)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

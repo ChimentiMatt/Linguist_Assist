@@ -1,3 +1,4 @@
+@import "variables.scss";
 #studyPage{
     display: flex;
     justify-content: center;
@@ -120,6 +121,94 @@
             }
         }
         
+        }
     }
+}
+@media screen and (max-width: 800px) {
+
+    #studyPage{
+        justify-content: flex-start; 
+        height: 110vh;
+
+
+        #studyPageInner{
+            margin-top: 15vh;
+            margin-left: 5vw;
+            width: 90vw;
+
+    
+            #wordErrorLabel{
+                width: 100%;
+                border-bottom: 1px solid white;
+                div{
+                    width: 50%;
+                    margin-bottom: 1rem;
+         
+                    #wordLabel{
+                        // padding-left: .5rem;
+                    }
+                    #errorLabel{
+                        // text-align: end;
+                        // padding-right: .3rem;
+                        margin-left: 2.4rem;
+                    }
+                }
+            }
+    
+    
+            #addAndRemoveForm{
+                position: absolute;
+                top: 6vh;
+                right: initial;
+                width: 9vw;
+
+                #spellingErrorInput{
+                    width: 90vw;
+                    text-align: center;
+                
+                }
+                #correctSpellingInput{
+                    width: 90vw;
+                    text-align: center;
+                }
+
+                // display: none;
+                button{
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                    background: complement($primary-color);
+                    text-align: start;
+                    width: 90vw;
+                    padding: .25rem 0 .25rem 0;
+                    text-align: center;
+                    border: 1px solid $primary-color;
+                    border: none;
+                    border-radius: .2rem;
+                    color: white;
+                }
+                button:hover{
+                    background: white;
+                    color: $complementary-color;
+                    cursor: pointer;
+                }
+            }
+    
+            #spellingListContainer{
+                display: flex;
+                margin-top: .5rem;
+                margin-bottom: .5rem;
+    
+                #spellingListLeft{ 
+                    // width: 70%;
+                    display: flex;
+                }
+                    
+            
+            }
+        }
     }
+
+
+
+
 }

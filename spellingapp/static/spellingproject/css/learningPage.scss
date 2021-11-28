@@ -1,3 +1,4 @@
+@import "variables";
 #learningPage{
     display: flex;
     // justify-content: center;
@@ -379,8 +380,7 @@
             color: $complementary-color;
             border-bottom: 2px solid $complementary-color;
         }
-        }
-
+    }
 }
 
 // Post Game section -----------------------------------------------------------------------------------------------------------
@@ -476,3 +476,395 @@
         }
     }
 }
+
+
+@media screen and (max-width: 800px) {
+
+    #learningPage{
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 95vh;
+        background: $primary-background;
+        color: white;
+    }
+    
+    
+    #gameNameLabel{
+        color: $primary-color;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-top: 7.5rem;
+    }
+    
+    #progressBarConatiner{
+        background: $primary-color;
+        background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
+        box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
+        width: 90vw;
+        height: 2rem;
+        display: flex;
+        flex-direction: row;
+        margin-top: .5rem;
+        margin-bottom: 2.5rem;
+        border-radius: 1rem 1rem 1rem 1rem;
+        overflow: hidden;
+    }
+    
+    #progressBar{
+        border-radius: 0rem 1rem 1rem 0rem;
+        background: slategrey;
+        background-image: -webkit-linear-gradient(top, lighten($primary-color, 20%), $primary-color);
+        height: 2rem;
+        width:0rem;
+        
+    }
+    
+    
+    #gameFace{
+        width: 90vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    #newWordValue{
+        display: none;
+    }
+    
+    #newWord{
+        display: none;
+    }
+    
+    
+    #speachSelect{
+        position: absolute;
+        right: 5vw;
+        width: 90vw;
+        // display: none;
+        // margin-top: 1rem;
+    }
+    
+    // #hearBtn{
+    
+    // }
+    
+    #htmlDef{
+    
+        text-align: center;
+        width: 90vw;
+        font-size: 1rem;
+    }
+    
+    #inputValue{
+        margin-top: 1rem;
+        font-size: 2em;
+        text-align: center;
+        border: none;
+        // border: 1.5px solid rgba(0, 0, 0, 0.5);
+        padding-bottom: .5rem;
+        padding-top: .5rem;
+        background: none;
+        color: $primary-color;
+    
+    }
+    
+    #inputValue:focus{
+        outline: none;
+    }
+    
+    #inputValue::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        opacity: .4; /* Firefox */
+      }
+    
+    #speachContainer{
+        display: flex;
+        align-items: center;
+        width: 20rem;
+        justify-content: center;
+        margin-top: 2.5rem;
+        
+        p{
+            font-size: 1.5rem;
+            margin-left: .5rem;
+            margin-right: .5rem;
+            font-weight: bold;
+        }
+    }
+    
+    #checkWord{
+        margin-top: 1rem;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        background: $complementary-color;
+        border: none;
+        color: white;
+        font-weight: bold;
+    }
+    
+    #checkWord:hover{
+        background: white;
+        color: $complementary-color;
+        cursor: pointer;
+    }
+    
+    #defAndOld{
+        display: flex;
+        flex-direction: column;
+        // margin-top: 1rem;
+        align-items: center;
+        height: 12rem;
+        // opacity: .7;
+    
+        h1{
+            color: $primary-color;
+            border-bottom: 1px solid $primary-color;
+            margin-bottom: .5rem;
+            font-size: 1.5rem;
+            align-items: flex-start;
+            width: 90vw;
+        }
+    
+        // p{
+        //     // text-align: start;
+        // }
+    }
+    
+    #lastTypo{
+        bottom: 2.5rem;
+
+        position: absolute;
+        display: flex;
+        margin-top: initial;
+        right: initial;
+        flex-direction: column;
+        justify-content: center;
+        // align-items: center;
+        text-align: start;
+        font-weight: bold;
+        display: none;
+        opacity: 0;
+        
+        #lastCorrect{
+            color: $complementary-color;
+        }
+        h3{
+            margin-bottom: .25rem;
+            color: $primary-color;
+            border-bottom: 1px solid $primary-color;
+            padding-bottom: .1rem;
+        }
+        
+        p{
+            color: $primary-color;
+    
+            margin-top: .25rem;
+            margin-bottom: .25rem;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #preGameScreen{
+        #preGameH1{
+            font-size: 3rem;
+        }
+        #preGameBtnContainer{
+            margin-top: 2rem;
+            display: flex;
+            ;
+            
+    
+            #gradeContainer{
+                margin-top: 1rem;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+    
+
+    
+                #gradeSelect{
+                    border: 1px solid white;
+                    color: $primary-color;
+                    background: none;
+                    border: none;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    margin-right: 0;
+                }
+                #gradeMenu{
+                    position: relative;
+                    top: 1rem;
+                    display: none;
+                    height: 0;
+                }
+                #firstGradeBtn, #secondGradeBtn, #thirdGradeBtn, #fourthGradeBtn, #fifthGradeBtn, #sixthGradeBtn, #seventhGradeBtn, #eighthGradeBtn, #ninthGradeBtn{
+                    font-weight: bold;
+                    color: $primary-color;
+                }
+                #firstGradeBtn:hover, #secondGradeBtn:hover, #thirdGradeBtn:hover, #fourthGradeBtn:hover, #fifthGradeBtn:hover, #sixthGradeBtn:hover, #seventhGradeBtn:hover, #eighthGradeBtn:hover, #ninthGradeBtn:hover{
+                    cursor: pointer;
+                    color: $complementary-color;
+                }
+            }
+    
+            #easyContainer{
+                margin-top: 1rem;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                
+                #easyBtn{
+                    font-size: 1rem;
+                    color: $primary-color;
+                    background: none;
+                    border: none;
+                    font-weight: bold;
+                }
+    
+                #easyBtn:hover{
+                    color: $complementary-color;
+                    cursor: pointer;
+                }              
+    
+                #borderTopEasy{
+                    border-top: 3px solid complement($primary-color);
+                    width: 0;
+                    margin-left: .5rem;
+                }
+            }
+            #hardContainer{
+                margin-top: 1rem;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+    
+                #hardBtn{
+                    color: $primary-color;
+                    background: none;
+                    border: none;
+                    font-weight: bold;
+                    font-size: 1rem;
+                }
+                #hardBtn:hover{
+                    color: $complementary-color;
+                    cursor: pointer;
+                }           
+    
+                #borderTopHard{
+                    border-top: 3px solid complement($primary-color);
+                    width: 0;
+                    margin-left: .5rem;
+                }
+            }
+    
+            #missedContainer{
+                margin-top: 1rem;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+    
+                #missedBtn{
+                    color: $primary-color;
+                    background: none;
+                    border: none;
+                    font-weight: bold;
+                    font-size: 1rem;
+                }
+                #missedBtn:hover{
+                    color: $complementary-color;
+                    cursor: pointer;
+                }           
+    
+                #borderTopMissed{
+                    border-top: 3px solid complement($primary-color);
+                    width: 0;
+                    margin-left: .5rem;
+                }
+            }
+            .preGameBtns{
+                font-size: 2rem;
+                padding-left: .5rem;
+                padding-right: .5rem;
+            }
+        }
+        #pointsNeededContainer{
+            display: flex;
+            margin-top: 13rem;
+            opacity: .5;
+        }
+        #pointsNTW{
+            font-weight: bold;
+            color: $primary-color;
+            // border-bottom: 2px solid $primary-color;
+        }
+        #inputRounds{
+            // margin-top: .5rem;
+            text-align: end;
+            border: none;
+            background: none;
+            font-weight: bold;
+            color: $primary-color;
+            width: 1.5rem;
+        }
+        #inputRounds:hover{
+            color: $complementary-color
+        }
+    
+        #startBtn{
+            display: none;
+            opacity: 0;
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-weight: bold;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            color: $complementary-color;
+        }
+        
+        #startBtn:hover{
+    
+            cursor: pointer;
+            #playIcon{
+                color: $primary-color;
+            }
+        }
+    
+        #noWordsInList{
+            position: absolute;
+            display: none;
+            opacity: 0;
+            color: $complementary-color;
+            font-size: 1rem;
+            width: 90vw;
+            bottom: 10rem;
+            a{
+                text-decoration: none;
+                color: $primary-color;
+                border-bottom: 2px solid $primary-color;
+                cursor: pointer;
+            }
+            a:hover{
+                color: $complementary-color;
+                border-bottom: 2px solid $complementary-color;
+            }
+        }
+    }
+
+}
+

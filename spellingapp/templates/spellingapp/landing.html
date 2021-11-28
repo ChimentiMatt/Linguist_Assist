@@ -4,20 +4,22 @@
 {% block landing %}
 
 <div id="landingPage">
-    <div >
-        <h1 id="linguist">Linguist </h1>
-        <h1 id="assist"><span> Assist</span></h1>
-    </div>
-    <div>
-        <a id="homeLogLink" href="{% url 'login' %}">Login</a>
-        <a id="homeRegLink" href="{% url 'register' %}">Register</a>
-    </div>
+
 
     {% comment %} fixes some scenarios where gsap doesnt trigger when logged in but on base url {% endcomment %}
     {% if user.is_authenticated %}
         <div id="loggedHome">
             <h1 id="linguistLogged">Linguist </h1>
             <h1 id="assistLogged"><span> Assist</span></h1>
+        </div>
+    {% else %}
+        <div>
+            <h1 id="linguist">Linguist </h1>
+            <h1 id="assist"><span> Assist</span></h1>
+        </div>
+        <div>
+            <a id="homeLogLink" href="{% url 'login' %}">Login</a>
+            <a id="homeRegLink" href="{% url 'register' %}">Register</a>
         </div>
     {% endif %}
 
