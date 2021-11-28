@@ -1,2 +1,1 @@
-web: gunicorn site:Spelling-Assistant-Django.wsgi
-release: python manage.py migrate
+web: gunicorn Spelling-Assistant-Django.wsgi
