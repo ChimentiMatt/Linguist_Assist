@@ -108,12 +108,22 @@
   #landingPage #linguist {
     position: relative;
     bottom: 10rem;
-    font-size: 3rem;
+    font-size: 2rem;
     opacity: 0;
   }
   #landingPage #assist {
     font-size: 3rem;
     opacity: 0;
+    font-size: 2rem;
+  }
+  #landingPage #homeLogLink {
+    font-size: 1rem;
+  }
+  #landingPage #homeRegLink {
+    font-size: 1rem;
+  }
+  #landingPage h1 {
+    font-size: 2rem;
   }
 }
 
@@ -723,9 +733,9 @@
   }
   #gameNameLabel {
     color: #3AA8C1;
-    font-size: 1rem;
+    font-size: .5rem;
     font-weight: bold;
-    margin-top: 7.5rem;
+    margin-top: 2.5rem;
   }
   #progressBarConatiner {
     background: #3AA8C1;
@@ -863,7 +873,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 12rem;
+    height: 10rem;
   }
   #defAndOld h1 {
     color: #3AA8C1;
@@ -1505,6 +1515,69 @@
     font-size: 1rem;
     padding-top: .5rem;
     padding-bottom: .5rem;
+  }
+  #loginPage {
+    background: #1a1a1a;
+    height: 95vh;
+    color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 1.5rem;
+  }
+  #loginPage h1 {
+    position: relative;
+    left: -15rem;
+    opacity: 0;
+    width: 100%;
+    text-align: start;
+    margin-bottom: 1rem;
+    color: #3AA8C1;
+  }
+  #loginPage p:nth-child(3) label {
+    margin-right: .4rem;
+  }
+  #loginPage button {
+    margin-top: .5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background: #c1533a;
+    text-align: start;
+    width: 100%;
+    padding: .25rem 0 .25rem 0;
+    text-align: center;
+    border: 1px solid #3AA8C1;
+    border: none;
+    border-radius: .2rem;
+    color: white;
+  }
+  #loginPage button:hover {
+    color: #c1533a;
+    background: white;
+    border: none;
+    cursor: pointer;
+  }
+  #loginPage input {
+    border: none;
+    border-bottom: 1px solid #3AA8C1;
+    font-size: 1.3rem;
+    padding-left: .5rem;
+    margin-bottom: 1rem;
+    background: white;
+    width: 10rem;
+  }
+  #loginPage input:focus {
+    outline: none;
   }
 }
 

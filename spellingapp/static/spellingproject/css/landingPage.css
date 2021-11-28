@@ -107,12 +107,22 @@
   #landingPage #linguist {
     position: relative;
     bottom: 10rem;
-    font-size: 3rem;
+    font-size: 2rem;
     opacity: 0;
   }
   #landingPage #assist {
     font-size: 3rem;
     opacity: 0;
+    font-size: 2rem;
+  }
+  #landingPage #homeLogLink {
+    font-size: 1rem;
+  }
+  #landingPage #homeRegLink {
+    font-size: 1rem;
+  }
+  #landingPage h1 {
+    font-size: 2rem;
   }
 }
 /*# sourceMappingURL=landingPage.css.map */

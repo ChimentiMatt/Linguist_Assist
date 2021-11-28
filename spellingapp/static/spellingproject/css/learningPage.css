@@ -581,9 +581,9 @@
   }
   #gameNameLabel {
     color: #3AA8C1;
-    font-size: 1rem;
+    font-size: .5rem;
     font-weight: bold;
-    margin-top: 7.5rem;
+    margin-top: 2.5rem;
   }
   #progressBarConatiner {
     background: #3AA8C1;
@@ -721,7 +721,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 12rem;
+    height: 10rem;
   }
   #defAndOld h1 {
     color: #3AA8C1;

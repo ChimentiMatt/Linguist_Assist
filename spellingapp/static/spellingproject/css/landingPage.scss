@@ -96,12 +96,22 @@
         #linguist{
             position: relative;
             bottom: 10rem;
-            font-size: 3rem;
+            font-size: 2rem;
             opacity: 0;
         }
         #assist{
             font-size: 3rem;
             opacity: 0;
+            font-size: 2rem;
+        }
+        #homeLogLink{
+            font-size: 1rem;
+        }
+        #homeRegLink{
+            font-size: 1rem;
+        }
+        h1{
+            font-size: 2rem;
         }
     }
   }
