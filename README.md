@@ -1,10 +1,10 @@
 # Lingist Assist
 
-##### A tool to help children, adults, native English speakersm and English as a second language improve their spelling and vocabulary
+##### A tool to help children, adults, native English speakers, and English as a second language learners improve their spelling and vocabulary.
 
 ## Hear words and definitions and then type out the word
 
-###### Select from pre-built lists, perfect for young yearners or those trying to study for the SATs. 
+###### Select from pre-built lists, perfect for young learners, those trying to study for the SATs, or Adults. 
 
 ###### Select your missed words and see if you can get your words right this time around
 
