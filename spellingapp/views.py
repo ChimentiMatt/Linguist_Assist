@@ -11,7 +11,6 @@ import json
 
 # Notes so I can push
 
-
 def BaseView(request):
     return render(request, 'spellingapp/landing.html')
 
@@ -61,15 +60,18 @@ def remove_key_val(request, pk):
 def add_key_val(request):
 
     word = request.POST.get('word')
-    spelling_error = request.POST.get('spelling_error')
+    if word == '':
+        return redirect('spellingapp:study_view')
+    else:
+        spelling_error = request.POST.get('spelling_error')
 
-    KeyVal.objects.create(
-        spelling_error=spelling_error,
-        word=word,
-        user=request.user
-    )
+        KeyVal.objects.create(
+            spelling_error=spelling_error,
+            word=word,
+            user=request.user
+        )
 
-    return redirect('spellingapp:study_view')
+        return redirect('spellingapp:study_view')
     
 
 def learning_add_key_val(request):
