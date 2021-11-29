@@ -2,7 +2,7 @@
 
 ##### A tool to help children, adults, native English speakers, and English as a second language learners improve their spelling and vocabulary.
 
-## Hear words and definitions and then type out the word
+## Hear words and thier definitions to see if you can get the word correctly
 
 ###### Select from pre-built lists, perfect for young learners, those trying to study for the SATs, or Adults. 
 
@@ -20,5 +20,5 @@
 
 ###### The 1st-grade through 9th-grade spelling lists were grabbed from educational resources. I then wrote a simple python program to parse the data (the words) I got online, putting each word into lists of strings. 
 
-#### Have fun and let me know if you find any bugs, like my work or have feed back http://www.matthewchim.com/, chimcode@gmail.com
+#### Have fun and let me know if you find any bugs, like my work, or have feed back http://www.matthewchim.com/, chimcode@gmail.com
 
