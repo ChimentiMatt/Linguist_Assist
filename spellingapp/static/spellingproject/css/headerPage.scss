@@ -1,3 +1,4 @@
+@import "variables.scss";
 #header{
     display: flex;
     align-items: center;
@@ -13,5 +14,12 @@
     }
     a:hover{
         color: $complementary-color;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    #header a{
+        margin-left: 1rem;
     }
 }

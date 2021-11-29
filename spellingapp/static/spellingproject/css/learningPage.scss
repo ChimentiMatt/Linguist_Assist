@@ -18,9 +18,10 @@
 }
 
 #progressBarConatiner{
-    background: $primary-color;
-    background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
+    background: lighten($primary-color, 45%);
+    // background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
     box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
+ 
     width: 30rem;
     height: 2rem;
     display: flex;
@@ -32,9 +33,12 @@
 }
 
 #progressBar{
+    position: relative;
+    top: 1px;
+
     border-radius: 0rem 1rem 1rem 0rem;
     background: slategrey;
-    background-image: -webkit-linear-gradient(top, lighten($primary-color, 20%), $primary-color);
+    background-image: -webkit-linear-gradient(top, lighten($complementary-color, 20%), $complementary-color);
     height: 2rem;
     width:0rem;
     
@@ -56,12 +60,14 @@
     display: none;
 }
 
-
-#speachSelect{
+#speechSelectContainer{
     position: absolute;
     right: 1rem;
-    // display: none;
-    // margin-top: 1rem;
+}
+
+#speechSelect{
+    height: 2rem;
+    border-radius: .2rem;
 }
 
 // #hearBtn{
@@ -495,27 +501,29 @@
         color: $primary-color;
         font-size: .5rem;
         font-weight: bold;
-        margin-top: 2.5rem;
+        margin-top: 3.5rem;
     }
     
     #progressBarConatiner{
         background: $primary-color;
-        background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
+        background: lighten($primary-color, 45%);
         box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
         width: 90vw;
         height: 2rem;
         display: flex;
         flex-direction: row;
         margin-top: .5rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 1rem;
         border-radius: 1rem 1rem 1rem 1rem;
         overflow: hidden;
     }
     
     #progressBar{
+        position: relative;
+        top: 1px;
         border-radius: 0rem 1rem 1rem 0rem;
         background: slategrey;
-        background-image: -webkit-linear-gradient(top, lighten($primary-color, 20%), $primary-color);
+        background-image: -webkit-linear-gradient(top, lighten($complementary-color, 20%), $complementary-color);
         height: 2rem;
         width:0rem;
         
@@ -538,13 +546,20 @@
         display: none;
     }
     
-    
-    #speachSelect{
+    #speechSelectContainer{
+        margin-top: .5rem;
         position: absolute;
         right: 5vw;
         width: 90vw;
+    }
+    
+    #speechSelect{
+        height: 1rem;
+        width: 100%;
+    }
+    #speechSelectLabel{
         // display: none;
-        // margin-top: 1rem;
+        color: $primary-color;
     }
     
     // #hearBtn{
@@ -808,7 +823,7 @@
         #pointsNeededContainer{
             display: flex;
             margin-top: 13rem;
-            opacity: .5;
+            opacity: .7;
         }
         #pointsNTW{
             font-weight: bold;

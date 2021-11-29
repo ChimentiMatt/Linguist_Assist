@@ -61,6 +61,12 @@
                 color: $complementary-color;
                 cursor: pointer;
             }
+            #correctSpellingInput{
+                height: 1.5rem;
+            }
+            #spellingErrorInput{
+                height: 1.5rem;
+            }
         }
 
         #spellingListContainer{
@@ -170,6 +176,7 @@
                 #correctSpellingInput{
                     width: 90vw;
                     text-align: center;
+
                 }
 
                 // display: none;
@@ -207,8 +214,5 @@
             }
         }
     }
-
-
-
 
 }

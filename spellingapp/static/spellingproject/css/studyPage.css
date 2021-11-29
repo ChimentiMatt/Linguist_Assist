@@ -69,6 +69,14 @@
   cursor: pointer;
 }
 
+#studyPage #studyPageInner #addAndRemoveForm #correctSpellingInput {
+  height: 1.5rem;
+}
+
+#studyPage #studyPageInner #addAndRemoveForm #spellingErrorInput {
+  height: 1.5rem;
+}
+
 #studyPage #studyPageInner #spellingListContainer {
   display: -webkit-box;
   display: -ms-flexbox;

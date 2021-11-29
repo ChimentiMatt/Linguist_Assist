@@ -150,6 +150,12 @@
   color: #c1533a;
 }
 
+@media screen and (max-width: 800px) {
+  #header a {
+    margin-left: 1rem;
+  }
+}
+
 #learningPage {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -174,8 +180,7 @@
 }
 
 #progressBarConatiner {
-  background: #3AA8C1;
-  background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
+  background: #e8f5f8;
   -webkit-box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
           box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
   width: 30rem;
@@ -194,9 +199,11 @@
 }
 
 #progressBar {
+  position: relative;
+  top: 1px;
   border-radius: 0rem 1rem 1rem 0rem;
   background: slategrey;
-  background-image: -webkit-linear-gradient(top, #86cbdb, #3AA8C1);
+  background-image: -webkit-linear-gradient(top, #db9686, #c1533a);
   height: 2rem;
   width: 0rem;
 }
@@ -225,9 +232,14 @@
   display: none;
 }
 
-#speachSelect {
+#speechSelectContainer {
   position: absolute;
   right: 1rem;
+}
+
+#speechSelect {
+  height: 2rem;
+  border-radius: .2rem;
 }
 
 #htmlDef {
@@ -735,11 +747,11 @@
     color: #3AA8C1;
     font-size: .5rem;
     font-weight: bold;
-    margin-top: 2.5rem;
+    margin-top: 3.5rem;
   }
   #progressBarConatiner {
     background: #3AA8C1;
-    background-image: -webkit-linear-gradient(top, #ecf1f1, #f6fafa);
+    background: #e8f5f8;
     -webkit-box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
             box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
     width: 90vw;
@@ -752,14 +764,16 @@
         -ms-flex-direction: row;
             flex-direction: row;
     margin-top: .5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
     border-radius: 1rem 1rem 1rem 1rem;
     overflow: hidden;
   }
   #progressBar {
+    position: relative;
+    top: 1px;
     border-radius: 0rem 1rem 1rem 0rem;
     background: slategrey;
-    background-image: -webkit-linear-gradient(top, #86cbdb, #3AA8C1);
+    background-image: -webkit-linear-gradient(top, #db9686, #c1533a);
     height: 2rem;
     width: 0rem;
   }
@@ -785,10 +799,18 @@
   #newWord {
     display: none;
   }
-  #speachSelect {
+  #speechSelectContainer {
+    margin-top: .5rem;
     position: absolute;
     right: 5vw;
     width: 90vw;
+  }
+  #speechSelect {
+    height: 1rem;
+    width: 100%;
+  }
+  #speechSelectLabel {
+    color: #3AA8C1;
   }
   #htmlDef {
     text-align: center;
@@ -1057,7 +1079,7 @@
     display: -ms-flexbox;
     display: flex;
     margin-top: 13rem;
-    opacity: .5;
+    opacity: .7;
   }
   #preGameScreen #pointsNTW {
     font-weight: bold;
@@ -1180,6 +1202,14 @@
   background: white;
   color: #c1533a;
   cursor: pointer;
+}
+
+#studyPage #studyPageInner #addAndRemoveForm #correctSpellingInput {
+  height: 1.5rem;
+}
+
+#studyPage #studyPageInner #addAndRemoveForm #spellingErrorInput {
+  height: 1.5rem;
 }
 
 #studyPage #studyPageInner #spellingListContainer {

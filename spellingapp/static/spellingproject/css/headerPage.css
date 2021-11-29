@@ -12,7 +12,18 @@
 
 #header a {
   margin-left: 2.5rem;
-  color: white;
+  color: #3AA8C1;
   text-decoration: none;
+  font-weight: bold;
+}
+
+#header a:hover {
+  color: #c1533a;
+}
+
+@media screen and (max-width: 800px) {
+  #header a {
+    margin-left: 1rem;
+  }
 }
 /*# sourceMappingURL=headerPage.css.map */
