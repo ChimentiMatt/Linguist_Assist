@@ -81,6 +81,8 @@
 
                         getList: [],
                         missedWords: [],
+
+                        duplicateList: [],
                         lastWords: [],
 
                         // easy: ['anchor','deer','dog','cat','python','code','animal','fast','audio','carriage','tooth','head','mouse','keyboard','sad','mad','sing','laugh'],
@@ -147,9 +149,9 @@
                 },
 
                 easyFunc() {
-                  speechSynthesis.getVoices().forEach(voice => {
-                    console.log(voice.name, voice.lang)
-                  })
+                  // speechSynthesis.getVoices().forEach(voice => {
+                  //   console.log(voice.name, voice.lang)
+                  // })
                   
                   this.easy.push(...this.firstGrade)
                   this.easy.push(...this.secondGrade)
@@ -574,10 +576,20 @@
 
                 randomWord() {
                   if (this.easyTrigger){
+
+
                     document.getElementById('gameNameLabel').innerHTML = `Spelling List: Easy - Points Needed ${this.inputRounds - this.progressCounter}`
                     let messagesLength = this.easy.length
                     let randomItem = this.easy[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+                    
+                    //stops most instances of duplicates
+                    var index = this.easy.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.easy.splice(index, 1)
+                    }
+
                     this.getObject()
                   }
                   else if (this.hardTrigger){
@@ -585,13 +597,23 @@
                     let messagesLength = this.hard.length
                     let randomItem = this.hard[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+
+                    //stops most instances of duplicates
+                    var index = this.hard.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.hard.splice(index, 1)
+                    }
+
                     this.getObject()
+
                   }
                   else if (this.missedTrigger){
                     document.getElementById('gameNameLabel').innerHTML = `Spelling List: Your Words - Points Needed ${this.inputRounds}`
                     let messagesLength = this.missedWords.length
                     let randomItem = this.missedWords[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem.word
+
                     this.getObject()
                   }
                   else if (this.firstGradeTrigger){
@@ -599,6 +621,14 @@
                     let messagesLength = this.firstGrade.length
                     let randomItem = this.firstGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+
+                    //stops most instances of duplicates
+                    var index = this.firstGrade.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.firstGrade.splice(index, 1)
+                    }
+
                     this.getObject()
                   }
                   else if (this.secondGradeTrigger){
@@ -606,6 +636,13 @@
                     let messagesLength = this.secondGrade.length   
                     let randomItem = this.secondGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+
+                    //stops most instances of duplicates
+                    var index = this.secondGrade.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.secondGrade.splice(index, 1)
+                    }
                     this.getObject()
                   }
                   else if (this.thirdGradeTrigger){ 
@@ -613,6 +650,12 @@
                     let messagesLength = this.thirdGrade.length   
                     let randomItem = this.thirdGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+
+                    var index = this.thirdGrade.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.thirdGrade.splice(index, 1)
+                    }
                     this.getObject()    
                   }
                   else if (this.fourthGradeTrigger){ 
@@ -620,6 +663,13 @@
                     let messagesLength = this.fourthGrade.length   
                     let randomItem = this.fourthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+
+                    var index = this.fourthGrade.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.fourthGrade.splice(index, 1)
+                    }
+
                     this.getObject()    
                   }      
                   else if (this.fifthGradeTrigger){ 
@@ -627,6 +677,13 @@
                     let messagesLength = this.fifthGrade.length   
                     let randomItem = this.fifthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+
+                    var index = this.fifthGrade.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.fifthGrade.splice(index, 1)
+                    }
+
                     this.getObject()    
                   }               
                   else if (this.sixthGradeTrigger){ 
@@ -634,6 +691,13 @@
                     let messagesLength = this.sixthGrade.length   
                     let randomItem = this.sixthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+
+                    var index = this.sixthGrade.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.sixthGrade.splice(index, 1)
+                    }
+
                     this.getObject()    
                   }     
                   else if (this.seventhGradeTrigger){ 
@@ -641,6 +705,13 @@
                     let messagesLength = this.seventhGrade.length   
                     let randomItem = this.seventhGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+
+                    var index = this.seventhGrade.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.seventhGrade.splice(index, 1)
+                    }
+
                     this.getObject()    
                   }        
                   else if (this.eighthGradeTrigger){ 
@@ -648,6 +719,13 @@
                     let messagesLength = this.eighthGrade.length   
                     let randomItem = this.eighthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+
+                    var index = this.eighthGrade.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.eighthGrade.splice(index, 1)
+                    }
+
                     this.getObject()    
                   }  
                    else if (this.ninthGradeTrigger){ 
@@ -655,6 +733,13 @@
                     let messagesLength = this.ninthGrade.length   
                     let randomItem = this.ninthGrade[Math.floor(Math.random()*messagesLength)]
                     this.message = randomItem
+
+                    var index = this.ninthGrade.indexOf(this.message)
+                    if( index !== -1){
+      
+                      this.ninthGrade.splice(index, 1)
+                    }
+
                     this.getObject()    
                   }                          
                 },
@@ -678,23 +763,25 @@
                 },
 
                 checkWord() {
+                  // console.log(this.duplicateList)
                   let newWord = document.getElementById('newWord').value
                   let inputValue = document.getElementById('inputValue').value
 
                   this.barPercentage = 100 / this.inputRounds
-
-
-
 
                   // if words are the same and word will NOT be added to database
                   if (newWord.toLowerCase() == inputValue.toLowerCase()){
                     this.progressCounter += 1
                     this.barPercentage *= this.progressCounter
                     this.barPerStr = this.barPercentage.toString()
+                    this.duplicateList.push(newWord)
+
 
                     this.randomWord()
                     document.getElementById('inputValue').value = ''
                     document.getElementById('htmlDef').innerHTML = ''
+
+
 
                     this.progressBarFunc()
                     this.newWordInHTML()
@@ -727,6 +814,8 @@
                     let inputValue = document.getElementById('inputValue').value
                     this.correctWord = newWord
                     this.wrongWord = inputValue
+
+                    this.duplicateList.push(this.correctWord)
 
                     // push to axios
                     document.getElementById('inputValue').value = ''
