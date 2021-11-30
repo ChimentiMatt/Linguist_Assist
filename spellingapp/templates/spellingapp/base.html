@@ -754,11 +754,11 @@
                     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.message}`)
                     .then(res => res.json())
                     .then((res)=> {
-                        // save word
-                        this.api_word = res[0]['word']
+                      // save word
+                      this.api_word = res[0]['word']
 
-                        // save def
-                        this.api_def = res[0]['meanings'][0]['definitions'][0]['definition']
+                      // save def
+                      this.api_def = res[0]['meanings'][0]['definitions'][0]['definition']
                         
                     })
                     .then(this.newWordInHTML())
@@ -853,7 +853,6 @@
                 else{
                   document.getElementById('addedToList').style.display = 'block'
                   document.getElementById('noItemsMessage').style.display = 'none'
-
                 }
               },
 
@@ -899,7 +898,6 @@
             },
             
             mounted() {
-
               // Home Page not loggin in
               if (window.location.pathname  == '/'){
 

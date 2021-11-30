@@ -95,7 +95,6 @@ def study_view(request):
     context = {
         'spelling_list': page_obj,
     }
-    # print(context, 'hi')
     return render(request, 'spellingapp/study_page.html', context )
 
 
